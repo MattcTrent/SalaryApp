@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SalaryApplication.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalaryApp.Models
 {
     [Table(nameof(User), Schema = "SalaryApp")]
-    public class User : BaseEntity
+    public class User
     {
+        [Key]
+        public int Id { get; set; }
+
         public int UserName { get; set; }
 
         public string FirstName { get; set; }

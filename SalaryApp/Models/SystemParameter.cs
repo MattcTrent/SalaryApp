@@ -1,18 +1,45 @@
-﻿using SalaryApp.Models;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using SalaryApp.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SalaryApplication.Models
 {
     [Table(nameof(SystemParameter), Schema = "SalaryApp")]
-    public class SystemParameter : BaseEntity
+    public class SystemParameter
     {
-        public string Name { get; set; } = string.Empty;
+        SystemParameter()
+        {
 
-        public string Group { get; set; } = string.Empty;
+        }
+        [JsonConstructor]
+        SystemParameter(int id, string group, string name, decimal rate, decimal? lowerThreshold, decimal? upperThreshold)
+        {
+            Id = id;
+            Group = group;
+            Name = name;
+            Rate = rate;
+            LowerThreshold = lowerThreshold;
+            UpperThreshold = upperThreshold;
+        }
 
-        public string Value { get; set; } = string.Empty;
+        [Key]
+        public int Id { get; set; }
 
-        public string? SecondValue { get; set; } = string.Empty;
+        [Required]
+        public string Group { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required, Column(TypeName = "decimal(20,4)")]
+        public decimal Rate { get; set; }
+
+        [Column(TypeName = "decimal(20,4)")]
+        public decimal? LowerThreshold { get; set; }
+
+        [Column(TypeName = "decimal(20,4)")]
+        public decimal? UpperThreshold { get; set; }
     }
 }

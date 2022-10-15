@@ -18,10 +18,11 @@ namespace SalaryApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Group = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SecondValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rate = table.Column<decimal>(type: "decimal(20,4)", nullable: false),
+                    LowerThreshold = table.Column<decimal>(type: "decimal(20,4)", nullable: true),
+                    UpperThreshold = table.Column<decimal>(type: "decimal(20,4)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,7 +39,8 @@ namespace SalaryApp.Migrations
                     UserName = table.Column<int>(type: "int", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Salary = table.Column<decimal>(type: "decimal(20,5)", nullable: false)
+                    Salary = table.Column<decimal>(type: "decimal(20,5)", nullable: false),
+                    pension = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
