@@ -1,4 +1,4 @@
-﻿namespace SalaryApplication.Helpers
+﻿namespace SalaryApp.Helpers
 {
     public class ConfigurationHelper
     {
