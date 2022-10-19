@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SalaryApp.Models;
+using Entities.Models;
 
-namespace SalaryApp.Data
+namespace Entities.Data
 {
     public class ApplicationDbContext : DbContext
     {

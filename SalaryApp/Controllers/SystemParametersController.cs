@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SalaryApp.Data;
-using SalaryApp.Models;
+using Entities.Data;
+using Entities.Models;
 
 namespace SalaryApp.Controllers
 {
