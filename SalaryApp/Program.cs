@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
 using Models.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,10 +22,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 
-
 var app = builder.Build();
-
-app.MigrateDatabase();
 
 app.UseCors("AllowOrigin");
 

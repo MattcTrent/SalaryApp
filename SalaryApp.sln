@@ -5,9 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalaryApp", "SalaryApp\SalaryApp.csproj", "{0BF7FB3E-04DE-4F3F-8409-334F4B1A19DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{620F59F9-CD13-46CE-991E-3B5524FFF35D}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{724C31D2-674F-4EE2-BE83-4E442CB8FC8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{620F59F9-CD13-46CE-991E-3B5524FFF35D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{620F59F9-CD13-46CE-991E-3B5524FFF35D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{620F59F9-CD13-46CE-991E-3B5524FFF35D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{620F59F9-CD13-46CE-991E-3B5524FFF35D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{724C31D2-674F-4EE2-BE83-4E442CB8FC8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{724C31D2-674F-4EE2-BE83-4E442CB8FC8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{724C31D2-674F-4EE2-BE83-4E442CB8FC8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{724C31D2-674F-4EE2-BE83-4E442CB8FC8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
