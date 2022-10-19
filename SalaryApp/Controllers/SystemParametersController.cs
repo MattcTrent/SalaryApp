@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SalaryApp.Data;
-using SalaryApplication.Models;
+using SalaryApp.Models;
 
-namespace SalaryAppNet.Controllers
+namespace SalaryApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

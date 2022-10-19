@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using SalaryApplication.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalaryApp.Models
