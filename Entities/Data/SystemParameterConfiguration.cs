@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SalaryApp.Models;
+using Entities.Models;
 using System.Reflection.Emit;
 
-namespace SalaryApp.Data
+namespace Entities.Data
 {
     public class SystemParameterConfiguration : IEntityTypeConfiguration<SystemParameter>
     {

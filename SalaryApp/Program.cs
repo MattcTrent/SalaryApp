@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using SalaryApp.Data;
+using Entities.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

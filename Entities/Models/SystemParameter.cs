@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using SalaryApp.Models;
+using Entities.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace SalaryApp.Models
+namespace Entities.Models
 {
     [Table(nameof(SystemParameter), Schema = "SalaryApp")]
     public class SystemParameter
