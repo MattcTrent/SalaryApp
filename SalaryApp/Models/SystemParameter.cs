@@ -1,19 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using SalaryApp.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Models.Models
+namespace SalaryApplication.Models
 {
     [Table(nameof(SystemParameter), Schema = "SalaryApp")]
     public class SystemParameter
     {
-        public SystemParameter()
+        SystemParameter()
         {
 
         }
         [JsonConstructor]
-        public SystemParameter(int id, string group, string name, decimal rate, decimal? lowerThreshold, decimal? upperThreshold)
+        SystemParameter(int id, string group, string name, decimal rate, decimal? lowerThreshold, decimal? upperThreshold)
         {
             Id = id;
             Group = group;

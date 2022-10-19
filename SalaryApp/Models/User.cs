@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using SalaryApplication.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Models.Models
+namespace SalaryApp.Models
 {
     [Table(nameof(User), Schema = "SalaryApp")]
     public class User

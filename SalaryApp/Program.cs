@@ -1,13 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using Models.Data;
+using SalaryApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString, opts => opts.MigrationsAssembly("SalaryApp")));
-
+    options.UseSqlServer(connectionString));
 
 //Enable Cors
 builder.Services.AddCors(c =>

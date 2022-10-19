@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Models.Data;
+using SalaryApp.Data;
 
 #nullable disable
 
@@ -22,98 +22,7 @@ namespace SalaryApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Models.Models.SystemParameter", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Group")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("LowerThreshold")
-                        .HasColumnType("decimal(20,4)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Rate")
-                        .HasColumnType("decimal(20,4)");
-
-                    b.Property<decimal?>("UpperThreshold")
-                        .HasColumnType("decimal(20,4)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SystemParameter", "SalaryApp");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Group = "Tax",
-                            LowerThreshold = 12570.00m,
-                            Name = "Basic",
-                            Rate = 20.00m,
-                            UpperThreshold = 50570.00m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Group = "Tax",
-                            LowerThreshold = 50570.00m,
-                            Name = "Higher",
-                            Rate = 40.00m,
-                            UpperThreshold = 150000.00m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Group = "Tax",
-                            LowerThreshold = 150000.00m,
-                            Name = "Additional",
-                            Rate = 45.00m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Group = "NI",
-                            LowerThreshold = 12576.00m,
-                            Name = "Basic",
-                            Rate = 13.25m,
-                            UpperThreshold = 50268.00m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Group = "NI",
-                            LowerThreshold = 50268.00m,
-                            Name = "Additional",
-                            Rate = 3.25m
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Group = "Student Finance",
-                            LowerThreshold = 19895.00m,
-                            Name = "Plan 1",
-                            Rate = 9.00m
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Group = "Student Finance",
-                            LowerThreshold = 27275.00m,
-                            Name = "Plan 2",
-                            Rate = 9.00m
-                        });
-                });
-
-            modelBuilder.Entity("Models.Models.User", b =>
+            modelBuilder.Entity("SalaryApp.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -141,6 +50,36 @@ namespace SalaryApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User", "SalaryApp");
+                });
+
+            modelBuilder.Entity("SalaryApplication.Models.SystemParameter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Group")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("LowerThreshold")
+                        .HasColumnType("decimal(20,4)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(20,4)");
+
+                    b.Property<decimal?>("UpperThreshold")
+                        .HasColumnType("decimal(20,4)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SystemParameter", "SalaryApp");
                 });
 #pragma warning restore 612, 618
         }
