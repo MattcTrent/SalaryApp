@@ -20,7 +20,7 @@ namespace SalaryApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SystemParameter>>> GetSystemParameters()
         {
-            return await _context.SystemParameters.ToListAsync();
+            return await _context.SystemParameters.OrderBy(x => x.Group).ThenBy(x => x.Name).ToListAsync();
         }
 
         // GET: api/SystemParameters/5
