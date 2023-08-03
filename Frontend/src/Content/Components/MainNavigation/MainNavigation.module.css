@@ -1,0 +1,92 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  list-style: none;
+  background-color: white;
+  align-items: center;
+  height: 4rem;
+  z-index: 100; /* Use a z-index value to ensure it stays on top of other elements */
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.navListRight {
+  position: fixed;
+  right: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.navButton:last-child {
+  margin-left: auto;
+}
+
+.logoutButton {
+  position: relative;
+  border: none;
+  background-color: rgba(255, 0, 0, 0.25);
+  color: rgb(100, 100, 100, 0.75);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.4rem 1rem;
+  transition: color 0.3s ease;
+  border-radius: 2rem;
+}
+
+.logoutButton:hover {
+  color: rgb(0, 0, 0, 0.75);
+  background-image: linear-gradient(
+    180deg,
+    rgb(255, 0, 0, 0.5),
+    rgb(255, 0, 0, 0.5)
+  );
+  border-radius: 2rem;
+}
+
+.accountButton {
+  position: relative;
+  border: none;
+  background-color: rgba(100, 100, 100, 0.25);
+  color: rgb(100, 100, 100, 0.75);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+  border-radius: 2rem;
+  text-decoration: none;
+}
+
+.accountButton:hover {
+  color: rgb(0, 0, 0, 0.75);
+  background-image: linear-gradient(
+    180deg,
+    rgb(50, 50, 50, 0.5),
+    rgb(50, 50, 50, 0.5)
+  );
+  border-radius: 2rem;
+}
+
+.navItem {
+  margin: 0 0.5rem;
+  position: relative;
+  top: 0.35rem;
+  list-style: none;
+}

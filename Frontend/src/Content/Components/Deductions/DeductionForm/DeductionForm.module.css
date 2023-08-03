@@ -1,0 +1,63 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  text-align: center;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.formTitle {
+  width: 75%;
+  word-wrap: normal;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 30rem;
+  padding: 2rem;
+  text-align: left;
+}
+
+.actionBar {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.navButton {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.submitButton {
+  background-color: rgb(0, 150, 0, 25%);
+}
+
+.submitButton:hover {
+  background-color: rgb(0, 150, 0, 45%);
+}
+
+.submitButton:active {
+  background-color: rgb(0, 150, 0, 65%);
+}
+
+.deleteButton {
+  background-color: rgba(255, 0, 0, 25%);
+}
+
+.deleteButton:hover {
+  background-color: rgba(255, 0, 0, 45%);
+}
+
+.deleteButton:active {
+  background-color: rgba(255, 0, 0, 65%);
+}

@@ -1,0 +1,62 @@
+.tableContainer {
+  margin: 5px auto;
+  width: fit-content;
+  border-radius: 0.75rem;
+}
+
+.bannerButton {
+  color: rgb(255, 255, 255);
+}
+
+.bannerButtons {
+  background-color: #36454f;
+  display: flex;
+  flex-direction: row;
+}
+
+.bannerButtons {
+  background-color: #36454f;
+  display: flex;
+  flex-direction: row;
+}
+
+.bannerButtons div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.bannerDivRight {
+  justify-content: flex-end;
+}
+
+.table {
+  min-width: 66rem;
+  width: fit-content;
+}
+
+.tableHeader th {
+  color: white;
+  font-weight: bold;
+  background-color: #25383c;
+  padding: 1rem 0rem 1rem 0rem;
+}
+
+.tableRow {
+  padding: 0;
+  margin: 0;
+}
+
+.tableBody :nth-child(even) td {
+  background-color: rgb(230, 230, 230);
+}
+
+.tableRow td {
+  height: auto;
+  width: auto;
+  padding: 0rem;
+  text-align: left;
+}
+
+.tableRow:first-child td {
+}

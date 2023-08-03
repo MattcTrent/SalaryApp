@@ -1,0 +1,55 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.control label,
+.control select {
+  display: block;
+}
+
+.control label {
+  flex: 1;
+  color: #6d6d6d;
+}
+
+.control select {
+  flex: 3;
+  font: inherit;
+  padding: 1rem 1rem;
+  border-radius: 6px;
+  border: 0.1rem solid #ccc;
+  background-color: white;
+}
+
+.control select:hover {
+  border: 0.1rem solid #646464;
+}
+
+.control select:focus {
+  border: 0.15rem solid #5a78ff;
+  outline: none;
+}
+
+/*Disabled Styles*/
+.control select:disabled {
+  background-color: #cfcfcf;
+  cursor: default;
+}
+
+.control select:disabled:focus {
+  background-color: #cfcfcf;
+  cursor: default;
+  border: 0.1rem solid #ccc;
+}
+
+.control select:disabled:hover {
+  border-radius: 6px;
+  border: 0.1rem solid #ccc;
+}
+
+.control.invalid select {
+  border-color: red;
+  background: #fbdada;
+}

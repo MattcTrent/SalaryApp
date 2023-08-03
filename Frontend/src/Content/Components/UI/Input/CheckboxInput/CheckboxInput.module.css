@@ -1,0 +1,75 @@
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 100%;
+}
+
+.control label,
+.control input {
+  display: block;
+}
+
+.control label {
+  color: #000000;
+  align-items: center;
+  justify-content: center;
+}
+
+.control input {
+  width: 1.5rem;
+  height: 1.5rem;
+  font: inherit;
+  padding: 1rem 1rem;
+  border-radius: 6px;
+  border: 0.1rem solid #ccc;
+}
+
+.control input:hover {
+  border: 0.1rem solid #646464;
+}
+
+.control input:focus {
+  border: 0.15rem solid #5a78ff;
+  outline: none;
+}
+
+/*Read Only Styles*/
+.control input:read-only {
+  background-color: #cfcfcf;
+  cursor: default;
+}
+
+.control input:read-only:focus {
+  background-color: #cfcfcf;
+  cursor: default;
+  border: 0.1rem solid #ccc;
+}
+
+.control input:read-only:hover {
+  border-radius: 6px;
+  border: 0.1rem solid #ccc;
+}
+
+/*Disabled Styles*/
+.control input:disabled {
+  background-color: #a3a3a3;
+  cursor: default;
+}
+
+.control input:disabled:focus {
+  background-color: #a3a3a3;
+  cursor: default;
+  border: 0.1rem solid #ccc;
+}
+
+.control input:disabled:hover {
+  border-radius: 6px;
+  border: 0.1rem solid #ccc;
+}
+
+.control.invalid input {
+  border-color: red;
+  background: #fbdada;
+}

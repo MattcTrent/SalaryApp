@@ -1,0 +1,27 @@
+.modalContainer {
+  width: 30rem;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border-radius: 10px;
+  border: 0.1rem solid black;
+  display: grid;
+  background-color: white;
+  padding: 1rem 3rem;
+}
+
+.deleteContainer {
+  text-align: center;
+}
+
+.formInputContainer {
+  text-align: left;
+}
+
+.horiDiv {
+  display: flex;
+  justify-content: center;
+}

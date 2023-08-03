@@ -1,0 +1,16 @@
+.navBar {
+  border-radius: 0.75rem;
+  width: max-content;
+  background-color: white;
+}
+
+.navList {
+  width: max-content;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0rem 0.5rem;
+  margin: 0rem;
+}

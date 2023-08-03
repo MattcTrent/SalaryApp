@@ -1,0 +1,27 @@
+#goals {
+  min-width: 40%;
+  width: auto;
+  max-width: 90rem;
+  margin: 3rem auto;
+}
+
+#goal-form {
+  min-width: 30%;
+  width: auto;
+  max-width: 90rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #4b4b4b;
+  color: white;
+}
+
+.goal-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 90rem;
+}

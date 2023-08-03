@@ -1,0 +1,11 @@
+.row td {
+  font-size: 0.75vw;
+  width: fit-content;
+  border-left: 1px solid silver;
+}
+
+.titleCell {
+  font-weight: Bold;
+  font-size: 0.75vw;
+  width: fit-content;
+}

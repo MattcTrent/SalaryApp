@@ -1,0 +1,21 @@
+.result {
+  max-width: 50rem;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  table-layout: fixed;
+  border-spacing: 1rem;
+  text-align: right;
+  background: linear-gradient(180deg, #307e6c, #2b996d);
+  border-radius: 0.5rem;
+}
+
+.result thead {
+  font-size: 0.7rem;
+  color: #83e6c0;
+}
+
+.result tbody {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 0.6rem;
+  color: #c2e9e0;
+}

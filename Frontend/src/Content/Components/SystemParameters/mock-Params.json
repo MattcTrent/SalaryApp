@@ -1,0 +1,66 @@
+[
+  {
+    "id": 4,
+    "parameterGroup": "Tax",
+    "name": "Additional",
+    "rate": 45,
+    "lowerThreshold": 150000,
+    "upperThreshold": null
+  },
+  {
+    "id": 2,
+    "parameterGroup": "Tax",
+    "name": "Basic",
+    "rate": 20,
+    "lowerThreshold": 12570,
+    "upperThreshold": 50570
+  },
+  {
+    "id": 3,
+    "parameterGroup": "Tax",
+    "name": "Higher",
+    "rate": 40,
+    "lowerThreshold": 50570,
+    "upperThreshold": 150000
+  },
+  {
+    "id": 1,
+    "parameterGroup": "Tax",
+    "name": "Personal Allowance",
+    "rate": 0,
+    "lowerThreshold": null,
+    "upperThreshold": 12570
+  },
+  {
+    "id": 6,
+    "parameterGroup": "NI",
+    "name": "Additional",
+    "rate": 3.25,
+    "lowerThreshold": 50268,
+    "upperThreshold": null
+  },
+  {
+    "id": 5,
+    "parameterGroup": "NI",
+    "name": "Basic",
+    "rate": 13.25,
+    "lowerThreshold": 12576,
+    "upperThreshold": 50268
+  },
+  {
+    "id": 7,
+    "parameterGroup": "StudentFinance",
+    "name": "Plan1",
+    "rate": 9,
+    "lowerThreshold": 19895,
+    "upperThreshold": null
+  },
+  {
+    "id": 8,
+    "parameterGroup": "StudentFinance",
+    "name": "Plan2",
+    "rate": 9,
+    "lowerThreshold": 27275,
+    "upperThreshold": null
+  }
+]

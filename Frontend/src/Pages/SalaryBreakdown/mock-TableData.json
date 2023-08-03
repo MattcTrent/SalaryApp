@@ -1,0 +1,31 @@
+[
+  {
+    "Id": 1,
+    "name": "Matt",
+    "salary": 40000,
+    "salaryPSF": 38400,
+    "pension": 1600,
+    "taxFree": 12570,
+    "tax": 5187.72,
+    "ni": 3421.68,
+    "studentLoan": 1001,
+    "salarySS": 1600,
+    "takeHome": 28490.08,
+    "postOutgoings": 4337.07
+  },
+
+  {
+    "Id": 2,
+    "name": "Alison",
+    "salary": 36000,
+    "salaryPSF": 38400,
+    "pension": 1600,
+    "taxFree": 12570,
+    "tax": 5187.72,
+    "ni": 3421.68,
+    "studentLoan": 1001,
+    "salarySS": 1600,
+    "takeHome": 28490.08,
+    "postOutgoings": 4337.07
+  }
+]

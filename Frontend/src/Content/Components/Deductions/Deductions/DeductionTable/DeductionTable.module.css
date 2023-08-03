@@ -1,0 +1,88 @@
+.tableCont {
+  width: 95%;
+  margin: 0.5rem;
+  position: relative;
+}
+
+.tableName {
+  border-radius: 0.35rem 0.35rem 0rem 0rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #36454f;
+  border-collapse: collapse;
+}
+
+.tableTitle {
+  color: white;
+  align-items: center;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  margin: 1rem auto 1rem auto;
+}
+
+.table {
+  border-radius: 0rem 0rem 0.35rem 0.35rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
+
+.head {
+  background-color: #25383c;
+  color: white;
+  border: 0.01rem #25383c solid;
+}
+
+.head tr :first-child {
+  width: 10%;
+  border-left: 0;
+}
+
+.head tr :nth-child(2) {
+  width: 60%;
+}
+.head tr :nth-child(3) {
+  width: 20%;
+}
+
+.table tr :nth-child(2) {
+  text-align: left;
+}
+
+.table tr :nth-child(3) {
+  text-align: right;
+}
+
+.foot {
+  border-left: 0.01rem #25383ce7 solid;
+  border-right: 0.01rem #25383ce7 solid;
+  background-color: #25383ce7;
+  color: white;
+}
+
+.foot tr td {
+  background-color: #25383ce7;
+}
+.foot tr :first-child {
+  border-left: 0;
+}
+
+.tableCont table thead tr:first-child {
+  border-left: 0;
+}
+
+.newButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.75rem;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  color: white;
+  width: 4rem;
+  height: 2.25rem;
+}
+

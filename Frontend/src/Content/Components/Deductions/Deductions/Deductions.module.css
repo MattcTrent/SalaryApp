@@ -1,0 +1,15 @@
+.deductions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px; /* Adjust this value to control the spacing between the columns */
+}
+
+.bills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px; /* Adjust this value to control the spacing between the columns */
+}
+
+.navButton {
+  color: white;
+}

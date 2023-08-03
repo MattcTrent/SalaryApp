@@ -1,0 +1,28 @@
+.button {
+  font-size: 1rem;
+  color: black;
+  min-width: fit-content;
+  min-height: fit-content;
+  background-color: rgb(95, 158, 160, 20%);
+  border-radius: 0.5rem;
+  border: none;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0.75rem;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: rgb(1, 123, 172, 45%);
+}
+
+.button:active {
+  background-color: rgb(1, 123, 172, 65%);
+}
+
+.button:disabled {
+  background-color: rgba(131, 131, 131, 0.35);
+}

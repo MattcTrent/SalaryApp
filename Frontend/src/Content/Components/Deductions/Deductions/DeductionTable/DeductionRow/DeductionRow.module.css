@@ -1,0 +1,11 @@
+.row {
+}
+
+.cell {
+  border: 0.01rem rgb(175, 175, 175) solid;
+  min-height: fit-content;
+}
+
+.button {
+  margin: 0.25rem;
+}

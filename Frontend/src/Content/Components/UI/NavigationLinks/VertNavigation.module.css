@@ -1,0 +1,58 @@
+.navItem {
+  width: 100%;
+  list-style-type: none;
+}
+
+.navItem a {
+  text-decoration: none;
+}
+
+.navLink {
+  position: relative;
+  border: none;
+  background: transparent;
+  color: #555;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.25rem;
+  margin: 0.25rem 0rem;
+  transition: color 0.3s ease;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.active {
+  color: #000000;
+}
+
+.navLink:hover {
+  color: white;
+  background-color: #999;
+  background-image: linear-gradient(180deg, #999, #888);
+  border-radius: 0.25rem;
+}
+
+.active:hover {
+  color: #000000;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #36454f;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+}
+
+.active::after {
+  transform: scaleX(1);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "expenseType": "SalarySacrifice",
+    "date": "2023-02-19T00:00:00.000Z",
+    "title": "Pension",
+    "value": 200.0
+  },
+
+  {
+    "id": 2,
+    "expenseType": "TaxBenefit",
+    "date": "2023-04-23T00:00:00.000Z",
+    "title": "DentalCover",
+    "value": 6.5
+  },
+
+  {
+    "id": 3,
+    "date": "2022-06-12T00:00:00.000Z",
+    "title": "Travel Insurance",
+    "value": 8.8
+  },
+
+  {
+    "id": 4,
+    "date": "2022-09-03T00:00:00.000Z",
+    "title": "Company Parking",
+    "value": 25.0
+  }
+]

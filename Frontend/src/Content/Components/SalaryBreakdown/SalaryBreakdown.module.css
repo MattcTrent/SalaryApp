@@ -1,0 +1,45 @@
+.container {
+  margin: 5px auto;
+  margin-bottom: 50px;
+  width: fit-content;
+  max-width: 75%;
+}
+
+.nameTable {
+  width: fit-content;
+}
+
+.table {
+  min-width: 30vw;
+  max-width: 75vw;
+  text-align: center;
+}
+
+.headerRow {
+  color: White;
+  background-color: #25383c;
+}
+
+.headerRow th {
+  color: White;
+  font-weight: Bold;
+  font-size: 0.75vw;
+  width: fit-content;
+}
+
+.nameRow {
+  color: White;
+  background-color: #36454f;
+}
+
+.titleCell {
+  font-weight: Bold;
+  font-size: 0.75vw;
+  width: fit-content;
+}
+
+.cell {
+  font-size: 0.75vw;
+  width: fit-content;
+  border-left: 1px solid silver;
+}

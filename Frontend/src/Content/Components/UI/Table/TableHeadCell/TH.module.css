@@ -1,0 +1,5 @@
+.cell {
+  border-left: 0.01rem rgb(175, 175, 175) solid;
+  height: 2.5rem;
+  padding: 0 1rem;
+}
