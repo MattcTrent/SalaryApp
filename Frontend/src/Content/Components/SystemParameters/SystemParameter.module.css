@@ -14,13 +14,7 @@
   flex-direction: row;
 }
 
-.bannerButtons {
-  background-color: #36454f;
-  display: flex;
-  flex-direction: row;
-}
-
-.bannerButtons div {
+.bannerButtons td {
   display: flex;
   flex-direction: row;
   width: 100%;

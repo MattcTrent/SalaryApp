@@ -4,47 +4,34 @@ import { getConfiguredAxios } from "../AxiosConfig";
 export class SystemParameterService {
   static async getSystemParameters() {
     const axios = getConfiguredAxios();
-    return await axios.get<ISystemParameter[]>(
-      process.env.REACT_APP_REST_API_URL + "/systemparameters",
-    );
+    return await axios.get<ISystemParameter[]>("systemparameters");
   }
 
   static async getSystemParameter(systemParameterId: number) {
     const axios = getConfiguredAxios();
     return await axios.get<ISystemParameter>(
-      process.env.REACT_APP_REST_API_URL +
-        "/systemparameters/" +
-        systemParameterId,
+      "/systemparameters/" + systemParameterId
     );
   }
 
   static async createSystemParameter(systemParameter: ISystemParameter) {
     const axios = getConfiguredAxios();
-    return await axios.post(
-      process.env.REACT_APP_REST_API_URL + "/systemparameters",
-      systemParameter,
-    );
+    return await axios.post("/systemparameters", systemParameter);
   }
 
   static async updateSystemParameter(
     systemParameterId: number,
-    systemParameter: ISystemParameter,
+    systemParameter: ISystemParameter
   ) {
     const axios = getConfiguredAxios();
     return await axios.put(
-      process.env.REACT_APP_REST_API_URL +
-        "/systemparameters/" +
-        systemParameterId,
-      systemParameter,
+      "/systemparameters/" + systemParameterId,
+      systemParameter
     );
   }
 
   static async deleteSystemParameter(systemParameterId: number) {
     const axios = getConfiguredAxios();
-    return await axios.delete(
-      process.env.REACT_APP_REST_API_URL +
-        "/systemparameters/" +
-        systemParameterId,
-    );
+    return await axios.delete("/systemparameters/" + systemParameterId);
   }
 }

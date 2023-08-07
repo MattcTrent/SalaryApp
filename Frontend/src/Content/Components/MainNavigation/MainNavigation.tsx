@@ -3,6 +3,7 @@ import styles from "./MainNavigation.module.css";
 import { Form, useRouteLoaderData } from "react-router-dom";
 import Navigation from "../UI/NavigationLinks/Navigation";
 import HomeIcon from '@mui/icons-material/Home';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 interface MainNavigationProps {}
 
@@ -39,7 +40,7 @@ function MainNavigation(props: MainNavigationProps) {
                 className={styles.accountButton}
                 path="/Admin/Account"
               >
-                Account
+                <ManageAccountsIcon/>
               </Navigation>
               <li className={styles.navItem}>
                 <Form action="/logout" method="post">

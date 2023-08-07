@@ -93,8 +93,8 @@ export const SystemParameterTable = () => {
         <TableContainer className={styles.tableContainer} component={Paper}>
           <Table aria-label="simple table">
             <TableHead>
-                <div className={styles.bannerButtons}>
-                  <div>
+                <tr className={styles.bannerButtons}>
+                  <td>
                     <Button
                       classNameAddition={styles.bannerButton}
                       type="button"
@@ -109,8 +109,8 @@ export const SystemParameterTable = () => {
                     >
                       <BiExport size={25} /> Export
                     </Button>
-                  </div>
-                  <div className={styles.bannerDivRight}>
+                  </td>
+                  <td className={styles.bannerDivRight}>
                     <Button
                       classNameAddition={styles.bannerButton}
                       type="button"
@@ -118,8 +118,8 @@ export const SystemParameterTable = () => {
                     >
                       <HiRefresh size={25} /> Refresh
                     </Button>
-                  </div>
-                </div>
+                  </td>
+                </tr>
             </TableHead>
           </Table>
           <Table className={styles.table} aria-label="simple table">
