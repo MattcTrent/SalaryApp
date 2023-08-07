@@ -46,7 +46,7 @@ function PasswordInput(props: IPasswordInputProps) {
           defaultValue={props.defaultValue}
         />
         {!((props.readOnly ?? false) || (props.disabled ?? false)) && (
-          <button type="button" onClick={handleClickShowPassword}>
+          <button className={styleClasses.visibilityButton} type="button" onClick={handleClickShowPassword}>
             {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
           </button>
         )}

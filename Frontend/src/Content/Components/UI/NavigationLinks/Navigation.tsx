@@ -23,7 +23,7 @@ function Navigation(props: INavLinkProps) {
     props.className
       ? props.className
       : props.isButton
-      ? buttonStyles.button
+      ? (props.disabled ? `${buttonStyles.button} ${buttonStyles.buttonDisabled}` : buttonStyles.button)
       : styles.navLink
   } ${props.classNameAddition}`;
   const activeClassName = `${
@@ -44,7 +44,7 @@ function Navigation(props: INavLinkProps) {
       {props.isButton ? (
         <>
           {props.disabled ? (
-            <div>{props.children}</div>
+            <div className={className}>{props.children}</div>
           ) : (
             <NavLink
               className={({ isActive }) =>
@@ -61,7 +61,7 @@ function Navigation(props: INavLinkProps) {
       ) : (
         <li className={liClassName}>
           {props.disabled ? (
-            <div>{props.children}</div>
+            <div className={className}>{props.children}</div>
           ) : (
             <NavLink
               className={({ isActive }) =>

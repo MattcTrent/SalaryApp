@@ -17,6 +17,7 @@
 
 .button:hover {
   background-color: rgb(1, 123, 172, 45%);
+  cursor: pointer;
 }
 
 .button:active {
@@ -25,4 +26,15 @@
 
 .button:disabled {
   background-color: rgba(131, 131, 131, 0.35);
+}
+
+
+.buttonDisabled {
+  background-color: rgba(131, 131, 131, 0.35);
+  cursor: none;
+}
+
+.buttonDisabled:hover {
+  background-color: rgba(131, 131, 131, 0.35);
+  cursor: not-allowed;
 }

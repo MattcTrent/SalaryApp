@@ -25,6 +25,7 @@
   padding: 1rem 1rem;
   border-radius: 6px;
   border: 0.1rem solid #ccc;
+  cursor: pointer;
 }
 
 .control input:hover {
