@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./MainNavigation.module.css";
 import { Form, useRouteLoaderData } from "react-router-dom";
 import Navigation from "../UI/NavigationLinks/Navigation";
+import HomeIcon from '@mui/icons-material/Home';
 
 interface MainNavigationProps {}
 
@@ -12,7 +13,7 @@ function MainNavigation(props: MainNavigationProps) {
     <header>
       <nav className={styles.navBar}>
         <ul className={styles.navList}>
-          <Navigation path="/">Home</Navigation>
+          <Navigation path="/"><HomeIcon/></Navigation>
           {token && (
             <>
               <Navigation path="/SalaryBreakdown">Salary Breakdown</Navigation>
