@@ -116,13 +116,24 @@ public class SalaryBreakdownService implements ISalaryBreakdownService {
 
         breakdown.setTakehome(takehome.subtract(payrollDeductions));
 
-        // TODO Add section to deduct costs (IE Rent, bills etc)
-        breakdown.setTakehomeAfterBills(breakdown.getTakehome().subtract(BigDecimal.ZERO));
+        breakdown.setBills(this.GetBillsDeductionValue());
+
+        breakdown.setTakehomeAfterBills(breakdown.getTakehome().subtract(breakdown.getBills()));
     }
 
     private BigDecimal GetPayrollDeductionValue() {
         List<Deduction> deductions = this.deductionRepo
                 .findByType(DeductionTypeEnum.TaxBenefit);
+        BigDecimal deductionsTotal = deductions.stream()
+                .map(Deduction::getCost)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        return deductionsTotal;
+    }
+
+    private BigDecimal GetBillsDeductionValue() {
+        List<Deduction> deductions = this.deductionRepo
+                .findByType(DeductionTypeEnum.Bill);
         BigDecimal deductionsTotal = deductions.stream()
                 .map(Deduction::getCost)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

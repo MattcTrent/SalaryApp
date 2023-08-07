@@ -15,6 +15,7 @@ public class SalaryBreakdown {
     private BigDecimal nI;
     private BigDecimal studentFinance;
     private BigDecimal takehome;
+    private BigDecimal bills;
     private BigDecimal takehomeAfterBills;
     private User user;
 
@@ -108,5 +109,13 @@ public class SalaryBreakdown {
 
     public void setMonthlySalary(BigDecimal monthlySalary) {
         this.monthlySalary = monthlySalary;
+    }
+
+    public BigDecimal getBills() {
+        return bills;
+    }
+
+    public void setBills(BigDecimal bills) {
+        this.bills = bills;
     }
 }

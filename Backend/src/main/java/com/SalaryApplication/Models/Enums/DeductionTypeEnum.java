@@ -4,5 +4,6 @@ public enum DeductionTypeEnum {
     SalarySacrifice,
     TaxBenefit,
     NIBenefit,
-    PayrollDeduction,    
+    PayrollDeduction,
+    Bill,
 }

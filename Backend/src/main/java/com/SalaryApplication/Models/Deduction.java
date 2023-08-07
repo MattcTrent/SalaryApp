@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.SalaryApplication.Models.Enums.BillType;
 import com.SalaryApplication.Models.Enums.DeductionTypeEnum;
 
 import jakarta.persistence.Entity;
@@ -26,6 +27,7 @@ public class Deduction {
     private User user;
     private Integer createdById;
     private DeductionTypeEnum type;
+    private BillType billType;
     private String name;
     private BigDecimal cost;
 
@@ -59,7 +61,19 @@ public class Deduction {
 
     public void setType(DeductionTypeEnum type) {
         this.type = type;
+        if (type != DeductionTypeEnum.Bill) {
+            this.billType = null; // Set to null for non-bill DeductionTypes
+        }
     }
+
+    public BillType getBillType() {
+        return billType;
+    }
+    
+    public void setBillType(BillType billType) {
+        this.billType = billType;
+    }
+    
 
     public String getName() {
         return name;
