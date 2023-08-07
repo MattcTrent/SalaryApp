@@ -7,6 +7,7 @@
 .control label,
 .control select {
   display: block;
+  margin: inherit;
 }
 
 .control label {

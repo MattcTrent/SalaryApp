@@ -20,6 +20,7 @@
 .control label,
 .control input {
   display: block;
+  margin: inherit;
 }
 
 .control label {

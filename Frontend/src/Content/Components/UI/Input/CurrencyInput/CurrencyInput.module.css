@@ -6,29 +6,27 @@
 }
 
 .controlInput {
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
-.controlInput span {
-  position: absolute;
-  width: fit-content;
-  height: fit-content;
-}
-
 .adornment {
   font-size: 1.5rem;
+  width: fit-content;
+  height: fit-content;
   position: absolute;
-  left: 0%;
+  left: 0;
   top: 50%;
-  margin: auto;
-  transform: translateY(-20%) translateX(25%);
+  margin: inherit;
+  transform: translateY(-60%) translateX(60%);
 }
 
 .control label,
 .control input {
   display: block;
+  margin: inherit;
 }
 
 .control label {
@@ -39,7 +37,7 @@
 .control input {
   flex: 3;
   font: inherit;
-  padding: 1rem 1rem;
+  padding: 1rem 1.5rem;
   border-radius: 6px;
   border: 0.1rem solid #ccc;
 }

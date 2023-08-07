@@ -6,29 +6,27 @@
 }
 
 .controlInput {
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
-.controlInput span {
+.adornment {
   position: absolute;
   width: fit-content;
   height: fit-content;
-}
-
-.adornment {
   font-size: 1.5rem;
   right: 10%;
   top: 50%;
   margin: auto;
-  position: absolute;
-  transform: translateY(-20%);
+  transform: translateY(-50%);
 }
 
 .control label,
 .control input {
   display: block;
+  margin: inherit;
 }
 
 .control label {

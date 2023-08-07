@@ -24,6 +24,14 @@
   width: 100%;
 }
 
+.input div {
+  margin: .15rem  0rem ;
+}
+
+.inputRow div {
+  margin: 0rem 0.15rem   ;
+}
+
 .inputRow {
   display: flex;
   flex-direction: row;
