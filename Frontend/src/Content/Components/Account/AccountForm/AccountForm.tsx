@@ -78,6 +78,8 @@ export default function AccountForm(props: IAccountFormProps) {
     if (props.user) {
       dispatch(registerActions.setPassword(""));
       dispatch(registerActions.setExistingUser(props.user));
+    } else {
+      dispatch(registerActions.reset());
     }
   }, [props.user, dispatch]);
 
