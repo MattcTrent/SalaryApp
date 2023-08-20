@@ -36,9 +36,9 @@ public class SystemParameterSeeder {
 					BigDecimal.valueOf(45.0), BigDecimal.valueOf(125140.0), null));
 
 			systemParams.add(new SystemParameter(SystemParameterGroupEnum.NI, NIBracketEnum.Basic.toString(),
-					BigDecimal.valueOf(13.25), BigDecimal.valueOf(12576.0), BigDecimal.valueOf(50265.0)));
+					BigDecimal.valueOf(12.0), BigDecimal.valueOf(12576.0), BigDecimal.valueOf(50265.0)));
 			systemParams.add(new SystemParameter(SystemParameterGroupEnum.NI, NIBracketEnum.Additional.toString(),
-					BigDecimal.valueOf(3.25), BigDecimal.valueOf(50268.0), null));
+					BigDecimal.valueOf(2), BigDecimal.valueOf(50268.0), null));
 
 			systemParams.add(new SystemParameter(SystemParameterGroupEnum.StudentFinance,
 					StudentFinancePlanEnum.Plan1.toString(), BigDecimal.valueOf(9.0), BigDecimal.valueOf(22015.0),
