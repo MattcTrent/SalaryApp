@@ -5,7 +5,7 @@ import { NameValueObj } from "../../../../Models/UtilModels";
 interface ISelectInputProps {
   id: string;
   name: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   value?: string | undefined;
   defaultValue?: string | undefined;
   values: NameValueObj[];
@@ -36,8 +36,7 @@ function SelectInput(props: ISelectInputProps) {
         required={props.required}
         defaultValue={props.defaultValue}
       >
-      <option key={'EmptyOption-'+props.id} value="">
-      </option>
+      {!props.required ?? <option key={'EmptyOption-'+props.id} value=""/> } 
         {props.values.map((option) => (
           <option key={option.value} value={option.value}>
             {option.displayName}
