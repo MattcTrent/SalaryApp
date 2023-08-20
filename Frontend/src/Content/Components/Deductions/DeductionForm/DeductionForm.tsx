@@ -175,7 +175,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     user: null,
     createdById: userId,
     type: data.get("type")?.toString() ?? "",
-    billType: data.get("billType")?.toString() ?? "",
+    billType: data.get("billType")?.toString() ?? null,
     name: data.get("name")?.toString() ?? "",
     cost: cost ? +cost : 0,
   };
