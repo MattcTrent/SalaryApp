@@ -2,6 +2,10 @@
   font-size: 0.75vw;
   width: fit-content;
   border-left: 1px solid silver;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .titleCell {
