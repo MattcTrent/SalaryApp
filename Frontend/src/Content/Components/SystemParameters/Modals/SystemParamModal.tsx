@@ -10,7 +10,7 @@ import CurrencyInput from "../../UI/Input/CurrencyInput/CurrencyInput";
 import PercentageInput from "../../UI/Input/PercentageInput/PercentageInput";
 import SelectInput from "../../UI/Input/SelectInput/SelectInput";
 import { RootState } from "../../../../Redux/Reducers/RootReducer";
-import { SystemParameterGroups } from "../../../Models/SystemParamModels";
+import { SystemParameterGroups } from "../../../Enums/SystemParameterGroup";
 
 interface confirmModalProps {
   modalAction: string;
@@ -19,7 +19,7 @@ interface confirmModalProps {
 
 export default function SystemParamModal(props: confirmModalProps) {
   const systemParamState = useSelector(
-    (state: RootState) => state.systemParameters.SelectedSystemParameter,
+    (state: RootState) => state.systemParameters.SelectedSystemParameter
   );
   const dispatch: any = useDispatch();
 
@@ -33,12 +33,12 @@ export default function SystemParamModal(props: confirmModalProps) {
             if (response.data.success) {
               toast.success(response.data.message);
             }
-          },
+          }
         );
       } else if (action === "edit" && systemParamId != null) {
         SystemParameterService.updateSystemParameter(
           systemParamId,
-          systemParamState,
+          systemParamState
         ).then((response) => {
           if (response.data.success) {
             toast.success(response.data.message);
@@ -50,7 +50,7 @@ export default function SystemParamModal(props: confirmModalProps) {
             if (response.data.id > 0) {
               toast.success("System parameter created.");
             }
-          },
+          }
         );
       }
 
@@ -91,7 +91,7 @@ export default function SystemParamModal(props: confirmModalProps) {
   const handleChange = (
     event: React.ChangeEvent<
       HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
-    >,
+    >
   ) => {
     switch (event.target.name) {
       case "group":
@@ -207,7 +207,7 @@ export default function SystemParamModal(props: confirmModalProps) {
               onClick={onClick.bind(
                 null,
                 props.modalAction,
-                systemParamState.id,
+                systemParamState.id
               )}
             >
               Save

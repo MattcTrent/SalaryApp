@@ -14,7 +14,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import SystemParamModal from "./Modals/SystemParamModal";
 import { SystemParameterService } from "../../API/Services/SystemParameterService";
-import { ISystemParameter } from "../../Models/SystemParamModels";
+import { SystemParameter } from "../../Models/SystemParamModels";
 import NumberHelper from "../../Utils/NumberHelpers";
 import { useDispatch, useSelector } from "react-redux";
 import { loadingActions } from "../../../Redux/Slices/LoadingSlice";
@@ -25,7 +25,7 @@ import { RootState } from "../../../Redux/Reducers/RootReducer";
 
 export const SystemParameterTable = () => {
   const systemParameters = useSelector(
-    (state: RootState) => state.systemParameters.SystemParameters,
+    (state: RootState) => state.systemParameters.SystemParameters
   );
   const dispatch: any = useDispatch();
 
@@ -50,7 +50,7 @@ export const SystemParameterTable = () => {
 
   const fetchSystemParameter = async (
     systemParameterId: number,
-    action: string,
+    action: string
   ) => {
     dispatch(parameterActions.setSelectedSystemParameter(systemParameterId));
     openModal(action);
@@ -135,7 +135,7 @@ export const SystemParameterTable = () => {
               </TableRow>
             </TableHead>
             <TableBody className={styles.tableBody}>
-              {systemParameters.map((parameter: ISystemParameter) => (
+              {systemParameters.map((parameter: SystemParameter) => (
                 <TableRow
                   role="SalaryTableRow"
                   className={styles.tableRow}
