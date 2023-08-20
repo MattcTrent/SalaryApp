@@ -37,6 +37,7 @@ export default function DeductionForm(props: DeductionFormProps) {
   const [searchParams] = useSearchParams();
   const type = searchParams.get("type");
   const billType = searchParams.get("billType");
+  const savingType = searchParams.get("savingType");
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const submitData: any = useActionData();
@@ -113,9 +114,9 @@ export default function DeductionForm(props: DeductionFormProps) {
             name="savingType"
             values={SavingTypes}
             readOnly={isSubmitting}
-            validationMessage={submitData?.billType ?? undefined}
+            validationMessage={submitData?.savingType ?? undefined}
             required={true}
-            defaultValue={props.loadedDeduction?.billType || billType || ""}
+            defaultValue={props.loadedDeduction?.savingType || savingType || ""}
           >
             Saving Type
           </SelectInput>
