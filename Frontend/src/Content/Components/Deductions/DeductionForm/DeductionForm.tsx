@@ -8,7 +8,7 @@ import {
   useSearchParams,
   useSubmit,
 } from "react-router-dom";
-import styles from "./DeductionForm.module.css";
+import styles from "./DeductionForm.module.scss";
 import SelectInput from "../../UI/Input/SelectInput/SelectInput";
 import StringInput from "../../UI/Input/StringInput/StringInput";
 import CurrencyInput from "../../UI/Input/CurrencyInput/CurrencyInput";

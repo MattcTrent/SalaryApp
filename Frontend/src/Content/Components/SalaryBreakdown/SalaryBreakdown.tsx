@@ -10,6 +10,7 @@ import { useState } from "react";
 import SelectInput from "../UI/Input/SelectInput/SelectInput";
 import { ShowColumns } from "../../Enums/ShowColum";
 import { SalaryTBody } from "./SalaryTBody/SalaryTBody";
+import SalaryBreakdownTableFilterModal from "./SBTableFilterModal/SBTableFilterModal";
 
 interface SalaryTableProps {
   salaryBreakdown: SalaryBreakdown | null;
@@ -61,6 +62,7 @@ export const SalaryBreakdownTable = (props: SalaryTableProps) => {
       ) : (
         <h3>No Salary Breakdown Found</h3>
       )}
+      <SalaryBreakdownTableFilterModal />
     </TableContainer>
   );
 };

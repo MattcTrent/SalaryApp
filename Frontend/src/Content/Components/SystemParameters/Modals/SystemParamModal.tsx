@@ -116,7 +116,7 @@ export default function SystemParamModal(props: confirmModalProps) {
   };
 
   return (
-    <Modal>
+    <Modal onCloseClick={props.onClose}>
       {props.modalAction === "delete" ? (
         <div className={styles.deleteContainer}>
           <h2 id="modal-title">
@@ -213,9 +213,6 @@ export default function SystemParamModal(props: confirmModalProps) {
               )}
             >
               Save
-            </Button>
-            <Button type="button" onClick={onClick.bind(null, "cancel", null)}>
-              Cancel
             </Button>
           </div>
         </div>
