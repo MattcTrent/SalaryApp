@@ -104,7 +104,7 @@ public class SalaryBreakdownService implements ISalaryBreakdownService {
         takehome = takehome.subtract(breakdown.getnI());
         takehome = takehome.subtract(breakdown.getStudentFinance());
 
-        if (breakdown.getUser().isPensionSalarySacrifice()) {
+        if (!breakdown.getUser().isPensionSalarySacrifice()) {
             takehome = takehome.subtract(breakdown.getPension());
         }
 
