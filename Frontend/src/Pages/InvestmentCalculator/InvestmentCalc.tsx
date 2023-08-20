@@ -1,16 +1,16 @@
 import { useState } from "react";
 import InvestmentResults from "../../Content/Components/Investments/InvestmentResults/InvestmentResults";
-import { IInvestmentResult } from "../../Content/Models/InvestmentModels";
+import { InvestmentResult } from "../../Content/Models/InvestmentModels";
 import logo from "../../Content/Resources/Images/investment-logo.png";
 import styles from "./InvestmentCalc.module.css";
 import InvestmentForm from "../../Content/Components/Investments/InvestmentForm/InvestmentForm";
 
 function InvestmentCalculatorPage() {
   const [investmentResults, setInvestmentResults] = useState<
-    IInvestmentResult[]
+    InvestmentResult[]
   >([]);
 
-  const calculateHandler = (investmentResults: IInvestmentResult[]) => {
+  const calculateHandler = (investmentResults: InvestmentResult[]) => {
     setInvestmentResults(investmentResults);
   };
 

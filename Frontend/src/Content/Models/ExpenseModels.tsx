@@ -1,13 +1,13 @@
-interface Expense {
+type Expense = {
   id: number | null;
   date: Date;
   title: string;
   value: number;
-}
+};
 
-interface ChartDataPoint {
+type ChartDataPoint = {
   value: number;
   label: string;
-}
+};
 
 export type { Expense, ChartDataPoint };

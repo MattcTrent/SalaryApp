@@ -1,9 +1,9 @@
-import { IInvestmentResult } from "../../../Models/InvestmentModels";
+import { InvestmentResult } from "../../../Models/InvestmentModels";
 import InvestmentResultsRow from "./InvestmentResultRow";
 import styles from "./InvestmentResults.module.css";
 
 interface IInvestmentResultsProps {
-  results: IInvestmentResult[];
+  results: InvestmentResult[];
 }
 
 function InvestmentResults(props: IInvestmentResultsProps) {

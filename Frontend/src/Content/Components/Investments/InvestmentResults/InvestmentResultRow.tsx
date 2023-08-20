@@ -1,8 +1,8 @@
 import NumberHelper from "../../../Utils/NumberHelpers";
-import { IInvestmentResult } from "../../../Models/InvestmentModels";
+import { InvestmentResult } from "../../../Models/InvestmentModels";
 
 interface IInvestmentResultsRowProps {
-  result: IInvestmentResult;
+  result: InvestmentResult;
 }
 
 function InvestmentResultsRow(props: IInvestmentResultsRowProps) {

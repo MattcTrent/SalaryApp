@@ -1,13 +1,10 @@
 import { useState } from "react";
-import {
-  IInvestment,
-  IInvestmentResult,
-} from "../../../Models/InvestmentModels";
+import { Investment, InvestmentResult } from "../../../Models/InvestmentModels";
 import styles from "./InvestmentForm.module.css";
 import { toast } from "react-toastify";
 
 interface IInvestmentFormProps {
-  onSubmit: (investmentResults: IInvestmentResult[]) => void;
+  onSubmit: (investmentResults: InvestmentResult[]) => void;
   onReset: () => void;
 }
 
@@ -29,7 +26,7 @@ function InvestmentForm(props: IInvestmentFormProps) {
       return toast.error("All fields required for new expense.");
     }
 
-    const investment: IInvestment = {
+    const investment: Investment = {
       currentSavings: parseFloat(currentSavings),
       yearlyContribution: parseFloat(yearlySavings),
       expectedReturn: parseFloat(expectedInterest),
@@ -39,8 +36,8 @@ function InvestmentForm(props: IInvestmentFormProps) {
     calculateInvestment(investment);
   }
 
-  const calculateInvestment = (userInput: IInvestment) => {
-    const yearlyData: IInvestmentResult[] = [];
+  const calculateInvestment = (userInput: Investment) => {
+    const yearlyData: InvestmentResult[] = [];
 
     let currentSavings = +userInput.currentSavings;
     const yearlyContribution = +userInput.yearlyContribution;
