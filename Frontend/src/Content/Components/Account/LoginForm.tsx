@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./LoginForm.module.css";
+import styles from "./LoginForm.module.scss";
 import StringInput from "../UI/Input/StringInput/StringInput";
 import PasswordInput from "../UI/Input/PasswordInput/PasswordInput";
 import Button from "../UI/Button/Button";

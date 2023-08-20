@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, FocusEventHandler } from "react";
-import styleClasses from "./CheckboxInput.module.css";
+import styleClasses from "./CheckboxInput.module.scss";
 
 interface ICheckboxInputProps {
   id: string;

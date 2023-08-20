@@ -1,4 +1,4 @@
-import styles from "./ExpenseDate.module.css";
+import styles from "./ExpenseDate.module.scss";
 
 export default function ExpenseDate(props: { date: Date }) {
   const month = new Date(props.date).toLocaleString("en-UK", { month: "long" });

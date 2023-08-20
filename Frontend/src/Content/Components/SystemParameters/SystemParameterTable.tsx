@@ -19,7 +19,7 @@ import NumberHelper from "../../Utils/NumberHelpers";
 import { useDispatch, useSelector } from "react-redux";
 import { loadingActions } from "../../../Redux/Slices/LoadingSlice";
 import Button from "../UI/Button/Button";
-import styles from "./SystemParameter.module.css";
+import styles from "./SystemParameter.module.scss";
 import { parameterActions } from "../../../Redux/Slices/SystemParameterSlice";
 import { RootState } from "../../../Redux/Reducers/RootReducer";
 

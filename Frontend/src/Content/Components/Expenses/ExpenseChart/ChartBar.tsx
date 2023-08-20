@@ -1,5 +1,5 @@
 import { ChartDataPoint } from "../../../Models/ExpenseModels";
-import styles from "./ChartBar.module.css";
+import styles from "./ChartBar.module.scss";
 
 interface IChartBarProps {
   dataPoint: ChartDataPoint;

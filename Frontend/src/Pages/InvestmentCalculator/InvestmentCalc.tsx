@@ -2,7 +2,7 @@ import { useState } from "react";
 import InvestmentResults from "../../Content/Components/Investments/InvestmentResults/InvestmentResults";
 import { InvestmentResult } from "../../Content/Models/InvestmentModels";
 import logo from "../../Content/Resources/Images/investment-logo.png";
-import styles from "./InvestmentCalc.module.css";
+import styles from "./InvestmentCalc.module.scss";
 import InvestmentForm from "../../Content/Components/Investments/InvestmentForm/InvestmentForm";
 
 function InvestmentCalculatorPage() {

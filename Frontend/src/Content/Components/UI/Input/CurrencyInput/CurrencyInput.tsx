@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, FocusEventHandler } from "react";
-import styleClasses from "./CurrencyInput.module.css";
+import styleClasses from "./CurrencyInput.module.scss";
 
 interface ICurrencyInputProps {
   id: string;

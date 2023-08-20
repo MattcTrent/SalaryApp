@@ -1,4 +1,4 @@
-import styles from "./TH.module.css";
+import styles from "./TH.module.scss";
 
 interface THProps {
   children?: React.ReactNode;

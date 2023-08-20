@@ -11,7 +11,7 @@ import SelectInput from "../../UI/Input/SelectInput/SelectInput";
 import { RootState } from "../../../../Redux/Reducers/RootReducer";
 import { SystemParameterGroups } from "../../../Enums/SystemParameterGroup";
 
-import styles from "./SystemParamModal.module.css";
+import styles from "./SystemParamModal.module.scss";
 import Modal from "../../UI/Modal/Modal";
 
 interface confirmModalProps {

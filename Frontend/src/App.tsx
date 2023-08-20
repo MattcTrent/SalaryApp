@@ -27,7 +27,7 @@ import AccountPage from "./Pages/Admin/Account/Account";
 import { useDispatch, useSelector } from "react-redux";
 import HomePage from "./Pages/Home/Home";
 import MainLayout from "./Content/Components/MainLayout/MainLayout";
-import styles from "./App.module.css";
+import styles from "./App.module.scss";
 import { tokenLoader } from "./Content/Utils/AuthUtils";
 import {
   loader as userLoader,

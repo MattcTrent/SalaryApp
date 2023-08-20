@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { SalaryService } from "../../Content/API/Services/SalaryService";
 import { SalaryBreakdownTable } from "../../Content/Components/SalaryBreakdown/SalaryBreakdown";
 import Deductions from "../../Content/Components/Deductions/Deductions/Deductions";
-import styles from "./Salary.module.css";
+import styles from "./Salary.module.scss";
 import {
   ActionFunctionArgs,
   Await,

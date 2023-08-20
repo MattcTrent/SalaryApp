@@ -1,4 +1,4 @@
-import styles from "./Card.module.css";
+import styles from "./Card.module.scss";
 
 interface CardProps {
   className?: string;

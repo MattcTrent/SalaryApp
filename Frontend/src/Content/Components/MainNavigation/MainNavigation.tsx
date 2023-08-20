@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./MainNavigation.module.css";
+import styles from "./MainNavigation.module.scss";
 import { Form, useRouteLoaderData } from "react-router-dom";
 import Navigation from "../UI/NavigationLinks/Navigation";
 import HomeIcon from "@mui/icons-material/Home";

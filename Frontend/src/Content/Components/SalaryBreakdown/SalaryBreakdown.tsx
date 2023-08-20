@@ -1,4 +1,4 @@
-import styles from "./SalaryBreakdown.module.css";
+import styles from "./SalaryBreakdown.module.scss";
 import { SalaryBreakdown } from "../../Models/SalaryModels";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";

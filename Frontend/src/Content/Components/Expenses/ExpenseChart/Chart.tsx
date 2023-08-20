@@ -1,7 +1,7 @@
 import { ChartDataPoint } from "../../../Models/ExpenseModels";
 import ChartBar from "./ChartBar";
 
-import styles from "./Chart.module.css";
+import styles from "./Chart.module.scss";
 
 interface ChartProps {
   dataPoints: ChartDataPoint[];

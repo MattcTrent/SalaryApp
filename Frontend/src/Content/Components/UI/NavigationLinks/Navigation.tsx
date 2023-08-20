@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import styles from "./Navigation.module.css";
-import buttonStyles from "../Button/Button.module.css";
+import styles from "./Navigation.module.scss";
+import buttonStyles from "../Button/Button.module.scss";
 import React from "react";
 
 interface INavLinkProps {

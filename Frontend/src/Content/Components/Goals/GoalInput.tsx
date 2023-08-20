@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Button from "./UI/Button";
-import styles from "./GoalInput.module.css";
+import styles from "./GoalInput.module.scss";
 import { toast } from "react-toastify";
 
 interface IGoalInputProps {

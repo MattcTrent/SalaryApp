@@ -5,7 +5,7 @@ import { Deduction } from "../../../Models/SalaryModels";
 import Navigation from "../../UI/NavigationLinks/Navigation";
 import SectionHeading from "../../UI/SectionHeading/SectionHeading";
 import DeductionTable from "./DeductionTable/DeductionTable";
-import styles from "./Deductions.module.css";
+import styles from "./Deductions.module.scss";
 interface GroupedDeductions {
   [key: string]: Deduction[];
 }

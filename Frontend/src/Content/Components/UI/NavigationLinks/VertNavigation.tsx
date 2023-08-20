@@ -1,4 +1,4 @@
-import styles from "./VertNavigation.module.css";
+import styles from "./VertNavigation.module.scss";
 import React from "react";
 import Navigation from "./Navigation";
 

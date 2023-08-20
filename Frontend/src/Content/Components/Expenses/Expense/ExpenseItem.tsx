@@ -3,7 +3,7 @@ import ExpenseDate from "./ExpenseDate";
 import NumberHelper from "../../../Utils/NumberHelpers";
 import Card from "../../UI/Card/Card";
 
-import styles from "./ExpenseItem.module.css";
+import styles from "./ExpenseItem.module.scss";
 
 interface ExpenseItemProps {
   expense: Expense;

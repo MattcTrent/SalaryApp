@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, FocusEventHandler } from "react";
-import styleClasses from "./SelectInput.module.css";
+import styleClasses from "./SelectInput.module.scss";
 import { NameValueObj } from "../../../../Models/UtilModels";
 
 interface ISelectInputProps {

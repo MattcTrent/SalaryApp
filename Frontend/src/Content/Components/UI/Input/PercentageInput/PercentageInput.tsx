@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, FocusEventHandler } from "react";
-import styleClasses from "./PercentageInput.module.css";
+import styleClasses from "./PercentageInput.module.scss";
 
 interface IPercentageInputProps {
   id: string;

@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, FocusEventHandler } from "react";
-import styleClasses from "./StringInput.module.css";
+import styleClasses from "./StringInput.module.scss";
 
 interface StringInputProps {
   id: string;

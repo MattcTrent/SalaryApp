@@ -3,7 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import NumberHelper from "../../../../Utils/NumberHelpers";
 import { Showcolumn } from "../../../../Enums/ShowColum";
 
-import styles from "./SalaryRow.module.css";
+import styles from "./SalaryRow.module.scss";
 
 interface DataRowProps {
   rowName: string;

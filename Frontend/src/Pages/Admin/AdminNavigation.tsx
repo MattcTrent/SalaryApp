@@ -1,5 +1,5 @@
 import VertNavigation from "../../Content/Components/UI/NavigationLinks/VertNavigation";
-import styles from "./AdminNavigation.module.css";
+import styles from "./AdminNavigation.module.scss";
 
 function AdminNavigation() {
   return (

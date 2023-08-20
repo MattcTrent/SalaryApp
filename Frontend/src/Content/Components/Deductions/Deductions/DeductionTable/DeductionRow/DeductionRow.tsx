@@ -1,7 +1,7 @@
 import NumberHelper from "../../../../../Utils/NumberHelpers";
 import { Deduction } from "../../../../../Models/SalaryModels";
 import TD from "../../../../UI/Table/TableCell/TD";
-import styles from "./DeductionRow.module.css";
+import styles from "./DeductionRow.module.scss";
 import { BiEdit } from "react-icons/bi";
 import Navigation from "../../../../UI/NavigationLinks/Navigation";
 

@@ -1,4 +1,4 @@
-import styles from "./TD.module.css";
+import styles from "./TD.module.scss";
 
 interface TDProps {
   children?: React.ReactNode;

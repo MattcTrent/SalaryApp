@@ -1,4 +1,4 @@
-import styles from "./AccountForm.module.css";
+import styles from "./AccountForm.module.scss";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerActions } from "../../../../Redux/Slices/RegisterSlice";

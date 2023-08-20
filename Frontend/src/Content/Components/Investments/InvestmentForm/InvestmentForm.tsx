@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Investment, InvestmentResult } from "../../../Models/InvestmentModels";
-import styles from "./InvestmentForm.module.css";
+import styles from "./InvestmentForm.module.scss";
 import { toast } from "react-toastify";
 
 interface IInvestmentFormProps {

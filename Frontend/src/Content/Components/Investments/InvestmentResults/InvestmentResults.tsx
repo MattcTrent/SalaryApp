@@ -1,6 +1,6 @@
 import { InvestmentResult } from "../../../Models/InvestmentModels";
 import InvestmentResultsRow from "./InvestmentResultRow";
-import styles from "./InvestmentResults.module.css";
+import styles from "./InvestmentResults.module.scss";
 
 interface IInvestmentResultsProps {
   results: InvestmentResult[];

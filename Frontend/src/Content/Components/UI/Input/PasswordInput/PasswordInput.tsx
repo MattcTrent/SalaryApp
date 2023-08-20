@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, FocusEventHandler, useState } from "react";
-import styleClasses from "./PasswordInput.module.css";
+import styleClasses from "./PasswordInput.module.scss";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./SectionHeading.module.css";
+import styles from "./SectionHeading.module.scss";
 import { IoMdCreate } from "react-icons/io";
 import Button from "../Button/Button";
 

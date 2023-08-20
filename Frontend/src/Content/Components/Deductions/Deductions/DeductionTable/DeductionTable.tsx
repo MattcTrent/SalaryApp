@@ -1,4 +1,4 @@
-import styles from "./DeductionTable.module.css";
+import styles from "./DeductionTable.module.scss";
 import DeductionRow from "./DeductionRow/DeductionRow";
 import { IoMdCreate } from "react-icons/io";
 import { Deduction } from "../../../../Models/SalaryModels";
