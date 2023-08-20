@@ -1,4 +1,4 @@
-## Project Dependencies#
+## Project Dependencies
 
 The Project requires:
 NodeJs
@@ -14,7 +14,7 @@ Running on other versions may have unforseen issues.
 
 The Java backend project requires a MySQL db to connect to.
 
-## Getting Started - Frontend#
+## Getting Started - Frontend
 
 Ensure either the .env file is populated with a api url and timeout or create a .env.development.local files is created with populated variables, require variables will be available in the .env file.
 
@@ -38,7 +38,7 @@ yarn start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Getting Started - Backend#
+## Getting Started - Backend
 
 Navigate to:
 Backend/src/main/resources/application.properties
