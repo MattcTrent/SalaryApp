@@ -89,7 +89,7 @@ const Deductions = (props: DeductionsProps) => {
             key={savingType}
             title={savingType as SavingType}
             type={DeductionType.SAVING_AND_INVESTMENT}
-            billType={savingType as SavingType}
+            savingType={savingType as SavingType}
             deductions={groupedSavingAndInvestmentDeductions[savingType]}
           />
         ))}
@@ -156,14 +156,14 @@ const generateNewBillsNavButtons = () => {
 const generateNewSavingsNavButtons = () => {
   const codeBlocks: JSX.Element[] = [];
 
-  for (const billType in SavingType) {
-    if (Object.prototype.hasOwnProperty.call(SavingType, billType)) {
-      const type = SavingType[billType as keyof typeof SavingType];
-      const path = `NewDeduction?mode=create&type=${DeductionType.BILL}&savingType=${type}`;
+  for (const savingType in SavingType) {
+    if (Object.prototype.hasOwnProperty.call(SavingType, savingType)) {
+      const type = SavingType[savingType as keyof typeof SavingType];
+      const path = `NewDeduction?mode=create&type=${DeductionType.SAVING_AND_INVESTMENT}&savingType=${type}`;
 
       codeBlocks.push(
         <Navigation
-          key={billType}
+          key={savingType}
           classNameAddition={styles.navButton}
           isButton={true}
           path={path}
