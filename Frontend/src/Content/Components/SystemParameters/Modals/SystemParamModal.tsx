@@ -4,13 +4,15 @@ import { toast } from "react-toastify";
 import Button from "../../UI/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { parameterActions } from "../../../../Redux/Slices/SystemParameterSlice";
-import styles from "./SystemParamModal.module.css";
 import StringInput from "../../UI/Input/StringInput/StringInput";
 import CurrencyInput from "../../UI/Input/CurrencyInput/CurrencyInput";
 import PercentageInput from "../../UI/Input/PercentageInput/PercentageInput";
 import SelectInput from "../../UI/Input/SelectInput/SelectInput";
 import { RootState } from "../../../../Redux/Reducers/RootReducer";
 import { SystemParameterGroups } from "../../../Enums/SystemParameterGroup";
+
+import styles from "./SystemParamModal.module.css";
+import Modal from "../../UI/Modal/Modal";
 
 interface confirmModalProps {
   modalAction: string;
@@ -114,7 +116,7 @@ export default function SystemParamModal(props: confirmModalProps) {
   };
 
   return (
-    <div className={styles.modalContainer}>
+    <Modal>
       {props.modalAction === "delete" ? (
         <div className={styles.deleteContainer}>
           <h2 id="modal-title">
@@ -218,6 +220,6 @@ export default function SystemParamModal(props: confirmModalProps) {
           </div>
         </div>
       )}
-    </div>
+    </Modal>
   );
 }
