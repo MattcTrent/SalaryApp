@@ -1,23 +1,23 @@
 import { BillType } from "../../../Enums/BillType";
 import { DeductionType } from "../../../Enums/DeductionType";
 import { SavingType } from "../../../Enums/SavingsType";
-import { IDeduction } from "../../../Models/SalaryModels";
+import { Deduction } from "../../../Models/SalaryModels";
 import Navigation from "../../UI/NavigationLinks/Navigation";
 import SectionHeading from "../../UI/SectionHeading/SectionHeading";
 import DeductionTable from "./DeductionTable/DeductionTable";
 import styles from "./Deductions.module.css";
 interface GroupedDeductions {
-  [key: string]: IDeduction[];
+  [key: string]: Deduction[];
 }
 
 interface DeductionsProps {
-  deductions: IDeduction[] | null;
+  deductions: Deduction[] | null;
 }
 
 const Deductions = (props: DeductionsProps) => {
   // Group the deductions that are not a bill
   const groupedDeductions: GroupedDeductions = {};
-  props.deductions?.forEach((item: IDeduction) => {
+  props.deductions?.forEach((item: Deduction) => {
     if (
       item.type !== DeductionType.BILL &&
       item.type !== DeductionType.SAVING_AND_INVESTMENT
@@ -31,7 +31,7 @@ const Deductions = (props: DeductionsProps) => {
 
   // Group the deductions are bill type
   const groupedBillDeductions: GroupedDeductions = {};
-  props.deductions?.forEach((item: IDeduction) => {
+  props.deductions?.forEach((item: Deduction) => {
     if (item.type === DeductionType.BILL) {
       if (!groupedBillDeductions[item.billType!]) {
         groupedBillDeductions[item.billType!] = [];
@@ -42,7 +42,7 @@ const Deductions = (props: DeductionsProps) => {
 
   // Group the deductions are saving
   const groupedSavingAndInvestmentDeductions: GroupedDeductions = {};
-  props.deductions?.forEach((item: IDeduction) => {
+  props.deductions?.forEach((item: Deduction) => {
     if (item.type === DeductionType.SAVING_AND_INVESTMENT) {
       if (!groupedSavingAndInvestmentDeductions[item.savingType!]) {
         groupedSavingAndInvestmentDeductions[item.savingType!] = [];

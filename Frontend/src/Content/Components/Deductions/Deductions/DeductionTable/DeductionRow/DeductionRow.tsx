@@ -1,12 +1,12 @@
 import NumberHelper from "../../../../../Utils/NumberHelpers";
-import { IDeduction } from "../../../../../Models/SalaryModels";
+import { Deduction } from "../../../../../Models/SalaryModels";
 import TD from "../../../../UI/Table/TableCell/TD";
 import styles from "./DeductionRow.module.css";
 import { BiEdit } from "react-icons/bi";
 import Navigation from "../../../../UI/NavigationLinks/Navigation";
 
 interface TableRowProps {
-  deduction: IDeduction;
+  deduction: Deduction;
 }
 
 const DeductionRow = (props: TableRowProps) => {

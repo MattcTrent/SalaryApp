@@ -14,7 +14,7 @@ import StringInput from "../../UI/Input/StringInput/StringInput";
 import CurrencyInput from "../../UI/Input/CurrencyInput/CurrencyInput";
 import Button from "../../UI/Button/Button";
 import Navigation from "../../UI/NavigationLinks/Navigation";
-import { IDeduction } from "../../../Models/SalaryModels";
+import { Deduction } from "../../../Models/SalaryModels";
 import { getAuthUserId } from "../../../Utils/AuthUtils";
 import { toast } from "react-toastify";
 import { SalaryService } from "../../../API/Services/SalaryService";
@@ -26,7 +26,7 @@ import { BillTypes } from "../../../Enums/BillType";
 import { SavingTypes } from "../../../Enums/SavingsType";
 
 interface DeductionFormProps {
-  loadedDeduction: IDeduction | null;
+  loadedDeduction: Deduction | null;
   method: any;
 }
 
@@ -189,7 +189,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   let id = data.get("id");
   let cost = data.get("cost");
 
-  let deduction: IDeduction;
+  let deduction: Deduction;
   deduction = {
     id: id ? +id : 0,
     user: null,
@@ -253,7 +253,7 @@ interface ValidationErrors {
   cost: string | null;
 }
 
-function validateDeduction(deduction: IDeduction): {
+function validateDeduction(deduction: Deduction): {
   validated: boolean;
   validation: ValidationErrors;
 } {

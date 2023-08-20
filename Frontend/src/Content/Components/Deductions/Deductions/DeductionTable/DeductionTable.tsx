@@ -1,7 +1,7 @@
 import styles from "./DeductionTable.module.css";
 import DeductionRow from "./DeductionRow/DeductionRow";
 import { IoMdCreate } from "react-icons/io";
-import { IDeduction } from "../../../../Models/SalaryModels";
+import { Deduction } from "../../../../Models/SalaryModels";
 import NumberHelper from "../../../../Utils/NumberHelpers";
 import Navigation from "../../../UI/NavigationLinks/Navigation";
 import TD from "../../../UI/Table/TableCell/TD";
@@ -12,7 +12,7 @@ interface DeductionsTableProps {
   type: string;
   billType?: string;
   savingType?: string;
-  deductions: IDeduction[];
+  deductions: Deduction[];
 }
 
 const DeductionTable = (props: DeductionsTableProps) => {
@@ -46,7 +46,7 @@ const DeductionTable = (props: DeductionsTableProps) => {
           </tr>
         </thead>
         <tbody className={styles.body}>
-          {props.deductions.map((item: IDeduction) => (
+          {props.deductions.map((item: Deduction) => (
             <DeductionRow key={item.id} deduction={item} />
           ))}
         </tbody>
@@ -56,7 +56,7 @@ const DeductionTable = (props: DeductionsTableProps) => {
             <TD>Total</TD>
             <TD>
               {NumberHelper.ToCurrencyString(
-                props.deductions.reduce((prev: number, current: IDeduction) => {
+                props.deductions.reduce((prev: number, current: Deduction) => {
                   return prev + current.cost;
                 }, 0)
               )}

@@ -1,5 +1,4 @@
 import { IUser } from "./UserModels";
-import { NameValueObj } from "./UtilModels";
 
 interface ISalaryBreakdown {
   name: string;
@@ -17,7 +16,7 @@ interface ISalaryBreakdown {
   user: IUser;
 }
 
-interface IDeduction {
+type Deduction = {
   id: number;
   user: IUser | null;
   createdById: number;
@@ -26,6 +25,6 @@ interface IDeduction {
   savingType: string | null;
   name: string;
   cost: number;
-}
+};
 
-export type { ISalaryBreakdown, IDeduction };
+export type { ISalaryBreakdown, Deduction };
