@@ -2,6 +2,7 @@ import {
   BillType,
   DeductionType,
   IDeduction,
+  SavingType,
 } from "../../../Models/SalaryModels";
 import Navigation from "../../UI/NavigationLinks/Navigation";
 import SectionHeading from "../../UI/SectionHeading/SectionHeading";
@@ -81,7 +82,7 @@ const Deductions = (props: DeductionsProps) => {
           />
         ))}
       </div>
-      <SectionHeading generateButtons={generateNewBillsNavButtons}>
+      <SectionHeading generateButtons={generateNewSavingsNavButtons}>
         Savings and Investments
       </SectionHeading>
       <div className={styles.bills}>
@@ -136,6 +137,30 @@ const generateNewBillsNavButtons = () => {
     if (Object.prototype.hasOwnProperty.call(BillType, billType)) {
       const type = BillType[billType as keyof typeof BillType];
       const path = `NewDeduction?mode=create&type=${DeductionType.BILL}&billType=${type}`;
+
+      codeBlocks.push(
+        <Navigation
+          key={billType}
+          classNameAddition={styles.navButton}
+          isButton={true}
+          path={path}
+        >
+          {type.replace(/([A-Z])/g, " $1").trim()}
+        </Navigation>
+      );
+    }
+  }
+
+  return codeBlocks;
+};
+
+const generateNewSavingsNavButtons = () => {
+  const codeBlocks: JSX.Element[] = [];
+
+  for (const billType in SavingType) {
+    if (Object.prototype.hasOwnProperty.call(SavingType, billType)) {
+      const type = SavingType[billType as keyof typeof SavingType];
+      const path = `NewDeduction?mode=create&type=${DeductionType.BILL}&savingType=${type}`;
 
       codeBlocks.push(
         <Navigation
