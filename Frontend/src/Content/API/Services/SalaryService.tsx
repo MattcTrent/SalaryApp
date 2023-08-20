@@ -1,4 +1,4 @@
-import { Deduction, ISalaryBreakdown } from "../../Models/SalaryModels";
+import { Deduction, SalaryBreakdown } from "../../Models/SalaryModels";
 import { IMessageResponse } from "../../Models/UserModels";
 import { getConfiguredAxios } from "../AxiosConfig";
 
@@ -6,7 +6,7 @@ export class SalaryService {
   static async getSalaryBreakdown(userName: string) {
     const axios = getConfiguredAxios();
     var url = "/salarybreakdowns/" + userName;
-    return await axios.get<ISalaryBreakdown>(url);
+    return await axios.get<SalaryBreakdown>(url);
   }
 
   static async getDeduction(deductionId: number) {

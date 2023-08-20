@@ -1,9 +1,9 @@
 import { TableBody } from "@mui/material";
-import { ISalaryBreakdown } from "../../../Models/SalaryModels";
+import { SalaryBreakdown } from "../../../Models/SalaryModels";
 import { SalaryRow } from "./SalaryRow/SalaryRow";
 
 interface SalaryTBodyProps {
-  salaryBreakdown: ISalaryBreakdown;
+  salaryBreakdown: SalaryBreakdown;
   showColumn: string;
 }
 

@@ -10,7 +10,7 @@ import LoginPage, {
   logoutAction,
   action as authAction,
 } from "./Pages/Login/Login";
-import SalaryPage, {
+import SalaryBreakdownPage, {
   loader as salaryLoader,
 } from "./Pages/SalaryBreakdown/Salary";
 import ExpensesPage from "./Pages/Expenses/Expenses";
@@ -61,7 +61,7 @@ export default function App() {
         <Route path="logout" action={logoutAction} />
         <Route
           path="SalaryBreakdown"
-          element={<SalaryPage />}
+          element={<SalaryBreakdownPage />}
           loader={salaryLoader}
         />
         <Route
@@ -95,8 +95,8 @@ export default function App() {
           />
           <Route path="SystemParameters" element={<SystemParametersPage />} />
         </Route>
-      </Route>,
-    ),
+      </Route>
+    )
   );
 
   return (

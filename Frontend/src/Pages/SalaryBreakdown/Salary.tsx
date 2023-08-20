@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { SalaryService } from "../../Content/API/Services/SalaryService";
-import { SalaryBreakdown } from "../../Content/Components/SalaryBreakdown/SalaryBreakdown";
+import { SalaryBreakdownTable } from "../../Content/Components/SalaryBreakdown/SalaryBreakdown";
 import Deductions from "../../Content/Components/Deductions/Deductions/Deductions";
 import styles from "./Salary.module.css";
 import {
@@ -14,7 +14,7 @@ import { getAuthUser, getAuthUserId } from "../../Content/Utils/AuthUtils";
 
 interface ISalaryPageProps {}
 
-const SalaryPage = (props: ISalaryPageProps) => {
+const SalaryBreakdownPage = (props: ISalaryPageProps) => {
   const data: any = useLoaderData();
 
   return (
@@ -22,7 +22,7 @@ const SalaryPage = (props: ISalaryPageProps) => {
       <Suspense fallback={<p>Loading Salary Breakdown...</p>}>
         <Await resolve={data.salary}>
           {(salary) => (
-            <SalaryBreakdown key={salary.name} salaryBreakdown={salary} />
+            <SalaryBreakdownTable key={salary.name} salaryBreakdown={salary} />
           )}
         </Await>
       </Suspense>
@@ -35,7 +35,7 @@ const SalaryPage = (props: ISalaryPageProps) => {
   );
 };
 
-export default SalaryPage;
+export default SalaryBreakdownPage;
 
 export async function loader({ request, params }: ActionFunctionArgs) {
   const username = getAuthUser();

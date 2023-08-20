@@ -1,5 +1,5 @@
 import styles from "./SalaryBreakdown.module.css";
-import { ISalaryBreakdown } from "../../Models/SalaryModels";
+import { SalaryBreakdown } from "../../Models/SalaryModels";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -12,14 +12,14 @@ import { ShowColumns } from "../../Enums/ShowColum";
 import { SalaryTBody } from "./SalaryTBody/SalaryTBody";
 
 interface SalaryTableProps {
-  salaryBreakdown: ISalaryBreakdown | null;
+  salaryBreakdown: SalaryBreakdown | null;
 }
 
-export const SalaryBreakdown = (props: SalaryTableProps) => {
+export const SalaryBreakdownTable = (props: SalaryTableProps) => {
   const [showColumn, setShowColumn] = useState<string>("Monthly");
 
   function showColumnChangeHandler(
-    event: React.ChangeEvent<HTMLSelectElement>,
+    event: React.ChangeEvent<HTMLSelectElement>
   ) {
     setShowColumn(event.target.value);
   }

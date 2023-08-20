@@ -1,6 +1,6 @@
 import { IUser } from "./UserModels";
 
-interface ISalaryBreakdown {
+type SalaryBreakdown = {
   name: string;
   pension: number;
   monthlySalary: number;
@@ -14,7 +14,7 @@ interface ISalaryBreakdown {
   savingsAndInvestments: number;
   takehomeAfterBillsAndSavings: number;
   user: IUser;
-}
+};
 
 type Deduction = {
   id: number;
@@ -27,4 +27,4 @@ type Deduction = {
   cost: number;
 };
 
-export type { ISalaryBreakdown, Deduction };
+export type { SalaryBreakdown, Deduction };
