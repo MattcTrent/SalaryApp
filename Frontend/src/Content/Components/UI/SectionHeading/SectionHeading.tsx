@@ -22,7 +22,7 @@ export default function SectionHeading(props: SectionHeadingProps) {
       setShowButtons(false);
     }
   }
-  
+
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>{props.children}</h1>
@@ -34,9 +34,9 @@ export default function SectionHeading(props: SectionHeadingProps) {
         {props.generateButtons && (
           <Button classNameAddition={styles.newButton}>
             <IoMdCreate size={20} /> New
-            {showButtons &&
+            {showButtons && (
               <div className={styles.navButtons}>{props.generateButtons()}</div>
-}
+            )}
           </Button>
         )}
       </div>

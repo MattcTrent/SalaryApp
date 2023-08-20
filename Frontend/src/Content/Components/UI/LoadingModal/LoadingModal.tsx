@@ -40,10 +40,11 @@ const portalElement: Element = document.getElementById("overlay") as Element;
 function LoadingModal(props: LoadingButtonProps) {
   return (
     <>
-      {props.withBackdrop && ReactDOM.createPortal(
-        <Backdrop onBackdropClick={props.onBackdropClick} />,
-        portalElement,
-      )}
+      {props.withBackdrop &&
+        ReactDOM.createPortal(
+          <Backdrop onBackdropClick={props.onBackdropClick} />,
+          portalElement,
+        )}
       {ReactDOM.createPortal(<OverlayModal />, portalElement)}
     </>
   );

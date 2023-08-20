@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./MainNavigation.module.css";
 import { Form, useRouteLoaderData } from "react-router-dom";
 import Navigation from "../UI/NavigationLinks/Navigation";
-import HomeIcon from '@mui/icons-material/Home';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import HomeIcon from "@mui/icons-material/Home";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 
 interface MainNavigationProps {}
 
@@ -14,7 +14,9 @@ function MainNavigation(props: MainNavigationProps) {
     <header>
       <nav className={styles.navBar}>
         <ul className={styles.navList}>
-          <Navigation path="/"><HomeIcon/></Navigation>
+          <Navigation path="/">
+            <HomeIcon />
+          </Navigation>
           {token && (
             <>
               <Navigation path="/SalaryBreakdown">Salary Breakdown</Navigation>
@@ -40,7 +42,7 @@ function MainNavigation(props: MainNavigationProps) {
                 className={styles.accountButton}
                 path="/Admin/Account"
               >
-                <ManageAccountsIcon/>
+                <ManageAccountsIcon />
               </Navigation>
               <li className={styles.navItem}>
                 <Form action="/logout" method="post">

@@ -23,7 +23,9 @@ function Navigation(props: INavLinkProps) {
     props.className
       ? props.className
       : props.isButton
-      ? (props.disabled ? `${buttonStyles.button} ${buttonStyles.buttonDisabled}` : buttonStyles.button)
+      ? props.disabled
+        ? `${buttonStyles.button} ${buttonStyles.buttonDisabled}`
+        : buttonStyles.button
       : styles.navLink
   } ${props.classNameAddition}`;
   const activeClassName = `${

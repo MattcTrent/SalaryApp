@@ -122,7 +122,7 @@ const generateNewDeductionsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>
+        </Navigation>,
       );
     }
   }
@@ -146,7 +146,7 @@ const generateNewBillsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>
+        </Navigation>,
       );
     }
   }
@@ -170,7 +170,7 @@ const generateNewSavingsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>
+        </Navigation>,
       );
     }
   }

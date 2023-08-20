@@ -29,7 +29,9 @@ const DeductionTable = (props: DeductionsTableProps) => {
       <Navigation
         classNameAddition={styles.newButton}
         isButton={true}
-        path={`NewDeduction?mode=create&type=${props.type}${billTypePath ?? ''}`}
+        path={`NewDeduction?mode=create&type=${props.type}${
+          billTypePath ?? ""
+        }`}
       >
         <IoMdCreate size={20} /> New
       </Navigation>

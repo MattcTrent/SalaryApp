@@ -1,6 +1,6 @@
 .container {
-    display: flex;
-    align-content: center;
-    border-radius: 1rem;
-    margin: auto;
+  display: flex;
+  align-content: center;
+  border-radius: 1rem;
+  margin: auto;
 }

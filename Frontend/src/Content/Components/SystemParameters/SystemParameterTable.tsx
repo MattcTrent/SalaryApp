@@ -93,33 +93,33 @@ export const SystemParameterTable = () => {
         <TableContainer className={styles.tableContainer} component={Paper}>
           <Table aria-label="simple table">
             <TableHead>
-                <tr className={styles.bannerButtons}>
-                  <td>
-                    <Button
-                      classNameAddition={styles.bannerButton}
-                      type="button"
-                      onClick={onClickOpen.bind(null, "create", null)}
-                    >
-                      <IoMdCreate size={25} /> New
-                    </Button>
-                    <Button
-                      classNameAddition={styles.bannerButton}
-                      type="button"
-                      onClick={onClickExport}
-                    >
-                      <BiExport size={25} /> Export
-                    </Button>
-                  </td>
-                  <td className={styles.bannerDivRight}>
-                    <Button
-                      classNameAddition={styles.bannerButton}
-                      type="button"
-                      onClick={RefreshPage}
-                    >
-                      <HiRefresh size={25} /> Refresh
-                    </Button>
-                  </td>
-                </tr>
+              <tr className={styles.bannerButtons}>
+                <td>
+                  <Button
+                    classNameAddition={styles.bannerButton}
+                    type="button"
+                    onClick={onClickOpen.bind(null, "create", null)}
+                  >
+                    <IoMdCreate size={25} /> New
+                  </Button>
+                  <Button
+                    classNameAddition={styles.bannerButton}
+                    type="button"
+                    onClick={onClickExport}
+                  >
+                    <BiExport size={25} /> Export
+                  </Button>
+                </td>
+                <td className={styles.bannerDivRight}>
+                  <Button
+                    classNameAddition={styles.bannerButton}
+                    type="button"
+                    onClick={RefreshPage}
+                  >
+                    <HiRefresh size={25} /> Refresh
+                  </Button>
+                </td>
+              </tr>
             </TableHead>
           </Table>
           <Table className={styles.table} aria-label="simple table">

@@ -1,8 +1,6 @@
 type NameValueObj = {
-    displayName: string;
-    value: string;
-}
+  displayName: string;
+  value: string;
+};
 
-export type {
-    NameValueObj
-}
+export type { NameValueObj };

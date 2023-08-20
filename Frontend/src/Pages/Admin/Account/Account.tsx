@@ -14,10 +14,14 @@ import { AccountService } from "../../../Content/API/Services/AccountService";
 import { toast } from "react-toastify";
 import { getAuthUser } from "../../../Content/Utils/AuthUtils";
 import { AxiosResponse } from "axios";
-import styles from './Account.module.css'
+import styles from "./Account.module.css";
 
 export default function AccountPage() {
-  return <div className={styles.container}><ManageAccountForm /></div>;
+  return (
+    <div className={styles.container}>
+      <ManageAccountForm />
+    </div>
+  );
 }
 
 export async function loadUser(username: string) {

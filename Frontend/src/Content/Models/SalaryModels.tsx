@@ -43,7 +43,7 @@ export const DeductionTypes: NameValueObj[] = Object.values(DeductionType).map(
   (value) => ({
     displayName: value.replace(/([A-Z])/g, " $1").trim(),
     value,
-  })
+  }),
 );
 
 export enum BillType {
@@ -56,7 +56,7 @@ export const BillTypes: NameValueObj[] = Object.values(BillType).map(
   (value) => ({
     displayName: value.replace(/([A-Z])/g, " $1").trim(),
     value,
-  })
+  }),
 );
 
 export enum SavingType {
@@ -68,5 +68,5 @@ export const SavingTypes: NameValueObj[] = Object.values(SavingType).map(
   (value) => ({
     displayName: value.replace(/([A-Z])/g, " $1").trim(),
     value,
-  })
+  }),
 );

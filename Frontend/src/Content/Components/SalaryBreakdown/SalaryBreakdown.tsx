@@ -19,7 +19,7 @@ export const SalaryBreakdown = (props: SalaryTableProps) => {
   const [showColumn, setShowColumn] = useState<string>("Monthly");
 
   function showColumnChangeHandler(
-    event: React.ChangeEvent<HTMLSelectElement>
+    event: React.ChangeEvent<HTMLSelectElement>,
   ) {
     setShowColumn(event.target.value);
   }
