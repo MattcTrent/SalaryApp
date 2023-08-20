@@ -1,19 +1,20 @@
-import { IChartDataPoint } from "../../../Models/ExpenseModels";
-import "./Chart.css";
+import { ChartDataPoint } from "../../../Models/ExpenseModels";
 import ChartBar from "./ChartBar";
 
-interface IChartProps {
-  dataPoints: IChartDataPoint[];
+import styles from "./Chart.module.css";
+
+interface ChartProps {
+  dataPoints: ChartDataPoint[];
 }
 
-export default function Chart(props: IChartProps) {
+export default function Chart(props: ChartProps) {
   const dataPointValues = props.dataPoints.map((dataPoint) => dataPoint.value);
 
   const maximum = Math.max(...dataPointValues);
 
   return (
-    <div className="chart">
-      {props.dataPoints.map((dataPoint: IChartDataPoint) => (
+    <div className={styles.chart}>
+      {props.dataPoints.map((dataPoint: ChartDataPoint) => (
         <ChartBar
           key={dataPoint.label}
           dataPoint={dataPoint}

@@ -1,4 +1,4 @@
-import { IExpenseItem } from "../../Content/Models/ExpenseModels";
+import { Expense } from "../../Content/Models/ExpenseModels";
 import "./Expenses.css";
 import NewExpense from "../../Content/Components/Expenses/NewExpense/NewExpense";
 import { useState } from "react";
@@ -8,15 +8,15 @@ import ExpenseChart from "../../Content/Components/Expenses/ExpenseChart/Expense
 import Card from "../../Content/Components/UI/Card/Card";
 
 export default function ExpensesPage() {
-  const [expenses, setExpenses] = useState<IExpenseItem[]>(
-    require("./mock-Expenses.json"),
+  const [expenses, setExpenses] = useState<Expense[]>(
+    require("./mock-Expenses.json")
   );
   const [filterYear, setFilterYear] = useState(
-    new Date().getFullYear().toString(),
+    new Date().getFullYear().toString()
   );
 
   function getNextId(): number {
-    let latestExpense: IExpenseItem = {
+    let latestExpense: Expense = {
       id: 0,
       title: "",
       value: 0.0,
@@ -24,17 +24,17 @@ export default function ExpensesPage() {
     };
     if (expenses.length > 0) {
       latestExpense = expenses.reduce(
-        (prevExpense: IExpenseItem, nextExpense: IExpenseItem) =>
+        (prevExpense: Expense, nextExpense: Expense) =>
           (prevExpense?.id?.valueOf() || 0) > (nextExpense?.id?.valueOf() || 0)
             ? prevExpense
-            : nextExpense,
+            : nextExpense
       );
     }
 
     return (latestExpense?.id || 0) + 1;
   }
 
-  function addExpense(newExpense: IExpenseItem) {
+  function addExpense(newExpense: Expense) {
     setExpenses((prevExpenses) => {
       return [...prevExpenses, newExpense];
     });
@@ -55,12 +55,12 @@ export default function ExpensesPage() {
     filterYear === "All"
       ? expenses
       : expenses.filter(
-          (expense: IExpenseItem) =>
-            new Date(expense.date).getFullYear().toString() === filterYear,
+          (expense: Expense) =>
+            new Date(expense.date).getFullYear().toString() === filterYear
         );
   filteredExpenses = filteredExpenses.sort(
-    (prevExpense: IExpenseItem, nextExpense: IExpenseItem) =>
-      new Date(prevExpense.date) < new Date(nextExpense.date) ? 1 : 0,
+    (prevExpense: Expense, nextExpense: Expense) =>
+      new Date(prevExpense.date) < new Date(nextExpense.date) ? 1 : 0
   );
 
   return (

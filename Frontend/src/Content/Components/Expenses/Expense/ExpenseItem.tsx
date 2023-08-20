@@ -1,21 +1,22 @@
-import { IExpenseItem } from "../../../Models/ExpenseModels";
+import { Expense } from "../../../Models/ExpenseModels";
 import ExpenseDate from "./ExpenseDate";
-import "./ExpenseItem.css";
 import NumberHelper from "../../../Utils/NumberHelpers";
 import Card from "../../UI/Card/Card";
 
-interface IExpenseItemProps {
-  expense: IExpenseItem;
+import styles from "./ExpenseItem.module.css";
+
+interface ExpenseItemProps {
+  expense: Expense;
 }
 
-export default function ExpenseItem(props: IExpenseItemProps) {
+export default function ExpenseItem(props: ExpenseItemProps) {
   return (
     <li>
-      <Card className="expense-item">
+      <Card className={styles.expenseItem}>
         <ExpenseDate date={props.expense.date} />
-        <div className="expense-item__description">
+        <div className={styles.description}>
           <h2>{props.expense.title}</h2>
-          <div className="expense-item__price">
+          <div className={styles.price}>
             {NumberHelper.ToCurrencyString(props.expense.value)}
           </div>
         </div>

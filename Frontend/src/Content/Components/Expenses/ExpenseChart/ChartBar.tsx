@@ -1,8 +1,8 @@
-import { IChartDataPoint } from "../../../Models/ExpenseModels";
-import "./ChartBar.css";
+import { ChartDataPoint } from "../../../Models/ExpenseModels";
+import styles from "./ChartBar.module.css";
 
 interface IChartBarProps {
-  dataPoint: IChartDataPoint;
+  dataPoint: ChartDataPoint;
   maxValue: number;
 }
 
@@ -15,11 +15,14 @@ export default function ChartBar(props: IChartBarProps) {
   }
 
   return (
-    <div className="chart-bar">
-      <div className="chart-bar__inner">
-        <div className="chart-bar__fill" style={{ height: fillPercent }}></div>
+    <div className={styles.chartBar}>
+      <div className={styles.chartBarInner}>
+        <div
+          className={styles.chartBarFill}
+          style={{ height: fillPercent }}
+        ></div>
       </div>
-      <div className="chart-bar__label">{props.dataPoint.label}</div>
+      <div className={styles.chartBarLabel}>{props.dataPoint.label}</div>
     </div>
   );
 }

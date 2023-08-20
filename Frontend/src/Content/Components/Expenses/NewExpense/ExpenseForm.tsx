@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
-import { IExpenseItem } from "../../../Models/ExpenseModels";
+import { Expense } from "../../../Models/ExpenseModels";
 
 import { toast } from "react-toastify";
 
 interface IExpenseFormProps {
-  onSubmitForm: (expense: IExpenseItem) => void;
+  onSubmitForm: (expense: Expense) => void;
   onCancel: () => void;
 }
 
@@ -40,7 +40,7 @@ export default function ExpenseForm(props: IExpenseFormProps) {
       return toast.error("All fields required for new expense.");
     }
 
-    const expense: IExpenseItem = {
+    const expense: Expense = {
       id: null,
       title: newTitle,
       value: parseFloat(newAmount),

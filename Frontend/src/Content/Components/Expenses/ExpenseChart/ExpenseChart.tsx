@@ -1,12 +1,12 @@
-import { IChartDataPoint, IExpenseItem } from "../../../Models/ExpenseModels";
+import { ChartDataPoint, Expense } from "../../../Models/ExpenseModels";
 import Chart from "./Chart";
 
 interface IExpenseChartProps {
-  expenses: IExpenseItem[];
+  expenses: Expense[];
 }
 
 export default function ExpenseChart(props: IExpenseChartProps) {
-  const chartDataPoints: IChartDataPoint[] = [
+  const chartDataPoints: ChartDataPoint[] = [
     { label: "Jan", value: 0 },
     { label: "Feb", value: 0 },
     { label: "Mar", value: 0 },

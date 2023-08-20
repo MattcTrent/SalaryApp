@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { IExpenseItem } from "../../../Models/ExpenseModels";
+import { Expense } from "../../../Models/ExpenseModels";
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
 interface INewExpenseProps {
   getNextId: () => number;
-  onSaveExpense: (expense: IExpenseItem) => void;
+  onSaveExpense: (expense: Expense) => void;
 }
 
 export default function NewExpense(props: INewExpenseProps) {
@@ -15,7 +15,7 @@ export default function NewExpense(props: INewExpenseProps) {
     setShowForm(!showForm);
   }
 
-  function saveExpense(newExpense: IExpenseItem) {
+  function saveExpense(newExpense: Expense) {
     const id = props.getNextId();
     const expenseData = {
       ...newExpense,

@@ -1,13 +1,13 @@
-interface IExpenseItem {
+interface Expense {
   id: number | null;
   date: Date;
   title: string;
   value: number;
 }
 
-interface IChartDataPoint {
+interface ChartDataPoint {
   value: number;
   label: string;
 }
 
-export type { IExpenseItem, IChartDataPoint };
+export type { Expense, ChartDataPoint };

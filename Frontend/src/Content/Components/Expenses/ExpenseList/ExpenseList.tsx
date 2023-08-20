@@ -1,9 +1,9 @@
 import ExpenseItem from "../Expense/ExpenseItem";
-import { IExpenseItem } from "../../../Models/ExpenseModels";
+import { Expense } from "../../../Models/ExpenseModels";
 import "./ExpenseList.css";
 
 interface IExpenseListProps {
-  expenses: IExpenseItem[];
+  expenses: Expense[];
 }
 
 export default function ExpenseList(props: IExpenseListProps) {
@@ -13,7 +13,7 @@ export default function ExpenseList(props: IExpenseListProps) {
 
   return (
     <ul className="expenses-list">
-      {props.expenses.map((expense: IExpenseItem) => (
+      {props.expenses.map((expense: Expense) => (
         <ExpenseItem key={expense.id} expense={expense}></ExpenseItem>
       ))}
     </ul>
