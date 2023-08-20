@@ -18,7 +18,7 @@ import { Deduction } from "../../../Models/SalaryModels";
 import { getAuthUserId } from "../../../Utils/AuthUtils";
 import { toast } from "react-toastify";
 import { SalaryService } from "../../../API/Services/SalaryService";
-import { IMessageResponse } from "../../../Models/UserModels";
+import { MessageResponse } from "../../../Models/UserModels";
 import { AxiosResponse } from "axios";
 import { useState } from "react";
 import { DeductionType, DeductionTypes } from "../../../Enums/DeductionType";
@@ -302,7 +302,7 @@ export const deleteAction: ActionFunction = async ({ request, params }) => {
   }
 
   try {
-    const response: AxiosResponse<IMessageResponse, any> =
+    const response: AxiosResponse<MessageResponse, any> =
       await SalaryService.deleteDeduction(+deductionId);
 
     if (response.status !== 200 && response.status !== 201) {

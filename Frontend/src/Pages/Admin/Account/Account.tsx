@@ -6,9 +6,9 @@ import {
 } from "react-router-dom";
 import ManageAccountForm from "../../../Content/Components/Account/ManageAccountForm";
 import {
-  IManageAuthUser,
-  IMessageResponse,
-  IUserDetails,
+  ManageAuthUser,
+  MessageResponse,
+  UserDetails,
 } from "../../../Content/Models/UserModels";
 import { AccountService } from "../../../Content/API/Services/AccountService";
 import { toast } from "react-toastify";
@@ -25,9 +25,9 @@ export default function AccountPage() {
 }
 
 export async function loadUser(username: string) {
-  let result: IUserDetails | null = null;
+  let result: UserDetails | null = null;
   try {
-    const response: AxiosResponse<IUserDetails, any> =
+    const response: AxiosResponse<UserDetails, any> =
       await AccountService.getUserByUsername(username);
 
     if (response.data) {
@@ -61,7 +61,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     ? data.set("ispensionsalarysacrifice", "true")
     : data.set("ispensionsalarysacrifice", "false");
 
-  let authData: IManageAuthUser;
+  let authData: ManageAuthUser;
   authData = {
     id: data.get("id"),
     username: data.get("username"),
@@ -76,13 +76,13 @@ export const action: ActionFunction = async ({ request, params }) => {
     roles: null,
   };
 
-  const response: AxiosResponse<IMessageResponse, any> =
+  const response: AxiosResponse<MessageResponse, any> =
     await AccountService.updateUser(authData);
 
   if (response.status !== 200) {
     throw json(
       { message: "could not authenticate user" },
-      { status: response.status },
+      { status: response.status }
     );
   }
 

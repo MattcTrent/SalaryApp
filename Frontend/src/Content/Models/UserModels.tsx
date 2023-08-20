@@ -1,16 +1,14 @@
-import { NameValueObj } from "./UtilModels";
+type LoginResponse = {
+  user: User;
+  message: MessageResponse;
+};
 
-interface ILoginResponse {
-  user: IUser;
-  message: IMessageResponse;
-}
-
-interface IMessageResponse {
+type MessageResponse = {
   message: string;
   token: string;
-}
+};
 
-interface IAuthUser {
+type AuthUser = {
   username: FormDataEntryValue | null;
   password: FormDataEntryValue | null;
   firstName: FormDataEntryValue | null;
@@ -20,13 +18,13 @@ interface IAuthUser {
   pensionPercentage: FormDataEntryValue | null;
   pensionSalarySacrifice: FormDataEntryValue | null;
   studentFinancePlan: FormDataEntryValue | null;
-}
-interface IManageAuthUser extends IAuthUser {
+};
+type ManageAuthUser = AuthUser & {
   id: FormDataEntryValue | null;
   roles: FormDataEntryValue | null;
-}
+};
 
-interface IUserDetails {
+type UserDetails = {
   id: number | undefined;
   username: string;
   password: string;
@@ -37,10 +35,10 @@ interface IUserDetails {
   pensionPercentage: number | null;
   pensionSalarySacrifice: boolean | undefined;
   studentFinancePlan: string | undefined;
-  roles: IRoles[];
-}
+  roles: Roles[];
+};
 
-interface IUser {
+type User = {
   id: number;
   username: string;
   firstName: string | null;
@@ -50,32 +48,20 @@ interface IUser {
   pensionPercentage: number | null;
   pensionSalarySacrifice: boolean | undefined;
   studentFinancePlan: string | null;
-  roles: IRoles[];
-}
-
-interface IRoles {
-  id: number;
-  name: string;
-}
-
-export type {
-  ILoginResponse,
-  IMessageResponse,
-  IAuthUser,
-  IManageAuthUser,
-  IUser,
-  IRoles,
-  IUserDetails,
+  roles: Roles[];
 };
 
-export enum StudentFinancePlan {
-  PLAN_1 = "Plan1",
-  PLAN_2 = "Plan2",
-}
+type Roles = {
+  id: number;
+  name: string;
+};
 
-export const StudentFinancePlans: NameValueObj[] = Object.values(
-  StudentFinancePlan,
-).map((value) => ({
-  displayName: value.replace(/([A-Z])/g, " $1").trim(),
-  value,
-}));
+export type {
+  LoginResponse,
+  MessageResponse,
+  AuthUser,
+  ManageAuthUser,
+  User,
+  Roles,
+  UserDetails,
+};

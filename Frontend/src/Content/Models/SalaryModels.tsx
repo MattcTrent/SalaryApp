@@ -1,4 +1,4 @@
-import { IUser } from "./UserModels";
+import { User } from "./UserModels";
 
 type SalaryBreakdown = {
   name: string;
@@ -13,12 +13,12 @@ type SalaryBreakdown = {
   bills: number;
   savingsAndInvestments: number;
   takehomeAfterBillsAndSavings: number;
-  user: IUser;
+  user: User;
 };
 
 type Deduction = {
   id: number;
-  user: IUser | null;
+  user: User | null;
   createdById: number;
   type: string;
   billType: string | null;

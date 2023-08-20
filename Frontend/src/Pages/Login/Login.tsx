@@ -8,7 +8,7 @@ import {
   json,
   redirect,
 } from "react-router-dom";
-import { IAuthUser, ILoginResponse } from "../../Content/Models/UserModels";
+import { AuthUser, LoginResponse } from "../../Content/Models/UserModels";
 import { AccountService } from "../../Content/API/Services/AccountService";
 import { clearAuth, setAuth } from "../../Content/Utils/AuthUtils";
 import { toast } from "react-toastify";
@@ -39,7 +39,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   data.get("ispensionsalarysacrifice")
     ? data.set("ispensionsalarysacrifice", "true")
     : data.set("ispensionsalarysacrifice", "false");
-  let authData: IAuthUser;
+  let authData: AuthUser;
   authData = {
     username: data.get("username"),
     password: data.get("password"),
@@ -58,12 +58,12 @@ export const action: ActionFunction = async ({ request, params }) => {
   }
 
   try {
-    const response: AxiosResponse<ILoginResponse, any> =
+    const response: AxiosResponse<LoginResponse, any> =
       await AccountService.authorizeUser(authData, mode);
     if (response.status !== 200) {
       throw json(
         { message: "could not authenticate user" },
-        { status: response.status },
+        { status: response.status }
       );
     }
 
@@ -71,7 +71,7 @@ export const action: ActionFunction = async ({ request, params }) => {
       setAuth(
         response.data.message.token,
         response.data.user.username,
-        response.data.user.id,
+        response.data.user.id
       );
     }
 
@@ -79,7 +79,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server.",
+        "Network Error: There has been an error communicating with the server."
       );
       return null;
     }
@@ -92,7 +92,7 @@ export const action: ActionFunction = async ({ request, params }) => {
       } else {
         throw json(
           { message: "could not authenticate user" },
-          { status: error.response.status },
+          { status: error.response.status }
         );
       }
     }
@@ -111,7 +111,7 @@ interface ValidationErrors {
 
 function validateAuthUser(
   mode: string,
-  user: IAuthUser,
+  user: AuthUser
 ): { validated: boolean; validation: ValidationErrors } {
   let validation: ValidationErrors = {
     username: null,

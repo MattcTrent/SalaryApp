@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IUserDetails } from "../../Content/Models/UserModels";
+import { UserDetails } from "../../Content/Models/UserModels";
 
-export const registerUserInitialState: IUserDetails = {
+export const registerUserInitialState: UserDetails = {
   id: undefined,
   username: "",
   password: "",

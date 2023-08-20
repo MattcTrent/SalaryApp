@@ -2,7 +2,7 @@ import styles from "./AccountForm.module.css";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerActions } from "../../../../Redux/Slices/RegisterSlice";
-import { IUserDetails, StudentFinancePlans } from "../../../Models/UserModels";
+import { UserDetails } from "../../../Models/UserModels";
 import CheckboxInput from "../../UI/Input/CheckboxInput/CheckboxInput";
 import CurrencyInput from "../../UI/Input/CurrencyInput/CurrencyInput";
 import PasswordInput from "../../UI/Input/PasswordInput/PasswordInput";
@@ -12,9 +12,10 @@ import SelectInput from "../../UI/Input/SelectInput/SelectInput";
 import Button from "../../UI/Button/Button";
 import { Form, useActionData } from "react-router-dom";
 import { RootState } from "../../../../Redux/Reducers/RootReducer";
+import { StudentFinancePlans } from "../../../Enums/StudentFinancePlan";
 
 interface IAccountFormProps {
-  user: IUserDetails | null;
+  user: UserDetails | null;
   method: any;
   isSubmitting: boolean;
 }
@@ -25,25 +26,25 @@ export default function AccountForm(props: IAccountFormProps) {
   const data: any = useActionData();
 
   const usernameChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     dispatch(registerActions.setUsername(event.target.value));
   };
 
   const passwordChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     dispatch(registerActions.setPassword(event.target.value));
   };
 
   const firstNameChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     dispatch(registerActions.setFirstName(event.target.value));
   };
 
   const lastNameChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     dispatch(registerActions.setLastName(event.target.value));
   };
@@ -57,19 +58,19 @@ export default function AccountForm(props: IAccountFormProps) {
   };
 
   const pensionPecentChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     dispatch(registerActions.setPensionPercentage(+event.target.value));
   };
 
   const isPensionSSChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     dispatch(registerActions.setIsPensionSalarySacrifice(event.target.checked));
   };
 
   function studentFinancePlanChangeHandler(
-    event: React.ChangeEvent<HTMLSelectElement>,
+    event: React.ChangeEvent<HTMLSelectElement>
   ) {
     dispatch(registerActions.setStudentFinancePlan(event.target.value));
   }
