@@ -2,10 +2,10 @@ import React from "react";
 
 import GoalItem from "./GoalItem";
 import "./GoalList.css";
-import { IGoalItem } from "../../Models/GoalModels";
+import { Goal } from "../../Models/GoalModels";
 
 interface IGoalListProps {
-  items: IGoalItem[];
+  items: Goal[];
   onDeleteItem: (id: number) => void;
 }
 

@@ -1,6 +1,6 @@
-interface IGoalItem {
+type Goal = {
   id: number;
   text: string;
-}
+};
 
-export type { IGoalItem };
+export type { Goal };

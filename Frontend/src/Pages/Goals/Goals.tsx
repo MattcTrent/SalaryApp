@@ -3,21 +3,20 @@ import React, { useState } from "react";
 import GoalList from "../../Content/Components/Goals/GoalList";
 import GoalInput from "../../Content/Components/Goals/GoalInput";
 import "./Goals.css";
-import { IGoalItem } from "../../Content/Models/GoalModels";
+import { Goal } from "../../Content/Models/GoalModels";
 
 export default function GoalsPage() {
-  const [courseGoals, setCourseGoals] = useState<IGoalItem[]>(
-    require("./mock-Goals.json"),
+  const [courseGoals, setCourseGoals] = useState<Goal[]>(
+    require("./mock-Goals.json")
   );
 
   function getNextId(): number {
-    let latestExpense: IGoalItem = { id: 0, text: "" };
+    let latestExpense: Goal = { id: 0, text: "" };
     if (courseGoals.length > 0) {
-      latestExpense = courseGoals.reduce(
-        (prevGoal: IGoalItem, nextGoal: IGoalItem) =>
-          (prevGoal?.id?.valueOf() || 0) > (nextGoal?.id?.valueOf() || 0)
-            ? prevGoal
-            : nextGoal,
+      latestExpense = courseGoals.reduce((prevGoal: Goal, nextGoal: Goal) =>
+        (prevGoal?.id?.valueOf() || 0) > (nextGoal?.id?.valueOf() || 0)
+          ? prevGoal
+          : nextGoal
       );
     }
 
