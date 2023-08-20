@@ -14,7 +14,13 @@ import StringInput from "../../UI/Input/StringInput/StringInput";
 import CurrencyInput from "../../UI/Input/CurrencyInput/CurrencyInput";
 import Button from "../../UI/Button/Button";
 import Navigation from "../../UI/NavigationLinks/Navigation";
-import { BillTypes, DeductionType, DeductionTypes, IDeduction } from "../../../Models/SalaryModels";
+import {
+  BillTypes,
+  DeductionType,
+  DeductionTypes,
+  IDeduction,
+  SavingTypes,
+} from "../../../Models/SalaryModels";
 import { getAuthUserId } from "../../../Utils/AuthUtils";
 import { toast } from "react-toastify";
 import { SalaryService } from "../../../API/Services/SalaryService";
@@ -35,7 +41,9 @@ export default function DeductionForm(props: DeductionFormProps) {
   const isSubmitting = navigation.state === "submitting";
   const submitData: any = useActionData();
   const submit = useSubmit();
-  const [deductionType, setDeductionType] = useState<string>(props.loadedDeduction?.type || type || '');
+  const [deductionType, setDeductionType] = useState<string>(
+    props.loadedDeduction?.type || type || ""
+  );
 
   function startDeleteHandler() {
     const proceed = window.confirm("Are you sure?");
@@ -49,7 +57,7 @@ export default function DeductionForm(props: DeductionFormProps) {
   }
 
   function typeChangeHandler(event: React.ChangeEvent<HTMLSelectElement>) {
-    setDeductionType(event.target.value)
+    setDeductionType(event.target.value);
   }
 
   return (
@@ -86,18 +94,32 @@ export default function DeductionForm(props: DeductionFormProps) {
         >
           Type
         </SelectInput>
-        {deductionType === DeductionType.BILL &&
-        <SelectInput
-          id="inpbillType"
-          name="billType"
-          values={BillTypes}
-          readOnly={isSubmitting}
-          validationMessage={submitData?.billType ?? undefined}
-          required={true}
-          defaultValue={props.loadedDeduction?.billType || billType || ""}
-        >
-          Bill Type
-        </SelectInput>}
+        {deductionType === DeductionType.BILL && (
+          <SelectInput
+            id="inpbillType"
+            name="billType"
+            values={BillTypes}
+            readOnly={isSubmitting}
+            validationMessage={submitData?.billType ?? undefined}
+            required={true}
+            defaultValue={props.loadedDeduction?.billType || billType || ""}
+          >
+            Bill Type
+          </SelectInput>
+        )}
+        {deductionType === DeductionType.SAVING_AND_INVESTMENT && (
+          <SelectInput
+            id="inpSavingType"
+            name="savingType"
+            values={SavingTypes}
+            readOnly={isSubmitting}
+            validationMessage={submitData?.billType ?? undefined}
+            required={true}
+            defaultValue={props.loadedDeduction?.billType || billType || ""}
+          >
+            Saving Type
+          </SelectInput>
+        )}
         <StringInput
           id="inpname"
           name="name"
@@ -176,6 +198,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     createdById: userId,
     type: data.get("type")?.toString() ?? "",
     billType: data.get("billType")?.toString() ?? null,
+    savingType: data.get("savingType")?.toString() ?? null,
     name: data.get("name")?.toString() ?? "",
     cost: cost ? +cost : 0,
   };
@@ -196,7 +219,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: `could not ${mode} deduction` },
-        { status: response.status },
+        { status: response.status }
       );
     }
 
@@ -204,7 +227,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server.",
+        "Network Error: There has been an error communicating with the server."
       );
       return null;
     }
@@ -217,7 +240,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     } else {
       throw json(
         { message: "could not submit deduction" },
-        { status: error.response.status },
+        { status: error.response.status }
       );
     }
     return null;
@@ -227,6 +250,7 @@ export const action: ActionFunction = async ({ request, params }) => {
 interface ValidationErrors {
   type: string | null;
   billType: string | null;
+  savingType: string | null;
   name: string | null;
   cost: string | null;
 }
@@ -238,6 +262,7 @@ function validateDeduction(deduction: IDeduction): {
   let validation: ValidationErrors = {
     type: null,
     billType: null,
+    savingType: null,
     name: null,
     cost: null,
   };
@@ -249,6 +274,13 @@ function validateDeduction(deduction: IDeduction): {
 
   if (deduction.type === DeductionType.BILL && deduction.billType === "") {
     validation.billType = "A bill type is required";
+  }
+
+  if (
+    deduction.type === DeductionType.SAVING_AND_INVESTMENT &&
+    deduction.savingType === ""
+  ) {
+    validation.savingType = "A saving type is required";
   }
 
   if (deduction.type === "") {
@@ -278,7 +310,7 @@ export const deleteAction: ActionFunction = async ({ request, params }) => {
     if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: `could not delete deduction` },
-        { status: response.status },
+        { status: response.status }
       );
     }
 
@@ -286,7 +318,7 @@ export const deleteAction: ActionFunction = async ({ request, params }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server.",
+        "Network Error: There has been an error communicating with the server."
       );
       return null;
     }
@@ -299,7 +331,7 @@ export const deleteAction: ActionFunction = async ({ request, params }) => {
     } else {
       throw json(
         { message: "could not delete deduction" },
-        { status: error.response.status },
+        { status: error.response.status }
       );
     }
     return null;

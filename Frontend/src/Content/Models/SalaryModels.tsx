@@ -22,6 +22,7 @@ interface IDeduction {
   createdById: number;
   type: string;
   billType: string | null;
+  savingType: string | null;
   name: string;
   cost: number;
 }
@@ -34,22 +35,37 @@ export enum DeductionType {
   NI_BENEFIT = "NIBenefit",
   PAYROLL_DEDUCTION = "PayrollDeduction",
   BILL = "Bill",
+  SAVING_AND_INVESTMENT = "SavingsAndInvestment",
 }
 
-export const DeductionTypes: NameValueObj[] = Object.values(DeductionType).map((value) => ({
-  displayName: value.replace(/([A-Z])/g, " $1").trim(),
-  value,
-}));
-
+export const DeductionTypes: NameValueObj[] = Object.values(DeductionType).map(
+  (value) => ({
+    displayName: value.replace(/([A-Z])/g, " $1").trim(),
+    value,
+  })
+);
 
 export enum BillType {
   HOUSEHOLD = "Household",
   SUBSCRIPTION = "Subscription",
-  SAVING = "Saving",
   DEBT_REPAYMENT = "DebtRepayment",
 }
 
-export const BillTypes: NameValueObj[] = Object.values(BillType).map((value) => ({
-  displayName: value.replace(/([A-Z])/g, " $1").trim(),
-  value,
-}));
+export const BillTypes: NameValueObj[] = Object.values(BillType).map(
+  (value) => ({
+    displayName: value.replace(/([A-Z])/g, " $1").trim(),
+    value,
+  })
+);
+
+export enum SavingType {
+  SAVING = "Saving",
+  INVESTMENT = "Investment",
+}
+
+export const SavingTypes: NameValueObj[] = Object.values(SavingType).map(
+  (value) => ({
+    displayName: value.replace(/([A-Z])/g, " $1").trim(),
+    value,
+  })
+);

@@ -16,19 +16,21 @@ interface DeductionsProps {
 }
 
 const Deductions = (props: DeductionsProps) => {
-  
-  // Group the deductions by bill type
+  // Group the deductions that are not a bill
   const groupedDeductions: GroupedDeductions = {};
   props.deductions?.forEach((item: IDeduction) => {
-    if (item.type !== DeductionType.BILL) {
+    if (
+      item.type !== DeductionType.BILL &&
+      item.type !== DeductionType.SAVING_AND_INVESTMENT
+    ) {
       if (!groupedDeductions[item.type]) {
         groupedDeductions[item.type] = [];
       }
       groupedDeductions[item.type].push(item);
     }
   });
-  
-  // Group the deductions by bill type
+
+  // Group the deductions are bill type
   const groupedBillDeductions: GroupedDeductions = {};
   props.deductions?.forEach((item: IDeduction) => {
     if (item.type === DeductionType.BILL) {
@@ -39,9 +41,22 @@ const Deductions = (props: DeductionsProps) => {
     }
   });
 
+  // Group the deductions are saving
+  const groupedSavingAndInvestmentDeductions: GroupedDeductions = {};
+  props.deductions?.forEach((item: IDeduction) => {
+    if (item.type === DeductionType.SAVING_AND_INVESTMENT) {
+      if (!groupedSavingAndInvestmentDeductions[item.billType!]) {
+        groupedSavingAndInvestmentDeductions[item.billType!] = [];
+      }
+      groupedSavingAndInvestmentDeductions[item.billType!].push(item);
+    }
+  });
+
   return (
     <div className={styles.container}>
-      <SectionHeading generateButtons={generateNewDeductionsNavButtons}>Payslip Deductions</SectionHeading>    
+      <SectionHeading generateButtons={generateNewDeductionsNavButtons}>
+        Payslip Deductions
+      </SectionHeading>
       <div className={styles.deductions}>
         {Object.keys(groupedDeductions).map((deductionType) => (
           <DeductionTable
@@ -52,7 +67,9 @@ const Deductions = (props: DeductionsProps) => {
           />
         ))}
       </div>
-      <SectionHeading generateButtons={generateNewBillsNavButtons}>Bills</SectionHeading>      
+      <SectionHeading generateButtons={generateNewBillsNavButtons}>
+        Bills
+      </SectionHeading>
       <div className={styles.bills}>
         {Object.keys(groupedBillDeductions).map((billType) => (
           <DeductionTable
@@ -64,13 +81,25 @@ const Deductions = (props: DeductionsProps) => {
           />
         ))}
       </div>
+      <SectionHeading generateButtons={generateNewBillsNavButtons}>
+        Savings and Investments
+      </SectionHeading>
+      <div className={styles.bills}>
+        {Object.keys(groupedSavingAndInvestmentDeductions).map((billType) => (
+          <DeductionTable
+            key={billType}
+            title={billType as BillType}
+            type={DeductionType.BILL}
+            billType={billType as BillType}
+            deductions={groupedSavingAndInvestmentDeductions[billType]}
+          />
+        ))}
+      </div>
     </div>
-    
   );
 };
 
 export default Deductions;
-
 
 const generateNewDeductionsNavButtons = () => {
   const codeBlocks: JSX.Element[] = [];
