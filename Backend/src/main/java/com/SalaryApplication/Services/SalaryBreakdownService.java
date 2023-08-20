@@ -65,7 +65,8 @@ public class SalaryBreakdownService implements ISalaryBreakdownService {
         breakdown.setMonthlySalary(user.getSalary().divide(BigDecimal.valueOf(12), 2, RoundingMode.UP));
 
         breakdown.setPension(breakdown.getMonthlySalary()
-                .multiply((user.getPensionPercentage().divide(BigDecimal.valueOf(100)))).setScale(2, RoundingMode.DOWN));
+                .multiply((user.getPensionPercentage().divide(BigDecimal.valueOf(100))))
+                .setScale(2, RoundingMode.DOWN));
         if (user.isPensionSalarySacrifice()) {
             breakdown.setSalarySacrifice(breakdown.getPension());
         }
@@ -118,7 +119,9 @@ public class SalaryBreakdownService implements ISalaryBreakdownService {
 
         breakdown.setBills(this.GetBillsDeductionValue());
 
-        breakdown.setTakehomeAfterBills(breakdown.getTakehome().subtract(breakdown.getBills()));
+        breakdown.setSavingsAndInvestments(this.GetSavingsAndInvestmentsDeductionValue());
+
+        breakdown.setTakehomeAfterBillsAndSavings(breakdown.getTakehome().subtract(breakdown.getBills()));
     }
 
     private BigDecimal GetPayrollDeductionValue() {
@@ -134,6 +137,16 @@ public class SalaryBreakdownService implements ISalaryBreakdownService {
     private BigDecimal GetBillsDeductionValue() {
         List<Deduction> deductions = this.deductionRepo
                 .findByType(DeductionTypeEnum.Bill);
+        BigDecimal deductionsTotal = deductions.stream()
+                .map(Deduction::getCost)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        return deductionsTotal;
+    }
+
+    private BigDecimal GetSavingsAndInvestmentsDeductionValue() {
+        List<Deduction> deductions = this.deductionRepo
+                .findByType(DeductionTypeEnum.SavingsAndInvestment);
         BigDecimal deductionsTotal = deductions.stream()
                 .map(Deduction::getCost)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

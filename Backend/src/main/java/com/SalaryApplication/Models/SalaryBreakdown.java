@@ -16,7 +16,8 @@ public class SalaryBreakdown {
     private BigDecimal studentFinance;
     private BigDecimal takehome;
     private BigDecimal bills;
-    private BigDecimal takehomeAfterBills;
+    private BigDecimal savingsAndInvestments;
+    private BigDecimal takehomeAfterBillsAndSavings;
     private User user;
 
     public String getName() {
@@ -83,12 +84,12 @@ public class SalaryBreakdown {
         this.takehome = takehome;
     }
 
-    public BigDecimal getTakehomeAfterBills() {
-        return takehomeAfterBills;
+    public BigDecimal getTakehomeAfterBillsAndSavings() {
+        return takehomeAfterBillsAndSavings;
     }
 
-    public void setTakehomeAfterBills(BigDecimal takehomeAfterDeductions) {
-        this.takehomeAfterBills = takehomeAfterDeductions;
+    public void setTakehomeAfterBillsAndSavings(BigDecimal takehomeAfterDeductions) {
+        this.takehomeAfterBillsAndSavings = takehomeAfterDeductions;
     }
 
     public User getUser() {
@@ -117,5 +118,13 @@ public class SalaryBreakdown {
 
     public void setBills(BigDecimal bills) {
         this.bills = bills;
+    }
+
+    public BigDecimal getSavingsAndInvestments() {
+        return savingsAndInvestments;
+    }
+
+    public void setSavingsAndInvestments(BigDecimal savingsAndInvestments) {
+        this.savingsAndInvestments = savingsAndInvestments;
     }
 }

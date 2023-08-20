@@ -64,8 +64,13 @@ export const SalaryTBody = (props: SalaryTBodyProps) => {
         showColumn={props.showColumn}
       />
       <SalaryRow
+        rowName="Savings and Investments"
+        rowValue={props.salaryBreakdown.savingsAndInvestments}
+        showColumn={props.showColumn}
+      />
+      <SalaryRow
         rowName="After Bills"
-        rowValue={props.salaryBreakdown.takehomeAfterBills}
+        rowValue={props.salaryBreakdown.takehomeAfterBillsAndSavings}
         showColumn={props.showColumn}
       />
     </TableBody>

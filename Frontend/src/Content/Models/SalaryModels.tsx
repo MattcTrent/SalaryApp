@@ -12,7 +12,8 @@ interface ISalaryBreakdown {
   studentFinance: number;
   takehome: number;
   bills: number;
-  takehomeAfterBills: number;
+  savingsAndInvestments: number;
+  takehomeAfterBillsAndSavings: number;
   user: IUser;
 }
 
