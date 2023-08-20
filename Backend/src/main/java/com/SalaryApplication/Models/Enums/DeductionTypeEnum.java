@@ -6,4 +6,5 @@ public enum DeductionTypeEnum {
     NIBenefit,
     PayrollDeduction,
     Bill,
+    SavingsAndInvestment,
 }
