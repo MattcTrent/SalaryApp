@@ -36,6 +36,8 @@ npm start
 yarn start
 ```
 
+See Frontend/README.md for more details
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Getting Started - Backend
