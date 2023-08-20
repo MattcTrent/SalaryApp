@@ -11,6 +11,7 @@ import SelectInput from "../UI/Input/SelectInput/SelectInput";
 import { ShowColumns } from "../../Enums/ShowColum";
 import { SalaryTBody } from "./SalaryTBody/SalaryTBody";
 import SalaryBreakdownTableFilterModal from "./SBTableFilterModal/SBTableFilterModal";
+import Button from "../UI/Button/Button";
 
 interface SalaryTableProps {
   salaryBreakdown: SalaryBreakdown | null;
@@ -18,12 +19,21 @@ interface SalaryTableProps {
 
 export const SalaryBreakdownTable = (props: SalaryTableProps) => {
   const [showColumn, setShowColumn] = useState<string>("Monthly");
+  const [showModal, setShowModal] = useState(false);
 
   function showColumnChangeHandler(
     event: React.ChangeEvent<HTMLSelectElement>
   ) {
     setShowColumn(event.target.value);
   }
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <TableContainer className={styles.container} component={Paper}>
@@ -33,7 +43,15 @@ export const SalaryBreakdownTable = (props: SalaryTableProps) => {
             <TableHead>
               <TableRow className={`${styles.headerRow} ${styles.nameRow}`}>
                 <TableCell align="center">
-                  {props.salaryBreakdown.name}
+                  <div className={styles.nameRowDiv}>
+                    {props.salaryBreakdown.name}
+                    <Button
+                      onClick={openModal}
+                      classNameAddition={styles.button}
+                    >
+                      Filter Columns
+                    </Button>
+                  </div>
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -62,7 +80,9 @@ export const SalaryBreakdownTable = (props: SalaryTableProps) => {
       ) : (
         <h3>No Salary Breakdown Found</h3>
       )}
-      <SalaryBreakdownTableFilterModal />
+      {showModal && (
+        <SalaryBreakdownTableFilterModal onCloseClick={closeModal} />
+      )}
     </TableContainer>
   );
 };

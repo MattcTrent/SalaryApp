@@ -18,18 +18,32 @@
 .headerRow {
   color: White;
   background-color: #25383c;
-}
+  th {
+    color: White;
+    font-weight: Bold;
+    font-size: 0.75vw;
+    width: fit-content;
+  }
 
-.headerRow th {
-  color: White;
-  font-weight: Bold;
-  font-size: 0.75vw;
-  width: fit-content;
+  select {
+    font-weight: normal;
+  }
 }
 
 .nameRow {
   color: White;
   background-color: #36454f;
+}
+
+.nameRowDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.button {
+  color: white;
 }
 
 .titleCell {
