@@ -97,7 +97,7 @@ public class SalaryBreakdownService implements ISalaryBreakdownService {
     }
 
     private void CalculateTakehome(SalaryBreakdown breakdown) {
-        BigDecimal salary = breakdown.getMonthlySalary();
+        BigDecimal salary = breakdown.getSalaryPostSalarySacrifice();
 
         BigDecimal takehome = salary.subtract(breakdown.getTax());
         takehome = takehome.subtract(breakdown.getnI());
