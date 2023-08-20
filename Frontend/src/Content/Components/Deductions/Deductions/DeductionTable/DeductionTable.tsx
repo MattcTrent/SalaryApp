@@ -11,11 +11,13 @@ interface DeductionsTableProps {
   title: string;
   type: string;
   billType?: string;
+  savingType?: string;
   deductions: IDeduction[];
 }
 
 const DeductionTable = (props: DeductionsTableProps) => {
   const billTypePath = props.billType && `&billType=${props.billType}`;
+  const savingTypePath = props.savingType && `&savingType=${props.savingType}`;
 
   return (
     <div className={styles.tableCont}>
@@ -31,7 +33,7 @@ const DeductionTable = (props: DeductionsTableProps) => {
         isButton={true}
         path={`NewDeduction?mode=create&type=${props.type}${
           billTypePath ?? ""
-        }`}
+        }${savingTypePath ?? ""}`}
       >
         <IoMdCreate size={20} /> New
       </Navigation>
@@ -56,7 +58,7 @@ const DeductionTable = (props: DeductionsTableProps) => {
               {NumberHelper.ToCurrencyString(
                 props.deductions.reduce((prev: number, current: IDeduction) => {
                   return prev + current.cost;
-                }, 0),
+                }, 0)
               )}
             </TD>
           </tr>

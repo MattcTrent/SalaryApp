@@ -1,9 +1,7 @@
-import {
-  BillType,
-  DeductionType,
-  IDeduction,
-  SavingType,
-} from "../../../Models/SalaryModels";
+import { BillType } from "../../../Enums/BillType";
+import { DeductionType } from "../../../Enums/DeductionType";
+import { SavingType } from "../../../Enums/SavingsType";
+import { IDeduction } from "../../../Models/SalaryModels";
 import Navigation from "../../UI/NavigationLinks/Navigation";
 import SectionHeading from "../../UI/SectionHeading/SectionHeading";
 import DeductionTable from "./DeductionTable/DeductionTable";
@@ -46,10 +44,10 @@ const Deductions = (props: DeductionsProps) => {
   const groupedSavingAndInvestmentDeductions: GroupedDeductions = {};
   props.deductions?.forEach((item: IDeduction) => {
     if (item.type === DeductionType.SAVING_AND_INVESTMENT) {
-      if (!groupedSavingAndInvestmentDeductions[item.billType!]) {
-        groupedSavingAndInvestmentDeductions[item.billType!] = [];
+      if (!groupedSavingAndInvestmentDeductions[item.savingType!]) {
+        groupedSavingAndInvestmentDeductions[item.savingType!] = [];
       }
-      groupedSavingAndInvestmentDeductions[item.billType!].push(item);
+      groupedSavingAndInvestmentDeductions[item.savingType!].push(item);
     }
   });
 
@@ -71,7 +69,7 @@ const Deductions = (props: DeductionsProps) => {
       <SectionHeading generateButtons={generateNewBillsNavButtons}>
         Bills
       </SectionHeading>
-      <div className={styles.bills}>
+      <div className={styles.deductions}>
         {Object.keys(groupedBillDeductions).map((billType) => (
           <DeductionTable
             key={billType}
@@ -85,16 +83,17 @@ const Deductions = (props: DeductionsProps) => {
       <SectionHeading generateButtons={generateNewSavingsNavButtons}>
         Savings and Investments
       </SectionHeading>
-      <div className={styles.bills}>
-        {Object.keys(groupedSavingAndInvestmentDeductions).map((billType) => (
+      <div className={styles.deductions}>
+        {Object.keys(groupedSavingAndInvestmentDeductions).map((savingType) => (
           <DeductionTable
-            key={billType}
-            title={billType as BillType}
-            type={DeductionType.BILL}
-            billType={billType as BillType}
-            deductions={groupedSavingAndInvestmentDeductions[billType]}
+            key={savingType}
+            title={savingType as SavingType}
+            type={DeductionType.SAVING_AND_INVESTMENT}
+            billType={savingType as SavingType}
+            deductions={groupedSavingAndInvestmentDeductions[savingType]}
           />
         ))}
+        ;
       </div>
     </div>
   );
@@ -122,7 +121,7 @@ const generateNewDeductionsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>,
+        </Navigation>
       );
     }
   }
@@ -146,7 +145,7 @@ const generateNewBillsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>,
+        </Navigation>
       );
     }
   }
@@ -170,7 +169,7 @@ const generateNewSavingsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>,
+        </Navigation>
       );
     }
   }

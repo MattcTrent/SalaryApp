@@ -14,19 +14,16 @@ import StringInput from "../../UI/Input/StringInput/StringInput";
 import CurrencyInput from "../../UI/Input/CurrencyInput/CurrencyInput";
 import Button from "../../UI/Button/Button";
 import Navigation from "../../UI/NavigationLinks/Navigation";
-import {
-  BillTypes,
-  DeductionType,
-  DeductionTypes,
-  IDeduction,
-  SavingTypes,
-} from "../../../Models/SalaryModels";
+import { IDeduction } from "../../../Models/SalaryModels";
 import { getAuthUserId } from "../../../Utils/AuthUtils";
 import { toast } from "react-toastify";
 import { SalaryService } from "../../../API/Services/SalaryService";
 import { IMessageResponse } from "../../../Models/UserModels";
 import { AxiosResponse } from "axios";
 import { useState } from "react";
+import { DeductionType, DeductionTypes } from "../../../Enums/DeductionType";
+import { BillTypes } from "../../../Enums/BillType";
+import { SavingTypes } from "../../../Enums/SavingsType";
 
 interface DeductionFormProps {
   loadedDeduction: IDeduction | null;
@@ -43,7 +40,7 @@ export default function DeductionForm(props: DeductionFormProps) {
   const submitData: any = useActionData();
   const submit = useSubmit();
   const [deductionType, setDeductionType] = useState<string>(
-    props.loadedDeduction?.type || type || "",
+    props.loadedDeduction?.type || type || ""
   );
 
   function startDeleteHandler() {
@@ -220,7 +217,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: `could not ${mode} deduction` },
-        { status: response.status },
+        { status: response.status }
       );
     }
 
@@ -228,7 +225,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server.",
+        "Network Error: There has been an error communicating with the server."
       );
       return null;
     }
@@ -241,7 +238,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     } else {
       throw json(
         { message: "could not submit deduction" },
-        { status: error.response.status },
+        { status: error.response.status }
       );
     }
     return null;
@@ -311,7 +308,7 @@ export const deleteAction: ActionFunction = async ({ request, params }) => {
     if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: `could not delete deduction` },
-        { status: response.status },
+        { status: response.status }
       );
     }
 
@@ -319,7 +316,7 @@ export const deleteAction: ActionFunction = async ({ request, params }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server.",
+        "Network Error: There has been an error communicating with the server."
       );
       return null;
     }
@@ -332,7 +329,7 @@ export const deleteAction: ActionFunction = async ({ request, params }) => {
     } else {
       throw json(
         { message: "could not delete deduction" },
-        { status: error.response.status },
+        { status: error.response.status }
       );
     }
     return null;
