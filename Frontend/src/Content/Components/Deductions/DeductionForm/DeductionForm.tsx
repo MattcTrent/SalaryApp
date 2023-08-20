@@ -149,16 +149,12 @@ export default function DeductionForm(props: DeductionFormProps) {
         >
           Cancel
         </Navigation>
-        <Button
-          classNameAddition={styles.submitButton}
-          type="submit"
-          disabled={isSubmitting}
-        >
+        <Button colourStyle="positive" type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Submitting..." : "Submit"}
         </Button>
         {props.loadedDeduction && (
           <Button
-            classNameAddition={styles.deleteButton}
+            colourStyle="negative"
             type="button"
             disabled={isSubmitting}
             onClick={startDeleteHandler}

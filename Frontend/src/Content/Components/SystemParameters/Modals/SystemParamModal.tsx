@@ -211,6 +211,7 @@ export default function SystemParamModal(props: confirmModalProps) {
                 props.modalAction,
                 systemParamState.id
               )}
+              colourStyle="positive"
             >
               Save
             </Button>

@@ -12,7 +12,7 @@ const Modal = (props: ModalProps) => {
   return (
     <div className={`${styles.modalContainer} ${props.className ?? ""}`}>
       {props.children}
-      <Button type="button" onClick={props.onCloseClick}>
+      <Button colourStyle="negative" type="button" onClick={props.onCloseClick}>
         Close
       </Button>
     </div>
