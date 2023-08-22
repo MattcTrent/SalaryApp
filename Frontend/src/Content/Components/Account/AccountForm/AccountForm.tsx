@@ -19,7 +19,7 @@ interface IAccountFormProps {
   method: any;
   isSubmitting: boolean;
 }
-
+//
 export default function AccountForm(props: IAccountFormProps) {
   const dispatch = useDispatch();
   const registerState = useSelector((state: RootState) => state.register);
