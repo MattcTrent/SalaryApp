@@ -80,16 +80,18 @@ export const action: ActionFunction = async ({ request }) => {
       return null;
     }
 
-    if (error.response.status === 401) {
-      if (error.response.data.message) {
-        toast.error(error.response.data.message);
-      } else if (error.message) {
-        toast.error(error.response.data.message);
-      } else {
-        throw json(
-          { message: "could not authenticate user" },
-          { status: error.response.status },
-        );
+    if (error.response) {
+      if (error.response.status === 401) {
+        if (error.response.data.message) {
+          toast.error(error.response.data.message);
+        } else if (error.message) {
+          toast.error(error.response.data.message);
+        } else {
+          throw json(
+            { message: "could not authenticate user" },
+            { status: error.response.status },
+          );
+        }
       }
     }
     return null;
@@ -117,7 +119,7 @@ function validateAuthUser(
     pensionPercentage: null,
     pensionSalarySacrifice: null,
   };
-  let validated: boolean = true;
+  let validated = true;
 
   if (mode === "login") {
     if (!user.username || user.username.length === 0) {
