@@ -4,9 +4,7 @@ import { useEffect } from "react";
 import { getTokenDuration } from "../../Utils/AuthUtils";
 import MainNavigation from "../MainNavigation/MainNavigation";
 
-interface MainLayoutProps {}
-
-const MainLayout = (props: MainLayoutProps) => {
+const MainLayout = () => {
   const token = useLoaderData();
   const submit = useSubmit();
 

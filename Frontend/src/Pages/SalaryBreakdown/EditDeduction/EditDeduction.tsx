@@ -22,7 +22,7 @@ export default function EditDeductionPage() {
   );
 }
 
-export async function loader({ request, params }: ActionFunctionArgs) {
+export async function loader({ params }: ActionFunctionArgs) {
   const deductionId = params.deductionId;
 
   if (!deductionId) {

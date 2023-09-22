@@ -1,5 +1,3 @@
-import React from "react";
-
 import GoalItem from "./GoalItem";
 import "./GoalList.css";
 import { Goal } from "../../Models/GoalModels";

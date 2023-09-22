@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Login.module.scss";
 import LoginForm from "../../Content/Components/Account/LoginForm";
 import RegisterForm from "../../Content/Components/Account/RegisterForm";
@@ -14,9 +13,7 @@ import { clearAuth, setAuth } from "../../Content/Utils/AuthUtils";
 import { toast } from "react-toastify";
 import { AxiosResponse } from "axios";
 
-interface LoginPageProps {}
-
-export default function LoginPage(props: LoginPageProps) {
+export default function LoginPage() {
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") === "login";
 
@@ -27,7 +24,7 @@ export default function LoginPage(props: LoginPageProps) {
   );
 }
 
-export const action: ActionFunction = async ({ request, params }) => {
+export const action: ActionFunction = async ({ request }) => {
   const searchParams = new URL(request.url).searchParams;
   const mode = searchParams.get("mode") || "login";
 
@@ -171,7 +168,7 @@ function validateAuthUser(
   return { validated, validation };
 }
 
-export const logoutAction: ActionFunction = ({ request, params }) => {
+export const logoutAction: ActionFunction = () => {
   clearAuth();
   return redirect("/");
 };

@@ -1,9 +1,4 @@
-import {
-  ActionFunction,
-  ActionFunctionArgs,
-  defer,
-  json,
-} from "react-router-dom";
+import { ActionFunction, defer, json } from "react-router-dom";
 import ManageAccountForm from "../../../Content/Components/Account/ManageAccountForm";
 import {
   ManageAuthUser,
@@ -44,7 +39,7 @@ export async function loadUser(username: string) {
   }
 }
 
-export async function loader({ request, params }: ActionFunctionArgs) {
+export async function loader() {
   const username = getAuthUser();
   if (!username) {
     throw json({ message: "Could not retrieve username" }, { status: 500 });
@@ -55,7 +50,7 @@ export async function loader({ request, params }: ActionFunctionArgs) {
   });
 }
 
-export const action: ActionFunction = async ({ request, params }) => {
+export const action: ActionFunction = async ({ request }) => {
   const data = await request.formData();
   data.get("ispensionsalarysacrifice")
     ? data.set("ispensionsalarysacrifice", "true")

@@ -14,9 +14,7 @@ export function Backdrop(props: IBackdropProps) {
   return <div className={styles.backdrop} onClick={props.onBackdropClick} />;
 }
 
-interface IOverlayModalProps {}
-
-export function OverlayModal(props: IOverlayModalProps) {
+export function OverlayModal() {
   const loadingText = useSelector(
     (state: RootState) => state.loading.loadingText
   );

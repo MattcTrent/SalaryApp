@@ -1,11 +1,8 @@
-import React from "react";
 import AccountForm from "./AccountForm/AccountForm";
 import Navigation from "../UI/NavigationLinks/Navigation";
 import { useNavigation } from "react-router-dom";
 
-interface IRegisterFormProps {}
-
-export default function RegisterForm(props: IRegisterFormProps) {
+export default function RegisterForm() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 

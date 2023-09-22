@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import GoalList from "../../Content/Components/Goals/GoalList";
 import GoalInput from "../../Content/Components/Goals/GoalInput";
@@ -7,7 +7,7 @@ import { Goal } from "../../Content/Models/GoalModels";
 
 export default function GoalsPage() {
   const [courseGoals, setCourseGoals] = useState<Goal[]>(
-    require("./mock-Goals.json"),
+    require("./mock-Goals.json")
   );
 
   function getNextId(): number {
@@ -16,7 +16,7 @@ export default function GoalsPage() {
       latestExpense = courseGoals.reduce((prevGoal: Goal, nextGoal: Goal) =>
         (prevGoal?.id?.valueOf() || 0) > (nextGoal?.id?.valueOf() || 0)
           ? prevGoal
-          : nextGoal,
+          : nextGoal
       );
     }
 

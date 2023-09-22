@@ -1,20 +1,12 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { SalaryService } from "../../Content/API/Services/SalaryService";
 import { SalaryBreakdownTable } from "../../Content/Components/SalaryBreakdown/SalaryBreakdown";
 import Deductions from "../../Content/Components/Deductions/Deductions/Deductions";
 import styles from "./Salary.module.scss";
-import {
-  ActionFunctionArgs,
-  Await,
-  defer,
-  json,
-  useLoaderData,
-} from "react-router-dom";
+import { Await, defer, json, useLoaderData } from "react-router-dom";
 import { getAuthUser, getAuthUserId } from "../../Content/Utils/AuthUtils";
 
-interface ISalaryPageProps {}
-
-const SalaryBreakdownPage = (props: ISalaryPageProps) => {
+const SalaryBreakdownPage = () => {
   const data: any = useLoaderData();
 
   return (
@@ -37,7 +29,7 @@ const SalaryBreakdownPage = (props: ISalaryPageProps) => {
 
 export default SalaryBreakdownPage;
 
-export async function loader({ request, params }: ActionFunctionArgs) {
+export async function loader() {
   const username = getAuthUser();
   const userId = getAuthUserId();
 

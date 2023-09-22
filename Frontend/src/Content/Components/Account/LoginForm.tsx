@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./LoginForm.module.scss";
 import StringInput from "../UI/Input/StringInput/StringInput";
 import PasswordInput from "../UI/Input/PasswordInput/PasswordInput";
@@ -6,9 +5,7 @@ import Button from "../UI/Button/Button";
 import Navigation from "../UI/NavigationLinks/Navigation";
 import { Form, useActionData, useNavigation } from "react-router-dom";
 
-interface ILoginFormProps {}
-
-export default function LoginForm(props: ILoginFormProps) {
+export default function LoginForm() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const data: any = useActionData();

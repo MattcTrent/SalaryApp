@@ -167,7 +167,7 @@ export default function DeductionForm(props: DeductionFormProps) {
   );
 }
 
-export const action: ActionFunction = async ({ request, params }) => {
+export const action: ActionFunction = async ({ request }) => {
   const searchParams = new URL(request.url).searchParams;
   const mode = searchParams.get("mode") || "";
   let userId = getAuthUserId();
@@ -291,7 +291,7 @@ function validateDeduction(deduction: Deduction): {
   };
 }
 
-export const deleteAction: ActionFunction = async ({ request, params }) => {
+export const deleteAction: ActionFunction = async ({ params }) => {
   const deductionId = params.deductionId;
   if (!deductionId || +deductionId <= 0) {
     throw json({ message: "No Id" }, { status: 500 });

@@ -1,13 +1,10 @@
-import React from "react";
 import styles from "./MainNavigation.module.scss";
 import { Form, useRouteLoaderData } from "react-router-dom";
 import Navigation from "../UI/NavigationLinks/Navigation";
 import HomeIcon from "@mui/icons-material/Home";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 
-interface MainNavigationProps {}
-
-function MainNavigation(props: MainNavigationProps) {
+function MainNavigation() {
   const token = useRouteLoaderData("root") as string | null;
 
   return (

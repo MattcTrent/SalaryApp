@@ -1,4 +1,3 @@
-import React from "react";
 import { useRouteError } from "react-router-dom";
 import styles from "./ErrorPage.module.scss";
 import MainNavigation from "../../Content/Components/MainNavigation/MainNavigation";

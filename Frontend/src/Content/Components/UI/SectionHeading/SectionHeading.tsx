@@ -11,13 +11,13 @@ interface SectionHeadingProps {
 export default function SectionHeading(props: SectionHeadingProps) {
   const [showButtons, setShowButtons] = useState<boolean>(false);
 
-  function mouseOverHandler(event: React.MouseEvent<HTMLDivElement>) {
+  function mouseOverHandler() {
     if (showButtons === false) {
       setShowButtons(true);
     }
   }
 
-  function mouseOutHandler(event: React.MouseEvent<HTMLDivElement>) {
+  function mouseOutHandler() {
     if (showButtons === true) {
       setShowButtons(false);
     }
