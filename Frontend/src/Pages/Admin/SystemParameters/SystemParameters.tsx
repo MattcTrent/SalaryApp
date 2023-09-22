@@ -1,4 +1,4 @@
-import { SystemParameterTable } from "../../../Content/Components/SystemParameters/SystemParameterTable";
+import { SystemParameterTable } from "@/Components/SystemParameters/SystemParameterTable";
 import styles from "./SystemParameters.module.scss";
 
 export function SystemParametersPage() {

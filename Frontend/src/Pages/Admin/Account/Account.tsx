@@ -1,13 +1,13 @@
 import { ActionFunction, defer, json } from "react-router-dom";
-import ManageAccountForm from "../../../Content/Components/Account/ManageAccountForm";
+import ManageAccountForm from "@/Components/Account/ManageAccountForm";
 import {
   ManageAuthUser,
   MessageResponse,
   UserDetails,
-} from "../../../Content/Models/UserModels";
-import { AccountService } from "../../../Content/API/Services/AccountService";
+} from "@/types/UserModels";
+import { AccountService } from "@/API/Services/AccountService";
 import { toast } from "react-toastify";
-import { getAuthUser } from "../../../Content/Utils/AuthUtils";
+import { getAuthUser } from "@/Utils/AuthUtils";
 import { AxiosResponse } from "axios";
 import styles from "./Account.module.scss";
 
@@ -56,8 +56,7 @@ export const action: ActionFunction = async ({ request }) => {
     ? data.set("ispensionsalarysacrifice", "true")
     : data.set("ispensionsalarysacrifice", "false");
 
-  let authData: ManageAuthUser;
-  authData = {
+  const authData: ManageAuthUser = {
     id: data.get("id"),
     username: data.get("username"),
     password: data.get("password"),
@@ -77,7 +76,7 @@ export const action: ActionFunction = async ({ request }) => {
   if (response.status !== 200) {
     throw json(
       { message: "could not authenticate user" },
-      { status: response.status }
+      { status: response.status },
     );
   }
 

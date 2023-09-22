@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SystemParameter } from "../../Content/Models/SystemParamModels";
+import { SystemParameter } from "@/types/SystemParamModels";
 
 export const systemParameterInitialState: SystemParameter = {
   id: null,
@@ -26,7 +26,7 @@ export const parametersSlice = createSlice({
   reducers: {
     setSelectedSystemParameter(state, action) {
       const selectSystemParam = state.SystemParameters.find(
-        (param) => param.id === action.payload
+        (param) => param.id === action.payload,
       );
       if (selectSystemParam) {
         state.SelectedSystemParameter = selectSystemParam;

@@ -1,16 +1,14 @@
-import { Expense } from "../../Content/Models/ExpenseModels";
+import { Expense } from "@/types/ExpenseModels";
 import "./Expenses.css";
-import NewExpense from "../../Content/Components/Expenses/NewExpense/NewExpense";
+import NewExpense from "@/Components/Expenses/NewExpense/NewExpense";
 import { useState } from "react";
-import ExpenseFilter from "../../Content/Components/Expenses/ExpenseFilter/ExpenseFilter";
-import ExpenseList from "../../Content/Components/Expenses/ExpenseList/ExpenseList";
-import ExpenseChart from "../../Content/Components/Expenses/ExpenseChart/ExpenseChart";
-import Card from "../../Content/Components/UI/Card/Card";
+import ExpenseFilter from "@/Components/Expenses/ExpenseFilter/ExpenseFilter";
+import ExpenseList from "@/Components/Expenses/ExpenseList/ExpenseList";
+import ExpenseChart from "@/Components/Expenses/ExpenseChart/ExpenseChart";
+import Card from "@/Components/UI/Card/Card";
 
 export default function ExpensesPage() {
-  const [expenses, setExpenses] = useState<Expense[]>(
-    require("./mock-Expenses.json"),
-  );
+  const [expenses, setExpenses] = useState<Expense[]>([]);
   const [filterYear, setFilterYear] = useState(
     new Date().getFullYear().toString(),
   );

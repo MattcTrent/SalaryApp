@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { SalaryService } from "../../Content/API/Services/SalaryService";
-import { SalaryBreakdownTable } from "../../Content/Components/SalaryBreakdown/SalaryBreakdown";
-import Deductions from "../../Content/Components/Deductions/Deductions/Deductions";
+import { SalaryService } from "@/API/Services/SalaryService";
+import { SalaryBreakdownTable } from "@/Components/SalaryBreakdown/SalaryBreakdown";
+import Deductions from "@/Components/Deductions/Deductions/Deductions";
 import styles from "./Salary.module.scss";
 import { Await, defer, json, useLoaderData } from "react-router-dom";
-import { getAuthUser, getAuthUserId } from "../../Content/Utils/AuthUtils";
+import { getAuthUser, getAuthUserId } from "@/Utils/AuthUtils";
 
 const SalaryBreakdownPage = () => {
   const data: any = useLoaderData();

@@ -19,15 +19,15 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GoalsPage from "./Pages/Goals/Goals";
 import InvestmentCalculatorPage from "./Pages/InvestmentCalculator/InvestmentCalc";
-import LoadingModal from "./Content/Components/UI/LoadingModal/LoadingModal";
+import LoadingModal from "./Components/UI/LoadingModal/LoadingModal";
 import AdminPage from "./Pages/Admin/Admin";
 import { SystemParametersPage } from "./Pages/Admin/SystemParameters/SystemParameters";
 import AccountPage from "./Pages/Admin/Account/Account";
 import { useDispatch, useSelector } from "react-redux";
 import HomePage from "./Pages/Home/Home";
-import MainLayout from "./Content/Components/MainLayout/MainLayout";
+import MainLayout from "./Components/MainLayout/MainLayout";
 import styles from "./App.module.scss";
-import { tokenLoader } from "./Content/Utils/AuthUtils";
+import { tokenLoader } from "./Utils/AuthUtils";
 import {
   loader as userLoader,
   action as manageUserAction,
@@ -36,8 +36,8 @@ import EditDeductionPage, {
   loader as deductionLoader,
 } from "./Pages/SalaryBreakdown/EditDeduction/EditDeduction";
 import NewDeductionPage from "./Pages/SalaryBreakdown/NewDeduction/NewDeduction";
-import { action as manageDeduction } from "./Content/Components/Deductions/DeductionForm/DeductionForm";
-import { deleteAction as deleteDeduction } from "./Content/Components/Deductions/DeductionForm/DeductionForm";
+import { action as manageDeduction } from "./Components/Deductions/DeductionForm/DeductionForm";
+import { deleteAction as deleteDeduction } from "./Components/Deductions/DeductionForm/DeductionForm";
 import { RootState } from "./Redux/Reducers/RootReducer";
 
 export default function App() {
@@ -94,8 +94,8 @@ export default function App() {
           />
           <Route path="SystemParameters" element={<SystemParametersPage />} />
         </Route>
-      </Route>
-    )
+      </Route>,
+    ),
   );
 
   return (

@@ -1,15 +1,15 @@
 import styles from "./Login.module.scss";
-import LoginForm from "../../Content/Components/Account/LoginForm";
-import RegisterForm from "../../Content/Components/Account/RegisterForm";
+import LoginForm from "@/Components/Account/LoginForm";
+import RegisterForm from "@/Components/Account/RegisterForm";
 import {
   useSearchParams,
   type ActionFunction,
   json,
   redirect,
 } from "react-router-dom";
-import { AuthUser, LoginResponse } from "../../Content/Models/UserModels";
-import { AccountService } from "../../Content/API/Services/AccountService";
-import { clearAuth, setAuth } from "../../Content/Utils/AuthUtils";
+import { AuthUser, LoginResponse } from "@/types/UserModels";
+import { AccountService } from "@/API/Services/AccountService";
+import { clearAuth, setAuth } from "@/Utils/AuthUtils";
 import { toast } from "react-toastify";
 import { AxiosResponse } from "axios";
 
@@ -36,8 +36,7 @@ export const action: ActionFunction = async ({ request }) => {
   data.get("ispensionsalarysacrifice")
     ? data.set("ispensionsalarysacrifice", "true")
     : data.set("ispensionsalarysacrifice", "false");
-  let authData: AuthUser;
-  authData = {
+  const authData: AuthUser = {
     username: data.get("username"),
     password: data.get("password"),
     email: data.get("email"),
@@ -60,7 +59,7 @@ export const action: ActionFunction = async ({ request }) => {
     if (response.status !== 200) {
       throw json(
         { message: "could not authenticate user" },
-        { status: response.status }
+        { status: response.status },
       );
     }
 
@@ -68,7 +67,7 @@ export const action: ActionFunction = async ({ request }) => {
       setAuth(
         response.data.message.token,
         response.data.user.username,
-        response.data.user.id
+        response.data.user.id,
       );
     }
 
@@ -76,7 +75,7 @@ export const action: ActionFunction = async ({ request }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server."
+        "Network Error: There has been an error communicating with the server.",
       );
       return null;
     }
@@ -89,7 +88,7 @@ export const action: ActionFunction = async ({ request }) => {
       } else {
         throw json(
           { message: "could not authenticate user" },
-          { status: error.response.status }
+          { status: error.response.status },
         );
       }
     }
@@ -108,9 +107,9 @@ interface ValidationErrors {
 
 function validateAuthUser(
   mode: string,
-  user: AuthUser
+  user: AuthUser,
 ): { validated: boolean; validation: ValidationErrors } {
-  let validation: ValidationErrors = {
+  const validation: ValidationErrors = {
     username: null,
     password: null,
     email: null,

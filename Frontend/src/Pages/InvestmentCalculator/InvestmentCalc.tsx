@@ -1,9 +1,10 @@
 import { useState } from "react";
-import InvestmentResults from "../../Content/Components/Investments/InvestmentResults/InvestmentResults";
-import { InvestmentResult } from "../../Content/Models/InvestmentModels";
-import logo from "../../Content/Resources/Images/investment-logo.png";
+
+import InvestmentResults from "@/Components/Investments/InvestmentResults/InvestmentResults";
+import { InvestmentResult } from "@/types/InvestmentModels";
+import InvestmentForm from "@/Components/Investments/InvestmentForm/InvestmentForm";
+
 import styles from "./InvestmentCalc.module.scss";
-import InvestmentForm from "../../Content/Components/Investments/InvestmentForm/InvestmentForm";
 
 function InvestmentCalculatorPage() {
   const [investmentResults, setInvestmentResults] = useState<
@@ -21,7 +22,6 @@ function InvestmentCalculatorPage() {
   return (
     <div className={styles.investmentContainer}>
       <header className={styles.header}>
-        <img src={logo} alt="logo" />
         <h1>Investment Calculator</h1>
       </header>
 

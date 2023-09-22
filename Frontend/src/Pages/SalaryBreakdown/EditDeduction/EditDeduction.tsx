@@ -6,14 +6,15 @@ import {
   useLoaderData,
 } from "react-router-dom";
 import { Suspense } from "react";
-import DeductionForm from "../../../Content/Components/Deductions/DeductionForm/DeductionForm";
-import { SalaryService } from "../../../Content/API/Services/SalaryService";
+import DeductionForm from "@/Components/Deductions/DeductionForm/DeductionForm";
+import { SalaryService } from "@/API/Services/SalaryService";
+import { Deduction } from "@/types/SalaryModels";
 
 export default function EditDeductionPage() {
-  const data: any = useLoaderData();
+  const data: Deduction = useLoaderData() as Deduction;
   return (
     <Suspense fallback={<p>Loading Deductions...</p>}>
-      <Await resolve={data.deduction}>
+      <Await resolve={data}>
         {(deduction) => (
           <DeductionForm loadedDeduction={deduction} method="put" />
         )}
