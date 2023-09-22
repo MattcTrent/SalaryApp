@@ -3,7 +3,7 @@ import axios from "axios";
 export function getConfiguredAxios() {
   const token: string | null = null;
   const axiosClient = axios.create({
-    baseURL: process.env.REACT_APP_REST_API_URL,
+    baseURL: import.meta.env.VITE_REST_API_URL,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",

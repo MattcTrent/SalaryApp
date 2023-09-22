@@ -6,7 +6,7 @@ export function setAuth(token: string, username: string, userId: number) {
   localStorage.setItem("userId", userId.toString());
 
   const expiration = new Date();
-  const tokenExpiration = process.env.REACT_APP_TOKEN_EXPIRATION_MINUTES;
+  const tokenExpiration = import.meta.env.TOKEN_EXPIRATION_MINUTES;
   expiration.setMinutes(
     expiration.getMinutes() + (tokenExpiration ? +tokenExpiration : 15),
   );
