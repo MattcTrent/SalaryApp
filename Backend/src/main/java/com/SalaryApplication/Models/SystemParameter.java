@@ -1,6 +1,7 @@
 package com.SalaryApplication.Models;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -16,7 +17,8 @@ public class SystemParameter {
     public SystemParameter() {
     }
 
-    public SystemParameter(Integer id, SystemParameterGroupEnum group, String name, BigDecimal rate, BigDecimal lowerThreshold,
+    public SystemParameter(Integer id, SystemParameterGroupEnum group, String name, BigDecimal rate,
+            BigDecimal lowerThreshold,
             BigDecimal upperThreshold) {
         this.id = id;
         this.parameterGroup = group;
@@ -97,5 +99,19 @@ public class SystemParameter {
 
     public void setUpperThreshold(BigDecimal upperThreshold) {
         this.upperThreshold = upperThreshold;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object)
+            return true;
+        if (object == null || getClass() != object.getClass())
+            return false;
+        SystemParameter that = (SystemParameter) object;
+        return parameterGroup == that.parameterGroup &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(rate, that.rate) &&
+                Objects.equals(lowerThreshold, that.lowerThreshold) &&
+                Objects.equals(upperThreshold, that.upperThreshold);
     }
 }
