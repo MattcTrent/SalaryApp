@@ -23,7 +23,7 @@ export const AppDataSource = new DataSource({
   port: 33061,
   username: "root",
   password: "root",
-  database: "salary-app",
+  database: "salaryapp",
   entities: [SystemParameter, User, Role, Deduction],
   synchronize: true,
   logging: false,
