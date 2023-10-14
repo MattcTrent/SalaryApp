@@ -8,7 +8,7 @@ import * as bcrypt from "bcryptjs";
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ unique: true })
   username: string;
   @Column()
   password: string;
@@ -16,7 +16,7 @@ export class User {
   firstName: string | undefined;
   @Column({ type: "nvarchar", nullable: true })
   lastName: string | undefined;
-  @Column()
+  @Column({ unique: true })
   email: string;
   @Column({ type: "double precision" })
   salary: number;

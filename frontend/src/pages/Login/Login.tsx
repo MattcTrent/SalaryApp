@@ -56,7 +56,7 @@ export const action: ActionFunction = async ({ request }) => {
   try {
     const response: AxiosResponse<LoginResponse, any> =
       await AccountService.authorizeUser(authData, mode);
-    if (response.status !== 200) {
+    if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: "could not authenticate user" },
         { status: response.status }
