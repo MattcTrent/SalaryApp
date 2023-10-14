@@ -22,11 +22,11 @@ export default function AccountPage() {
 export async function loadUser(username: string) {
   let result: UserDetails | null = null;
   try {
-    const response: AxiosResponse<UserDetails, any> =
+    const response: AxiosResponse<{ data: UserDetails }, any> =
       await AccountService.getUserByUsername(username);
-
+    console.log(response);
     if (response.data) {
-      result = response.data;
+      result = response.data.data;
     } else {
       alert("Error Occured getting user.");
     }
