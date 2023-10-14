@@ -1,6 +1,6 @@
 import styles from "./MainNavigation.module.scss";
 import { Form, useRouteLoaderData } from "react-router-dom";
-import Navigation from "@/Components/UI/NavigationLinks/Navigation";
+import Navigation from "@/components/UI/NavigationLinks/Navigation";
 import HomeIcon from "@mui/icons-material/Home";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 

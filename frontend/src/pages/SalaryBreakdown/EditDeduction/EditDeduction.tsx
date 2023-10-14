@@ -6,8 +6,8 @@ import {
   useLoaderData,
 } from "react-router-dom";
 import { Suspense } from "react";
-import DeductionForm from "@/Components/Deductions/DeductionForm/DeductionForm";
-import { SalaryService } from "@/API/Services/SalaryService";
+import DeductionForm from "@/components/Deductions/DeductionForm/DeductionForm";
+import { SalaryService } from "@/api/services/SalaryService";
 import { Deduction } from "@/types/SalaryModels";
 
 export default function EditDeductionPage() {

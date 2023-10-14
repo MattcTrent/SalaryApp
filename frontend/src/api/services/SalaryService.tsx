@@ -1,6 +1,6 @@
 import { Deduction, SalaryBreakdown } from "@/types/SalaryModels";
 import { MessageResponse } from "@/types/UserModels";
-import { getConfiguredAxios } from "@/API/AxiosConfig";
+import { getConfiguredAxios } from "@/api/AxiosConfig";
 
 export class SalaryService {
   static async getSalaryBreakdown(userName: string) {

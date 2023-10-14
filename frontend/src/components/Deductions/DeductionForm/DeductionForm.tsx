@@ -8,21 +8,21 @@ import {
   useSearchParams,
   useSubmit,
 } from "react-router-dom";
-import SelectInput from "@/Components/UI/Input/SelectInput/SelectInput";
-import StringInput from "@/Components/UI/Input/StringInput/StringInput";
-import CurrencyInput from "@/Components/UI/Input/CurrencyInput/CurrencyInput";
-import Button from "@/Components/UI/Button/Button";
-import Navigation from "@/Components/UI/NavigationLinks/Navigation";
+import SelectInput from "@/components/UI/Input/SelectInput/SelectInput";
+import StringInput from "@/components/UI/Input/StringInput/StringInput";
+import CurrencyInput from "@/components/UI/Input/CurrencyInput/CurrencyInput";
+import Button from "@/components/UI/Button/Button";
+import Navigation from "@/components/UI/NavigationLinks/Navigation";
 import { Deduction } from "@/types/SalaryModels";
-import { getAuthUserId } from "@/Utils/AuthUtils";
+import { getAuthUserId } from "@/utils/AuthUtils";
 import { toast } from "react-toastify";
-import { SalaryService } from "@/API/Services/SalaryService";
+import { SalaryService } from "@/api/services/SalaryService";
 import { MessageResponse } from "@/types/UserModels";
 import { AxiosResponse } from "axios";
 import { useState } from "react";
-import { DeductionType, DeductionTypes } from "@/Enums/DeductionType";
-import { BillTypes } from "@/Enums/BillType";
-import { SavingTypes } from "@/Enums/SavingsType";
+import { DeductionType, DeductionTypes } from "@/enums/DeductionType";
+import { BillTypes } from "@/enums/BillType";
+import { SavingTypes } from "@/enums/SavingsType";
 
 import styles from "./DeductionForm.module.scss";
 
@@ -41,7 +41,7 @@ export default function DeductionForm(props: DeductionFormProps) {
   const submitData: any = useActionData();
   const submit = useSubmit();
   const [deductionType, setDeductionType] = useState<string>(
-    props.loadedDeduction?.type || type || "",
+    props.loadedDeduction?.type || type || ""
   );
 
   function startDeleteHandler() {
@@ -213,7 +213,7 @@ export const action: ActionFunction = async ({ request }) => {
     if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: `could not ${mode} deduction` },
-        { status: response.status },
+        { status: response.status }
       );
     }
 
@@ -221,7 +221,7 @@ export const action: ActionFunction = async ({ request }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server.",
+        "Network Error: There has been an error communicating with the server."
       );
       return null;
     }
@@ -234,7 +234,7 @@ export const action: ActionFunction = async ({ request }) => {
     } else {
       throw json(
         { message: "could not submit deduction" },
-        { status: error.response.status },
+        { status: error.response.status }
       );
     }
     return null;
@@ -304,7 +304,7 @@ export const deleteAction: ActionFunction = async ({ params }) => {
     if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: `could not delete deduction` },
-        { status: response.status },
+        { status: response.status }
       );
     }
 
@@ -312,7 +312,7 @@ export const deleteAction: ActionFunction = async ({ params }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server.",
+        "Network Error: There has been an error communicating with the server."
       );
       return null;
     }
@@ -325,7 +325,7 @@ export const deleteAction: ActionFunction = async ({ params }) => {
     } else {
       throw json(
         { message: "could not delete deduction" },
-        { status: error.response.status },
+        { status: error.response.status }
       );
     }
     return null;

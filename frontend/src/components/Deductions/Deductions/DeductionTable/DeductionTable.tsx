@@ -2,10 +2,10 @@ import styles from "./DeductionTable.module.scss";
 import DeductionRow from "./DeductionRow/DeductionRow";
 import { IoMdCreate } from "react-icons/io";
 import { Deduction } from "@/types/SalaryModels";
-import NumberHelper from "@/Utils/NumberHelpers";
-import Navigation from "@/Components/UI/NavigationLinks/Navigation";
-import TD from "@/Components/UI/Table/TableCell/TD";
-import TH from "@/Components/UI/Table/TableHeadCell/TH";
+import NumberHelper from "@/utils/NumberHelpers";
+import Navigation from "@/components/UI/NavigationLinks/Navigation";
+import TD from "@/components/UI/Table/TableCell/TD";
+import TH from "@/components/UI/Table/TableHeadCell/TH";
 
 interface DeductionsTableProps {
   title: string;
@@ -58,7 +58,7 @@ const DeductionTable = (props: DeductionsTableProps) => {
               {NumberHelper.ToCurrencyString(
                 props.deductions.reduce((prev: number, current: Deduction) => {
                   return prev + current.cost;
-                }, 0),
+                }, 0)
               )}
             </TD>
           </tr>

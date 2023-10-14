@@ -1,13 +1,13 @@
 import { ActionFunction, defer, json } from "react-router-dom";
-import ManageAccountForm from "@/Components/Account/ManageAccountForm";
+import ManageAccountForm from "@/components/Account/ManageAccountForm";
 import {
   ManageAuthUser,
   MessageResponse,
   UserDetails,
 } from "@/types/UserModels";
-import { AccountService } from "@/API/Services/AccountService";
+import { AccountService } from "@/api/services/AccountService";
 import { toast } from "react-toastify";
-import { getAuthUser } from "@/Utils/AuthUtils";
+import { getAuthUser } from "@/utils/AuthUtils";
 import { AxiosResponse } from "axios";
 import styles from "./Account.module.scss";
 
@@ -76,7 +76,7 @@ export const action: ActionFunction = async ({ request }) => {
   if (response.status !== 200) {
     throw json(
       { message: "could not authenticate user" },
-      { status: response.status },
+      { status: response.status }
     );
   }
 

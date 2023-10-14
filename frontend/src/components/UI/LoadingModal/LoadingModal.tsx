@@ -3,7 +3,7 @@ import styles from "./LoadingModal.module.scss";
 import ReactDOM from "react-dom";
 import Spinner from "./Spinner/Spinner";
 import { useSelector } from "react-redux";
-import { RootState } from "@/Redux/Reducers/RootReducer";
+import { RootState } from "@/redux/reducers/RootReducer";
 import { MouseEventHandler } from "react";
 
 interface IBackdropProps {
@@ -16,7 +16,7 @@ export function Backdrop(props: IBackdropProps) {
 
 export function OverlayModal() {
   const loadingText = useSelector(
-    (state: RootState) => state.loading.loadingText,
+    (state: RootState) => state.loading.loadingText
   );
   return (
     <Card className={styles.modal}>
@@ -41,7 +41,7 @@ function LoadingModal(props: LoadingButtonProps) {
       {props.withBackdrop &&
         ReactDOM.createPortal(
           <Backdrop onBackdropClick={props.onBackdropClick} />,
-          portalElement,
+          portalElement
         )}
       {ReactDOM.createPortal(<OverlayModal />, portalElement)}
     </>

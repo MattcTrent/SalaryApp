@@ -1,9 +1,9 @@
-import NumberHelper from "@/Utils/NumberHelpers";
+import NumberHelper from "@/utils/NumberHelpers";
 import { Deduction } from "@/types/SalaryModels";
-import TD from "@/Components/UI/Table/TableCell/TD";
+import TD from "@/components/UI/Table/TableCell/TD";
 import styles from "./DeductionRow.module.scss";
 import { BiEdit } from "react-icons/bi";
-import Navigation from "@/Components/UI/NavigationLinks/Navigation";
+import Navigation from "@/components/UI/NavigationLinks/Navigation";
 
 interface TableRowProps {
   deduction: Deduction;

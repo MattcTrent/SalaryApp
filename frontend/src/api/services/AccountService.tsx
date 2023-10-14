@@ -5,7 +5,7 @@ import {
   AuthUser,
   ManageAuthUser,
 } from "@/types/UserModels";
-import { getConfiguredAxios } from "@/API/AxiosConfig";
+import { getConfiguredAxios } from "@/api/AxiosConfig";
 
 export class AccountService {
   static async authorizeUser(user: AuthUser, authURL: string) {

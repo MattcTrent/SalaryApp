@@ -1,8 +1,8 @@
 import styles from "./LoginForm.module.scss";
-import StringInput from "@/Components/UI/Input/StringInput/StringInput";
-import PasswordInput from "@/Components/UI/Input/PasswordInput/PasswordInput";
-import Button from "@/Components/UI/Button/Button";
-import Navigation from "@/Components/UI/NavigationLinks/Navigation";
+import StringInput from "@/components/UI/Input/StringInput/StringInput";
+import PasswordInput from "@/components/UI/Input/PasswordInput/PasswordInput";
+import Button from "@/components/UI/Button/Button";
+import Navigation from "@/components/UI/NavigationLinks/Navigation";
 import { Form, useActionData, useNavigation } from "react-router-dom";
 
 export default function LoginForm() {

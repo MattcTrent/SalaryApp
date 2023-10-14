@@ -1,7 +1,7 @@
 import { Expense } from "@/types/ExpenseModels";
 import ExpenseDate from "./ExpenseDate";
-import NumberHelper from "@/Utils/NumberHelpers";
-import Card from "@/Components/UI/Card/Card";
+import NumberHelper from "@/utils/NumberHelpers";
+import Card from "@/components/UI/Card/Card";
 
 import styles from "./ExpenseItem.module.scss";
 

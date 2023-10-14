@@ -13,19 +13,19 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import SystemParamModal from "./Modals/SystemParamModal";
-import { SystemParameterService } from "@/API/Services/SystemParameterService";
+import { SystemParameterService } from "@/api/services/SystemParameterService";
 import { SystemParameter } from "@/types/SystemParamModels";
-import NumberHelper from "@/Utils/NumberHelpers";
+import NumberHelper from "@/utils/NumberHelpers";
 import { useDispatch, useSelector } from "react-redux";
-import { loadingActions } from "@/Redux/Slices/LoadingSlice";
-import Button from "@/Components/UI/Button/Button";
+import { loadingActions } from "@/redux/slices/LoadingSlice";
+import Button from "@/components/UI/Button/Button";
 import styles from "./SystemParameter.module.scss";
-import { parameterActions } from "@/Redux/Slices/SystemParameterSlice";
-import { RootState } from "@/Redux/Reducers/RootReducer";
+import { parameterActions } from "@/redux/slices/SystemParameterSlice";
+import { RootState } from "@/redux/reducers/RootReducer";
 
 export const SystemParameterTable = () => {
   const systemParameters = useSelector(
-    (state: RootState) => state.systemParameters.SystemParameters,
+    (state: RootState) => state.systemParameters.SystemParameters
   );
   const dispatch: any = useDispatch();
 
@@ -50,7 +50,7 @@ export const SystemParameterTable = () => {
 
   const fetchSystemParameter = async (
     systemParameterId: number,
-    action: string,
+    action: string
   ) => {
     dispatch(parameterActions.setSelectedSystemParameter(systemParameterId));
     openModal(action);

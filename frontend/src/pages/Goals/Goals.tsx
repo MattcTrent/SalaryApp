@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import GoalList from "@/Components/Goals/GoalList";
-import GoalInput from "@/Components/Goals/GoalInput";
+import GoalList from "@/components/Goals/GoalList";
+import GoalInput from "@/components/Goals/GoalInput";
 import "./Goals.css";
 import { Goal } from "@/types/GoalModels";
 
@@ -14,7 +14,7 @@ export default function GoalsPage() {
       latestExpense = courseGoals.reduce((prevGoal: Goal, nextGoal: Goal) =>
         (prevGoal?.id?.valueOf() || 0) > (nextGoal?.id?.valueOf() || 0)
           ? prevGoal
-          : nextGoal,
+          : nextGoal
       );
     }
 

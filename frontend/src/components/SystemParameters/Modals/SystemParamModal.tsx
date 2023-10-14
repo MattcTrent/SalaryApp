@@ -1,19 +1,19 @@
 import React from "react";
-import { SystemParameterService } from "@/API/Services/SystemParameterService";
+import { SystemParameterService } from "@/api/services/SystemParameterService";
 import { toast } from "react-toastify";
-import Button from "@/Components/UI/Button/Button";
+import Button from "@/components/UI/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { parameterActions } from "@/Redux/Slices/SystemParameterSlice";
-import StringInput from "@/Components/UI/Input/StringInput/StringInput";
-import CurrencyInput from "@/Components/UI/Input/CurrencyInput/CurrencyInput";
-import PercentageInput from "@/Components/UI/Input/PercentageInput/PercentageInput";
-import SelectInput from "@/Components/UI/Input/SelectInput/SelectInput";
-import { RootState } from "@/Redux/Reducers/RootReducer";
-import { SystemParameterGroups } from "@/Enums/SystemParameterGroup";
+import { parameterActions } from "@/redux/slices/SystemParameterSlice";
+import StringInput from "@/components/UI/Input/StringInput/StringInput";
+import CurrencyInput from "@/components/UI/Input/CurrencyInput/CurrencyInput";
+import PercentageInput from "@/components/UI/Input/PercentageInput/PercentageInput";
+import SelectInput from "@/components/UI/Input/SelectInput/SelectInput";
+import { RootState } from "@/redux/reducers/RootReducer";
+import { SystemParameterGroups } from "@/enums/SystemParameterGroup";
 
 import styles from "./SystemParamModal.module.scss";
-import Modal from "@/Components/UI/Modal/Modal";
-import { AppDispatch } from "@/Redux/Store/Store";
+import Modal from "@/components/UI/Modal/Modal";
+import { AppDispatch } from "@/redux/Store/Store";
 
 interface confirmModalProps {
   modalAction: string;
@@ -22,7 +22,7 @@ interface confirmModalProps {
 
 export default function SystemParamModal(props: confirmModalProps) {
   const systemParamState = useSelector(
-    (state: RootState) => state.systemParameters.SelectedSystemParameter,
+    (state: RootState) => state.systemParameters.SelectedSystemParameter
   );
   const dispatch: AppDispatch = useDispatch();
 
@@ -36,12 +36,12 @@ export default function SystemParamModal(props: confirmModalProps) {
             if (response.data.success) {
               toast.success(response.data.message);
             }
-          },
+          }
         );
       } else if (action === "edit" && systemParamId != null) {
         SystemParameterService.updateSystemParameter(
           systemParamId,
-          systemParamState,
+          systemParamState
         ).then((response) => {
           if (response.data.success) {
             toast.success(response.data.message);
@@ -53,7 +53,7 @@ export default function SystemParamModal(props: confirmModalProps) {
             if (response.data.id > 0) {
               toast.success("System parameter created.");
             }
-          },
+          }
         );
       }
 
@@ -94,7 +94,7 @@ export default function SystemParamModal(props: confirmModalProps) {
   const handleChange = (
     event: React.ChangeEvent<
       HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
-    >,
+    >
   ) => {
     switch (event.target.name) {
       case "group":
@@ -210,7 +210,7 @@ export default function SystemParamModal(props: confirmModalProps) {
               onClick={onClick.bind(
                 null,
                 props.modalAction,
-                systemParamState.id,
+                systemParamState.id
               )}
               colourStyle="positive"
             >

@@ -1,12 +1,12 @@
 import { MouseEventHandler } from "react";
-import Modal from "@/Components/UI/Modal/Modal";
+import Modal from "@/components/UI/Modal/Modal";
 
 interface SalaryBreakdownTableFilterModalProps {
   onCloseClick: MouseEventHandler;
 }
 
 const SalaryBreakdownTableFilterModal = (
-  props: SalaryBreakdownTableFilterModalProps,
+  props: SalaryBreakdownTableFilterModalProps
 ) => {
   return <Modal onCloseClick={props.onCloseClick}></Modal>;
 };

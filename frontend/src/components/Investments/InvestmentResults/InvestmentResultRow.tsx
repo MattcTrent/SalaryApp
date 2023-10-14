@@ -1,4 +1,4 @@
-import NumberHelper from "@/Utils/NumberHelpers";
+import NumberHelper from "@/utils/NumberHelpers";
 import { InvestmentResult } from "@/types/InvestmentModels";
 
 interface IInvestmentResultsRowProps {

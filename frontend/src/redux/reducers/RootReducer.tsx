@@ -1,8 +1,8 @@
 // rootReducer.ts
 import { combineReducers } from "@reduxjs/toolkit";
-import { loadingSlice } from "../Slices/LoadingSlice";
-import { registerSlice } from "../Slices/RegisterSlice";
-import { parametersSlice } from "../Slices/SystemParameterSlice";
+import { loadingSlice } from "../slices/LoadingSlice";
+import { registerSlice } from "../slices/RegisterSlice";
+import { parametersSlice } from "../slices/SystemParameterSlice";
 
 const rootReducer = combineReducers({
   loading: loadingSlice.reducer,

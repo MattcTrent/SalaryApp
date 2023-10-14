@@ -8,37 +8,37 @@ import {
 import LoginPage, {
   logoutAction,
   action as authAction,
-} from "./Pages/Login/Login";
+} from "./pages/Login/Login";
 import SalaryBreakdownPage, {
   loader as salaryLoader,
-} from "./Pages/SalaryBreakdown/Salary";
-import ExpensesPage from "./Pages/Expenses/Expenses";
-import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+} from "./pages/SalaryBreakdown/Salary";
+import ExpensesPage from "./pages/Expenses/Expenses";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import GoalsPage from "./Pages/Goals/Goals";
-import InvestmentCalculatorPage from "./Pages/InvestmentCalculator/InvestmentCalc";
-import LoadingModal from "./Components/UI/LoadingModal/LoadingModal";
-import AdminPage from "./Pages/Admin/Admin";
-import { SystemParametersPage } from "./Pages/Admin/SystemParameters/SystemParameters";
-import AccountPage from "./Pages/Admin/Account/Account";
+import GoalsPage from "./pages/Goals/Goals";
+import InvestmentCalculatorPage from "./pages/InvestmentCalculator/InvestmentCalc";
+import LoadingModal from "./components/UI/LoadingModal/LoadingModal";
+import AdminPage from "./pages/Admin/Admin";
+import { SystemParametersPage } from "./pages/Admin/SystemParameters/SystemParameters";
+import AccountPage from "./pages/Admin/Account/Account";
 import { useDispatch, useSelector } from "react-redux";
-import HomePage from "./Pages/Home/Home";
-import MainLayout from "./Components/MainLayout/MainLayout";
+import HomePage from "./pages/Home/Home";
+import MainLayout from "./components/MainLayout/MainLayout";
 import styles from "./App.module.scss";
-import { tokenLoader } from "./Utils/AuthUtils";
+import { tokenLoader } from "./utils/AuthUtils";
 import {
   loader as userLoader,
   action as manageUserAction,
-} from "./Pages/Admin/Account/Account";
+} from "./pages/Admin/Account/Account";
 import EditDeductionPage, {
   loader as deductionLoader,
-} from "./Pages/SalaryBreakdown/EditDeduction/EditDeduction";
-import NewDeductionPage from "./Pages/SalaryBreakdown/NewDeduction/NewDeduction";
-import { action as manageDeduction } from "./Components/Deductions/DeductionForm/DeductionForm";
-import { deleteAction as deleteDeduction } from "./Components/Deductions/DeductionForm/DeductionForm";
-import { RootState } from "./Redux/Reducers/RootReducer";
+} from "./pages/SalaryBreakdown/EditDeduction/EditDeduction";
+import NewDeductionPage from "./pages/SalaryBreakdown/NewDeduction/NewDeduction";
+import { action as manageDeduction } from "./components/Deductions/DeductionForm/DeductionForm";
+import { deleteAction as deleteDeduction } from "./components/Deductions/DeductionForm/DeductionForm";
+import { RootState } from "./redux/reducers/RootReducer";
 
 export default function App() {
   const isLoading = useSelector((state: RootState) => state.loading.isLoading);
@@ -94,8 +94,8 @@ export default function App() {
           />
           <Route path="SystemParameters" element={<SystemParametersPage />} />
         </Route>
-      </Route>,
-    ),
+      </Route>
+    )
   );
 
   return (

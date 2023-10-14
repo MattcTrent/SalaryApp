@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import AccountForm from "./AccountForm/AccountForm";
 import { Await, useLoaderData, useNavigation } from "react-router-dom";
-import LoadingModal from "@/Components/UI/LoadingModal/LoadingModal";
+import LoadingModal from "@/components/UI/LoadingModal/LoadingModal";
 
 export default function ManageAccountForm() {
   const data: any = useLoaderData();

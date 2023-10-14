@@ -1,5 +1,5 @@
 import AccountForm from "./AccountForm/AccountForm";
-import Navigation from "@/Components/UI/NavigationLinks/Navigation";
+import Navigation from "@/components/UI/NavigationLinks/Navigation";
 import { useNavigation } from "react-router-dom";
 
 export default function RegisterForm() {

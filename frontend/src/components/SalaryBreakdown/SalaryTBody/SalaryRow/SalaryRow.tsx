@@ -1,7 +1,7 @@
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-import NumberHelper from "@/Utils/NumberHelpers";
-import { Showcolumn } from "@/Enums/ShowColum";
+import NumberHelper from "@/utils/NumberHelpers";
+import { Showcolumn } from "@/enums/ShowColum";
 
 import styles from "./SalaryRow.module.scss";
 

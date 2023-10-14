@@ -7,11 +7,11 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Paper from "@mui/material/Paper";
 import { useState } from "react";
-import SelectInput from "@/Components/UI/Input/SelectInput/SelectInput";
-import { ShowColumns } from "@/Enums/ShowColum";
+import SelectInput from "@/components/UI/Input/SelectInput/SelectInput";
+import { ShowColumns } from "@/enums/ShowColum";
 import { SalaryTBody } from "./SalaryTBody/SalaryTBody";
 import SalaryBreakdownTableFilterModal from "./SBTableFilterModal/SBTableFilterModal";
-import Button from "@/Components/UI/Button/Button";
+import Button from "@/components/UI/Button/Button";
 
 interface SalaryTableProps {
   salaryBreakdown: SalaryBreakdown | null;
@@ -22,7 +22,7 @@ export const SalaryBreakdownTable = (props: SalaryTableProps) => {
   const [showModal, setShowModal] = useState(false);
 
   function showColumnChangeHandler(
-    event: React.ChangeEvent<HTMLSelectElement>,
+    event: React.ChangeEvent<HTMLSelectElement>
   ) {
     setShowColumn(event.target.value);
   }

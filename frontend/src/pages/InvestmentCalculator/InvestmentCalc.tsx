@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import InvestmentResults from "@/Components/Investments/InvestmentResults/InvestmentResults";
+import InvestmentResults from "@/components/Investments/InvestmentResults/InvestmentResults";
 import { InvestmentResult } from "@/types/InvestmentModels";
-import InvestmentForm from "@/Components/Investments/InvestmentForm/InvestmentForm";
+import InvestmentForm from "@/components/Investments/InvestmentForm/InvestmentForm";
 
 import styles from "./InvestmentCalc.module.scss";
 

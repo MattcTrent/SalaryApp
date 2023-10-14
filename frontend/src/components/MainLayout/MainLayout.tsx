@@ -1,7 +1,7 @@
 import { Outlet, useLoaderData, useSubmit } from "react-router-dom";
 import styles from "./MainLayout.module.scss";
 import { useEffect } from "react";
-import { getTokenDuration } from "@/Utils/AuthUtils";
+import { getTokenDuration } from "@/utils/AuthUtils";
 import MainNavigation from "../MainNavigation/MainNavigation";
 
 const MainLayout = () => {

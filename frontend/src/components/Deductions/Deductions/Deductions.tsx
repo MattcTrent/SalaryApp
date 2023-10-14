@@ -1,9 +1,9 @@
-import { BillType } from "@/Enums/BillType";
-import { DeductionType } from "@/Enums/DeductionType";
-import { SavingType } from "@/Enums/SavingsType";
+import { BillType } from "@/enums/BillType";
+import { DeductionType } from "@/enums/DeductionType";
+import { SavingType } from "@/enums/SavingsType";
 import { Deduction } from "@/types/SalaryModels";
-import Navigation from "@/Components/UI/NavigationLinks/Navigation";
-import SectionHeading from "@/Components/UI/SectionHeading/SectionHeading";
+import Navigation from "@/components/UI/NavigationLinks/Navigation";
+import SectionHeading from "@/components/UI/SectionHeading/SectionHeading";
 import DeductionTable from "./DeductionTable/DeductionTable";
 import styles from "./Deductions.module.scss";
 interface GroupedDeductions {
@@ -121,7 +121,7 @@ const generateNewDeductionsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>,
+        </Navigation>
       );
     }
   }
@@ -145,7 +145,7 @@ const generateNewBillsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>,
+        </Navigation>
       );
     }
   }
@@ -169,7 +169,7 @@ const generateNewSavingsNavButtons = () => {
           path={path}
         >
           {type.replace(/([A-Z])/g, " $1").trim()}
-        </Navigation>,
+        </Navigation>
       );
     }
   }
