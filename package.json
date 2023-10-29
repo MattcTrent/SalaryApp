@@ -8,6 +8,7 @@
   "description": "The Project requires: NodeJs Java JDK Gradle",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
     "dev": "npm run dev --workspaces --if-present",
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
@@ -15,5 +16,8 @@
     "format": "npm run format --workspaces --if-present",
     "format:fix": "npm run format:fix --workspaces --if-present"
   },
-  "author": "Matthew Trent"
+  "author": "Matthew Trent",
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
 }
