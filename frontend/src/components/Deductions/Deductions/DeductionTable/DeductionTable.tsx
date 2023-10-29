@@ -58,7 +58,7 @@ const DeductionTable = (props: DeductionsTableProps) => {
               {NumberHelper.ToCurrencyString(
                 props.deductions.reduce((prev: number, current: Deduction) => {
                   return prev + current.cost;
-                }, 0)
+                }, 0),
               )}
             </TD>
           </tr>

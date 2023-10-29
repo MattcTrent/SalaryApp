@@ -14,7 +14,7 @@ export default function GoalsPage() {
       latestExpense = courseGoals.reduce((prevGoal: Goal, nextGoal: Goal) =>
         (prevGoal?.id?.valueOf() || 0) > (nextGoal?.id?.valueOf() || 0)
           ? prevGoal
-          : nextGoal
+          : nextGoal,
       );
     }
 

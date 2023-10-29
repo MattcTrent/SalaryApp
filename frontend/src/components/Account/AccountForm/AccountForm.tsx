@@ -26,25 +26,25 @@ export default function AccountForm(props: IAccountFormProps) {
   const data: any = useActionData();
 
   const usernameChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     dispatch(registerActions.setUsername(event.target.value));
   };
 
   const passwordChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     dispatch(registerActions.setPassword(event.target.value));
   };
 
   const firstNameChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     dispatch(registerActions.setFirstName(event.target.value));
   };
 
   const lastNameChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     dispatch(registerActions.setLastName(event.target.value));
   };
@@ -58,19 +58,19 @@ export default function AccountForm(props: IAccountFormProps) {
   };
 
   const pensionPecentChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     dispatch(registerActions.setPensionPercentage(+event.target.value));
   };
 
   const isPensionSSChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     dispatch(registerActions.setIsPensionSalarySacrifice(event.target.checked));
   };
 
   function studentFinancePlanChangeHandler(
-    event: React.ChangeEvent<HTMLSelectElement>
+    event: React.ChangeEvent<HTMLSelectElement>,
   ) {
     dispatch(registerActions.setStudentFinancePlan(event.target.value));
   }

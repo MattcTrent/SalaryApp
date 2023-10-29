@@ -25,7 +25,7 @@ import { RootState } from "@/redux/reducers/RootReducer";
 
 export const SystemParameterTable = () => {
   const systemParameters = useSelector(
-    (state: RootState) => state.systemParameters.SystemParameters
+    (state: RootState) => state.systemParameters.SystemParameters,
   );
   const dispatch: any = useDispatch();
 
@@ -50,7 +50,7 @@ export const SystemParameterTable = () => {
 
   const fetchSystemParameter = async (
     systemParameterId: number,
-    action: string
+    action: string,
   ) => {
     dispatch(parameterActions.setSelectedSystemParameter(systemParameterId));
     openModal(action);

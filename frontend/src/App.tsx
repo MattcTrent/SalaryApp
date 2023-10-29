@@ -94,8 +94,8 @@ export default function App() {
           />
           <Route path="SystemParameters" element={<SystemParametersPage />} />
         </Route>
-      </Route>
-    )
+      </Route>,
+    ),
   );
 
   return (

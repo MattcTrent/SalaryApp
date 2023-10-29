@@ -59,7 +59,7 @@ export const action: ActionFunction = async ({ request }) => {
     if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: "could not authenticate user" },
-        { status: response.status }
+        { status: response.status },
       );
     }
 
@@ -67,7 +67,7 @@ export const action: ActionFunction = async ({ request }) => {
       setAuth(
         response.data.message.token,
         response.data.user.username,
-        response.data.user.id
+        response.data.user.id,
       );
     }
 
@@ -75,7 +75,7 @@ export const action: ActionFunction = async ({ request }) => {
   } catch (error: any) {
     if (error.code === "ERR_NETWORK") {
       toast.error(
-        "Network Error: There has been an error communicating with the server."
+        "Network Error: There has been an error communicating with the server.",
       );
       return null;
     }
@@ -89,7 +89,7 @@ export const action: ActionFunction = async ({ request }) => {
         } else {
           throw json(
             { message: "could not authenticate user" },
-            { status: error.response.status }
+            { status: error.response.status },
           );
         }
       }
@@ -109,7 +109,7 @@ interface ValidationErrors {
 
 function validateAuthUser(
   mode: string,
-  user: AuthUser
+  user: AuthUser,
 ): { validated: boolean; validation: ValidationErrors } {
   const validation: ValidationErrors = {
     username: null,

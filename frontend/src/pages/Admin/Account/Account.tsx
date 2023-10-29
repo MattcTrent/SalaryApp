@@ -76,7 +76,7 @@ export const action: ActionFunction = async ({ request }) => {
   if (response.status !== 200) {
     throw json(
       { message: "could not authenticate user" },
-      { status: response.status }
+      { status: response.status },
     );
   }
 

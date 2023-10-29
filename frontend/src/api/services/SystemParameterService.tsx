@@ -10,7 +10,7 @@ export class SystemParameterService {
   static async getSystemParameter(systemParameterId: number) {
     const axios = getConfiguredAxios();
     return await axios.get<SystemParameter>(
-      "/systemparameters/" + systemParameterId
+      "/systemparameters/" + systemParameterId,
     );
   }
 
@@ -21,12 +21,12 @@ export class SystemParameterService {
 
   static async updateSystemParameter(
     systemParameterId: number,
-    systemParameter: SystemParameter
+    systemParameter: SystemParameter,
   ) {
     const axios = getConfiguredAxios();
     return await axios.put(
       "/systemparameters/" + systemParameterId,
-      systemParameter
+      systemParameter,
     );
   }
 

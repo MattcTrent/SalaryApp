@@ -22,7 +22,7 @@ interface confirmModalProps {
 
 export default function SystemParamModal(props: confirmModalProps) {
   const systemParamState = useSelector(
-    (state: RootState) => state.systemParameters.SelectedSystemParameter
+    (state: RootState) => state.systemParameters.SelectedSystemParameter,
   );
   const dispatch: AppDispatch = useDispatch();
 
@@ -36,12 +36,12 @@ export default function SystemParamModal(props: confirmModalProps) {
             if (response.data.success) {
               toast.success(response.data.message);
             }
-          }
+          },
         );
       } else if (action === "edit" && systemParamId != null) {
         SystemParameterService.updateSystemParameter(
           systemParamId,
-          systemParamState
+          systemParamState,
         ).then((response) => {
           if (response.data.success) {
             toast.success(response.data.message);
@@ -53,7 +53,7 @@ export default function SystemParamModal(props: confirmModalProps) {
             if (response.data.id > 0) {
               toast.success("System parameter created.");
             }
-          }
+          },
         );
       }
 
@@ -94,7 +94,7 @@ export default function SystemParamModal(props: confirmModalProps) {
   const handleChange = (
     event: React.ChangeEvent<
       HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
-    >
+    >,
   ) => {
     switch (event.target.name) {
       case "group":
@@ -210,7 +210,7 @@ export default function SystemParamModal(props: confirmModalProps) {
               onClick={onClick.bind(
                 null,
                 props.modalAction,
-                systemParamState.id
+                systemParamState.id,
               )}
               colourStyle="positive"
             >

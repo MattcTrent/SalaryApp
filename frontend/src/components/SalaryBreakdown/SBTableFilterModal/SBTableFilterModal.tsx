@@ -6,7 +6,7 @@ interface SalaryBreakdownTableFilterModalProps {
 }
 
 const SalaryBreakdownTableFilterModal = (
-  props: SalaryBreakdownTableFilterModalProps
+  props: SalaryBreakdownTableFilterModalProps,
 ) => {
   return <Modal onCloseClick={props.onCloseClick}></Modal>;
 };

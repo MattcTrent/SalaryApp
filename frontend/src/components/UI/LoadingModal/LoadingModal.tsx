@@ -16,7 +16,7 @@ export function Backdrop(props: IBackdropProps) {
 
 export function OverlayModal() {
   const loadingText = useSelector(
-    (state: RootState) => state.loading.loadingText
+    (state: RootState) => state.loading.loadingText,
   );
   return (
     <Card className={styles.modal}>
@@ -41,7 +41,7 @@ function LoadingModal(props: LoadingButtonProps) {
       {props.withBackdrop &&
         ReactDOM.createPortal(
           <Backdrop onBackdropClick={props.onBackdropClick} />,
-          portalElement
+          portalElement,
         )}
       {ReactDOM.createPortal(<OverlayModal />, portalElement)}
     </>

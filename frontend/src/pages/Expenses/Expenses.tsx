@@ -10,7 +10,7 @@ import Card from "@/components/UI/Card/Card";
 export default function ExpensesPage() {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [filterYear, setFilterYear] = useState(
-    new Date().getFullYear().toString()
+    new Date().getFullYear().toString(),
   );
 
   function getNextId(): number {
@@ -25,7 +25,7 @@ export default function ExpensesPage() {
         (prevExpense: Expense, nextExpense: Expense) =>
           (prevExpense?.id?.valueOf() || 0) > (nextExpense?.id?.valueOf() || 0)
             ? prevExpense
-            : nextExpense
+            : nextExpense,
       );
     }
 
@@ -54,11 +54,11 @@ export default function ExpensesPage() {
       ? expenses
       : expenses.filter(
           (expense: Expense) =>
-            new Date(expense.date).getFullYear().toString() === filterYear
+            new Date(expense.date).getFullYear().toString() === filterYear,
         );
   filteredExpenses = filteredExpenses.sort(
     (prevExpense: Expense, nextExpense: Expense) =>
-      new Date(prevExpense.date) < new Date(nextExpense.date) ? 1 : 0
+      new Date(prevExpense.date) < new Date(nextExpense.date) ? 1 : 0,
   );
 
   return (
