@@ -1,0 +1,19 @@
+{
+  "name": "salary-app",
+  "workspaces": [
+    "/frontend",
+    "/backend"
+  ],
+  "version": "1.0.0",
+  "description": "The Project requires: NodeJs Java JDK Gradle",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present",
+    "format:fix": "npm run format:fix --workspaces --if-present"
+  },
+  "author": "Matthew Trent"
+}
