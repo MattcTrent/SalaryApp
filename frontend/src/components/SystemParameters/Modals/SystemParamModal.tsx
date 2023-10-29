@@ -13,7 +13,7 @@ import { SystemParameterGroups } from "@/enums/SystemParameterGroup";
 
 import styles from "./SystemParamModal.module.scss";
 import Modal from "@/components/UI/Modal/Modal";
-import { AppDispatch } from "@/redux/Store/Store";
+import { AppDispatch } from "@/redux/store/Store";
 
 interface confirmModalProps {
   modalAction: string;
@@ -33,9 +33,7 @@ export default function SystemParamModal(props: confirmModalProps) {
       if (action === "delete" && systemParamId != null) {
         SystemParameterService.deleteSystemParameter(systemParamId).then(
           (response) => {
-            if (response.data.success) {
-              toast.success(response.data.message);
-            }
+            toast.success(response.data.message);
           },
         );
       } else if (action === "edit" && systemParamId != null) {
@@ -43,16 +41,12 @@ export default function SystemParamModal(props: confirmModalProps) {
           systemParamId,
           systemParamState,
         ).then((response) => {
-          if (response.data.success) {
-            toast.success(response.data.message);
-          }
+          toast.success(response.data.message);
         });
       } else if (action === "create") {
         SystemParameterService.createSystemParameter(systemParamState).then(
           (response) => {
-            if (response.data.id > 0) {
-              toast.success("System parameter created.");
-            }
+            toast.success(response.data.message);
           },
         );
       }

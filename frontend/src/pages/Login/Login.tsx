@@ -102,32 +102,32 @@ function validateAuthUser(
   let validated = true;
 
   if (mode === "login") {
-    if (!user.username || user.username.length === 0) {
+    if (!user.username || user.username.toString().length === 0) {
       validation.username = "Username is required.";
       validated = false;
     }
-    if (!user.password || user.password.length === 0) {
+    if (!user.password || user.password.toString().length === 0) {
       validation.password = "Password is required.";
       validated = false;
     }
   } else {
-    if (!user.username || user.username.length === 0) {
+    if (!user.username || user.username.toString().length === 0) {
       validation.username = "Username is required.";
       validated = false;
-    } else if (user.username && user.username.length < 6) {
+    } else if (user.username && user.username.toString().length < 6) {
       validation.username = "Username must be atleast 6 characters long.";
       validated = false;
     }
 
-    if (!user.password || user.password.length === 0) {
+    if (!user.password || user.password.toString().length === 0) {
       validation.password = "Password is required.";
       validated = false;
-    } else if (user.password && user.password.length < 6) {
+    } else if (user.password && user.password.toString().length < 6) {
       validation.password = "Password must be atleast 6 characters long.";
       validated = false;
     }
 
-    if (!user.email || user.email.length === 0) {
+    if (!user.email || user.email.toString().length === 0) {
       validation.email = "E-mail is required.";
       validated = false;
     } else if (!user.email.toString().includes("@")) {
