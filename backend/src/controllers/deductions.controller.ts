@@ -29,8 +29,8 @@ const getDeductionsByUser = async (
   let deductions: Deduction[] =
     await deductionService.getDeductionsByUser(userId);
   return res.status(200).json({
-    message: "Deductions Retrieved",
     data: deductions,
+    message: "Deductions Retrieved",
   });
 };
 
@@ -46,8 +46,8 @@ const getDeduction = async (
   // get the deduction
   let deduction: Deduction | null = await deductionService.getDeduction(id);
   return res.status(200).json({
-    message: "Deduction Retrieved",
     data: deduction,
+    message: "Deduction Retrieved",
   });
 };
 
