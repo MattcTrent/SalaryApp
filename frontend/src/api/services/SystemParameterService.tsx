@@ -1,22 +1,26 @@
 import { SystemParameter } from "@/types/SystemParamModels";
 import { getConfiguredAxios } from "@/api/AxiosConfig";
+import { httpResponse } from "@/types/httpResponse";
 
 export class SystemParameterService {
   static async getSystemParameters() {
     const axios = getConfiguredAxios();
-    return await axios.get<SystemParameter[]>("systemparameters");
+    return await axios.get<httpResponse<SystemParameter[]>>("systemparameters");
   }
 
   static async getSystemParameter(systemParameterId: number) {
     const axios = getConfiguredAxios();
-    return await axios.get<SystemParameter>(
+    return await axios.get<httpResponse<SystemParameter>>(
       "/systemparameters/" + systemParameterId,
     );
   }
 
   static async createSystemParameter(systemParameter: SystemParameter) {
     const axios = getConfiguredAxios();
-    return await axios.post("/systemparameters", systemParameter);
+    return await axios.post<httpResponse<string>>(
+      "/systemparameters",
+      systemParameter,
+    );
   }
 
   static async updateSystemParameter(
@@ -24,7 +28,7 @@ export class SystemParameterService {
     systemParameter: SystemParameter,
   ) {
     const axios = getConfiguredAxios();
-    return await axios.put(
+    return await axios.put<httpResponse<string>>(
       "/systemparameters/" + systemParameterId,
       systemParameter,
     );
@@ -32,6 +36,8 @@ export class SystemParameterService {
 
   static async deleteSystemParameter(systemParameterId: number) {
     const axios = getConfiguredAxios();
-    return await axios.delete("/systemparameters/" + systemParameterId);
+    return await axios.delete<httpResponse<string>>(
+      "/systemparameters/" + systemParameterId,
+    );
   }
 }

@@ -1,14 +1,9 @@
 import { ActionFunction, defer, json } from "react-router-dom";
 import ManageAccountForm from "@/components/Account/ManageAccountForm";
-import {
-  ManageAuthUser,
-  MessageResponse,
-  UserDetails,
-} from "@/types/UserModels";
+import { ManageAuthUser } from "@/types/UserModels";
 import { AccountService } from "@/api/services/AccountService";
 import { toast } from "react-toastify";
 import { getAuthUser } from "@/utils/AuthUtils";
-import { AxiosResponse } from "axios";
 import styles from "./Account.module.scss";
 
 export default function AccountPage() {
@@ -20,13 +15,10 @@ export default function AccountPage() {
 }
 
 export async function loadUser(username: string) {
-  let result: UserDetails | null = null;
   try {
-    const response: AxiosResponse<{ data: UserDetails }, any> =
-      await AccountService.getUserByUsername(username);
-    console.log(response);
+    const response = await AccountService.getUserByUsername(username);
     if (response.data) {
-      result = response.data.data;
+      return response.data.data;
     } else {
       alert("Error Occured getting user.");
     }
@@ -34,8 +26,6 @@ export async function loadUser(username: string) {
     if (error.message !== undefined) {
       toast.error(error.message);
     }
-  } finally {
-    return result;
   }
 }
 
@@ -70,8 +60,7 @@ export const action: ActionFunction = async ({ request }) => {
     roles: null,
   };
 
-  const response: AxiosResponse<MessageResponse, any> =
-    await AccountService.updateUser(authData);
+  const response = await AccountService.updateUser(authData);
 
   if (response.status !== 200) {
     throw json(

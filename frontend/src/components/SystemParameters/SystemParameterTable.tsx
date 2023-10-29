@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
 import { IoMdCreate } from "react-icons/io";
@@ -13,40 +13,23 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import SystemParamModal from "./Modals/SystemParamModal";
-import { SystemParameterService } from "@/api/services/SystemParameterService";
 import { SystemParameter } from "@/types/SystemParamModels";
 import NumberHelper from "@/utils/NumberHelpers";
 import { useDispatch, useSelector } from "react-redux";
-import { loadingActions } from "@/redux/slices/LoadingSlice";
 import Button from "@/components/UI/Button/Button";
 import styles from "./SystemParameter.module.scss";
 import { parameterActions } from "@/redux/slices/SystemParameterSlice";
 import { RootState } from "@/redux/reducers/RootReducer";
+import { AppDispatch } from "@/redux/store/Store";
 
 export const SystemParameterTable = () => {
   const systemParameters = useSelector(
     (state: RootState) => state.systemParameters.SystemParameters,
   );
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
   const [modalAction, setModalAction] = useState("");
-
-  const fetchSystemParameters = useCallback(async () => {
-    dispatch(loadingActions.setLoading("Loading system parameters"));
-    SystemParameterService.getSystemParameters()
-      .then((response) => {
-        if (response.data) {
-          dispatch(parameterActions.setSystemParameters(response.data));
-        }
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
-      })
-      .finally(() => {
-        dispatch(loadingActions.finishLoading());
-      });
-  }, [dispatch]);
 
   const fetchSystemParameter = async (
     systemParameterId: number,
@@ -55,12 +38,6 @@ export const SystemParameterTable = () => {
     dispatch(parameterActions.setSelectedSystemParameter(systemParameterId));
     openModal(action);
   };
-
-  useEffect(() => {
-    if (systemParameters.length === 0) {
-      fetchSystemParameters();
-    }
-  }, [fetchSystemParameters, systemParameters.length]);
 
   const openModal = (action: string) => {
     setModalAction(action);
@@ -83,9 +60,7 @@ export const SystemParameterTable = () => {
     RefreshPage();
   };
 
-  const RefreshPage = () => {
-    fetchSystemParameters();
-  };
+  const RefreshPage = () => {};
 
   return (
     <>

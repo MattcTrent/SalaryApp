@@ -21,7 +21,10 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import GoalsPage from "./pages/Goals/Goals";
 import LoadingModal from "./components/UI/LoadingModal/LoadingModal";
 import AdminPage from "./pages/Admin/Admin";
-import { SystemParametersPage } from "./pages/Admin/SystemParameters/SystemParameters";
+import {
+  SystemParametersPage,
+  loader as systemParamsLoader,
+} from "./pages/Admin/SystemParameters/SystemParameters";
 import AccountPage from "./pages/Admin/Account/Account";
 import { useDispatch, useSelector } from "react-redux";
 import HomePage from "./pages/Home/Home";
@@ -88,7 +91,11 @@ export default function App() {
             loader={userLoader}
             action={manageUserAction}
           />
-          <Route path="SystemParameters" element={<SystemParametersPage />} />
+          <Route
+            path="SystemParameters"
+            element={<SystemParametersPage />}
+            loader={systemParamsLoader}
+          />
         </Route>
       </Route>,
     ),
