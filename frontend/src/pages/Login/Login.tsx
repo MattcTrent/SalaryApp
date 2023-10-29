@@ -7,11 +7,10 @@ import {
   json,
   redirect,
 } from "react-router-dom";
-import { AuthUser, LoginResponse } from "@/types/UserModels";
+import { AuthUser } from "@/types/UserModels";
 import { AccountService } from "@/api/services/AccountService";
 import { clearAuth, setAuth } from "@/utils/AuthUtils";
 import { toast } from "react-toastify";
-import { AxiosResponse } from "axios";
 
 export default function LoginPage() {
   const [searchParams] = useSearchParams();
@@ -54,8 +53,7 @@ export const action: ActionFunction = async ({ request }) => {
   }
 
   try {
-    const response: AxiosResponse<LoginResponse, any> =
-      await AccountService.authorizeUser(authData, mode);
+    const response = await AccountService.authorizeUser(authData, mode);
     if (response.status !== 200 && response.status !== 201) {
       throw json(
         { message: "could not authenticate user" },
@@ -65,34 +63,16 @@ export const action: ActionFunction = async ({ request }) => {
 
     if (mode === "login") {
       setAuth(
-        response.data.message.token,
-        response.data.user.username,
-        response.data.user.id,
+        response.data.message,
+        response.data.data.username,
+        response.data.data.id,
       );
     }
 
     return redirect(`${mode === "login" ? "/" : "/login?mode=login"}`);
-  } catch (error: any) {
-    if (error.code === "ERR_NETWORK") {
-      toast.error(
-        "Network Error: There has been an error communicating with the server.",
-      );
-      return null;
-    }
-
-    if (error.response) {
-      if (error.response.status === 401) {
-        if (error.response.data.message) {
-          toast.error(error.response.data.message);
-        } else if (error.message) {
-          toast.error(error.response.data.message);
-        } else {
-          throw json(
-            { message: "could not authenticate user" },
-            { status: error.response.status },
-          );
-        }
-      }
+  } catch (error) {
+    if (error instanceof Error) {
+      toast.error(error.message);
     }
     return null;
   }

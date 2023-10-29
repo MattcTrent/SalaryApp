@@ -18,11 +18,11 @@ export default function ExpenseChart(props: IExpenseChartProps) {
     { label: "Sep", value: 0 },
     { label: "Oct", value: 0 },
     { label: "Nov", value: 0 },
-    { label: "Dev", value: 0 },
+    { label: "Dec", value: 0 },
   ];
 
-  for (let expense of props.expenses) {
-    let expenseMonth = new Date(expense.date).getMonth();
+  for (const expense of props.expenses) {
+    const expenseMonth = new Date(expense.date).getMonth();
     chartDataPoints[expenseMonth].value += expense.value;
   }
 

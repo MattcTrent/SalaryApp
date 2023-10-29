@@ -31,8 +31,9 @@ export async function loader() {
     if (response.data) {
       return response.data.data;
     }
-  } catch (error: any) {
-    const message = error.message ? error.message : "An error occured";
-    throw json({ message: message }, { status: 500 });
+  } catch (error) {
+    if (error instanceof Error) {
+      throw json({ message: error.message }, { status: 404 });
+    }
   }
 }

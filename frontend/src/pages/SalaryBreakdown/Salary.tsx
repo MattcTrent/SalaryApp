@@ -5,9 +5,13 @@ import Deductions from "@/components/Deductions/Deductions/Deductions";
 import styles from "./Salary.module.scss";
 import { Await, defer, json, useLoaderData } from "react-router-dom";
 import { getAuthUser, getAuthUserId } from "@/utils/AuthUtils";
+import { Deduction, SalaryBreakdown } from "@/types/SalaryModels";
 
 const SalaryBreakdownPage = () => {
-  const data: any = useLoaderData();
+  const data = useLoaderData() as {
+    salary: SalaryBreakdown;
+    deductions: Deduction[];
+  };
 
   return (
     <div className={styles.container}>
@@ -52,9 +56,10 @@ async function loadSalary(username: string) {
     if (response.data) {
       return response.data.data;
     }
-  } catch (error: any) {
-    const message = error.message ? error.message : "An error occured";
-    throw json({ message: message }, { status: 500 });
+  } catch (error) {
+    if (error instanceof Error) {
+      throw json({ message: error.message }, { status: 404 });
+    }
   }
 }
 
@@ -64,8 +69,11 @@ async function loadDeductions(userId: number) {
     if (response.data) {
       return response.data.data;
     }
-  } catch (error: any) {
-    const message = error.message ? error.message : "An error occured";
-    throw json({ message: message }, { status: 500 });
+  } catch (error) {
+    if (error instanceof Error) {
+      if (error instanceof Error) {
+        throw json({ message: error.message }, { status: 404 });
+      }
+    }
   }
 }

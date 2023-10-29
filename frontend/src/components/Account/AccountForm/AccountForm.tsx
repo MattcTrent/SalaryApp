@@ -16,13 +16,14 @@ import { StudentFinancePlans } from "@/enums/StudentFinancePlan";
 
 interface IAccountFormProps {
   user: UserDetails | null;
-  method: any;
+  method: "post" | "put";
   isSubmitting: boolean;
 }
 
 export default function AccountForm(props: IAccountFormProps) {
   const dispatch = useDispatch();
   const registerState = useSelector((state: RootState) => state.register);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data: any = useActionData();
 
   const usernameChangeHandler = (

@@ -17,7 +17,6 @@ import { Deduction } from "@/types/SalaryModels";
 import { getAuthUserId } from "@/utils/AuthUtils";
 import { toast } from "react-toastify";
 import { SalaryService } from "@/api/services/SalaryService";
-import { MessageResponse } from "@/types/UserModels";
 import { AxiosResponse } from "axios";
 import { useState } from "react";
 import { DeductionType, DeductionTypes } from "@/enums/DeductionType";
@@ -25,10 +24,11 @@ import { BillTypes } from "@/enums/BillType";
 import { SavingTypes } from "@/enums/SavingsType";
 
 import styles from "./DeductionForm.module.scss";
+import { httpResponse } from "@/types/httpResponse";
 
 interface DeductionFormProps {
   loadedDeduction: Deduction | null;
-  method: any;
+  method: "post" | "put";
 }
 
 export default function DeductionForm(props: DeductionFormProps) {
@@ -38,6 +38,7 @@ export default function DeductionForm(props: DeductionFormProps) {
   const savingType = searchParams.get("savingType");
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const submitData: any = useActionData();
   const submit = useSubmit();
   const [deductionType, setDeductionType] = useState<string>(
@@ -203,7 +204,8 @@ export const action: ActionFunction = async ({ request }) => {
   }
 
   try {
-    let response: any = null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let response: AxiosResponse<httpResponse<string>, any>;
     if (mode === "create") {
       response = await SalaryService.createDeduction(deduction);
     } else {
@@ -218,26 +220,10 @@ export const action: ActionFunction = async ({ request }) => {
     }
 
     return redirect("/SalaryBreakdown");
-  } catch (error: any) {
-    if (error.code === "ERR_NETWORK") {
-      toast.error(
-        "Network Error: There has been an error communicating with the server.",
-      );
-      return null;
+  } catch (error) {
+    if (error instanceof Error) {
+      toast.error(error.message);
     }
-    if (error.response?.status === 400) {
-      if (error.response.data.message) {
-        toast.error(error.response.data.message);
-      } else if (error.message) {
-        toast.error(error.response.data.message);
-      }
-    } else {
-      throw json(
-        { message: "could not submit deduction" },
-        { status: error.response.status },
-      );
-    }
-    return null;
   }
 };
 
@@ -298,8 +284,7 @@ export const deleteAction: ActionFunction = async ({ params }) => {
   }
 
   try {
-    const response: AxiosResponse<MessageResponse, any> =
-      await SalaryService.deleteDeduction(+deductionId);
+    const response = await SalaryService.deleteDeduction(+deductionId);
 
     if (response.status !== 200 && response.status !== 201) {
       throw json(
@@ -309,25 +294,9 @@ export const deleteAction: ActionFunction = async ({ params }) => {
     }
 
     return redirect("/SalaryBreakdown");
-  } catch (error: any) {
-    if (error.code === "ERR_NETWORK") {
-      toast.error(
-        "Network Error: There has been an error communicating with the server.",
-      );
-      return null;
+  } catch (error) {
+    if (error instanceof Error) {
+      toast.error(error.message);
     }
-    if (error.response?.status === 400) {
-      if (error.response.data.message) {
-        toast.error(error.response.data.message);
-      } else if (error.message) {
-        toast.error(error.response.data.message);
-      }
-    } else {
-      throw json(
-        { message: "could not delete deduction" },
-        { status: error.response.status },
-      );
-    }
-    return null;
   }
 };

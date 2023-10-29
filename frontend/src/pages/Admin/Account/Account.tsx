@@ -22,8 +22,8 @@ export async function loadUser(username: string) {
     } else {
       alert("Error Occured getting user.");
     }
-  } catch (error: any) {
-    if (error.message !== undefined) {
+  } catch (error) {
+    if (error instanceof Error) {
       toast.error(error.message);
     }
   }

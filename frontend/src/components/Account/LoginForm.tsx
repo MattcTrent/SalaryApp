@@ -8,6 +8,7 @@ import { Form, useActionData, useNavigation } from "react-router-dom";
 export default function LoginForm() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data: any = useActionData();
 
   return (

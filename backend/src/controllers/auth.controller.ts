@@ -33,7 +33,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
 
     // Send the JWT in the response
     res.send({
-      user: user,
+      data: user,
       message: { token: token, message: "Login Successful" },
     });
   } catch (error) {

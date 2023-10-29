@@ -3,18 +3,12 @@ import styles from "./ErrorPage.module.scss";
 import MainNavigation from "@/components/MainNavigation/MainNavigation";
 
 function ErrorPage() {
-  const error: any = useRouteError();
+  const error: unknown = useRouteError();
 
-  let title = "An Error Occured";
-  let message = "An error has occured, please contact your administrator.";
+  const title = "An Error Occured";
+  const message = "An error has occured, please contact your administrator.";
 
-  if (error.status === 404) {
-    title = "Page Not Found";
-    message =
-      "The page you are looking for is not found, please contact your administrator.";
-  } else {
-    console.log(error);
-  }
+  console.error(error);
 
   return (
     <>

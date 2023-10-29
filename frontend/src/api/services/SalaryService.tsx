@@ -24,7 +24,7 @@ export class SalaryService {
   static async createDeduction(deduction: Deduction) {
     const axios = getConfiguredAxios();
     const url = "/deductions";
-    return await axios.post<httpResponse<Deduction>>(url, deduction);
+    return await axios.post<httpResponse<string>>(url, deduction);
   }
 
   static async updateDeduction(deduction: Deduction) {
