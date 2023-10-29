@@ -50,7 +50,7 @@ async function loadSalary(username: string) {
   try {
     const response = await SalaryService.getSalaryBreakdown(username!);
     if (response.data) {
-      return response.data;
+      return response.data.data;
     }
   } catch (error: any) {
     const message = error.message ? error.message : "An error occured";
@@ -62,7 +62,7 @@ async function loadDeductions(userId: number) {
   try {
     const response = await SalaryService.getDeductions(userId);
     if (response.data) {
-      return response.data;
+      return response.data.data;
     }
   } catch (error: any) {
     const message = error.message ? error.message : "An error occured";
