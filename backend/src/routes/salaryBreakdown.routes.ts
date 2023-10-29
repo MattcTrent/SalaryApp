@@ -5,7 +5,7 @@ const salaryBreakdownRoutes = express.Router();
 
 salaryBreakdownRoutes.get(
   "/salaryBreakdowns/:id",
-  controller.getSalaryBreakdown
+  controller.getSalaryBreakdown,
 );
 
 export = salaryBreakdownRoutes;

@@ -28,7 +28,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
     const token = jwt.sign(
       { userId: user.id, username: user.username },
       config.jwtSecret,
-      { expiresIn: "1h" }
+      { expiresIn: "1h" },
     );
 
     // Send the JWT in the response
@@ -68,7 +68,7 @@ const register = async (req: Request, res: Response): Promise<void> => {
     isPensionSalarySacrifice,
     studentFinancePlan,
     [],
-    []
+    [],
   );
 
   const defaultRole = new Role("user", user);

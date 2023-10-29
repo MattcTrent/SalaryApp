@@ -52,7 +52,7 @@ export class User {
     isPensionSalarySacrifice: boolean,
     studentFinancePlan: StudentFinancePlan | null,
     roles: Role[],
-    deductions: Deduction[]
+    deductions: Deduction[],
   ) {
     this.id = 0;
     this.username = username;

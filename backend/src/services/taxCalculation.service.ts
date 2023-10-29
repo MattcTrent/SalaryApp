@@ -17,24 +17,24 @@ const calculateWeeklyTax = async (weeklySalary: number): Promise<number> =>
 
 const calculateTaxPeriod = async (
   salary: number,
-  periodsInYear: number
+  periodsInYear: number,
 ): Promise<number> => {
   const taxParameters: SystemParameter[] =
     await systemParameterService.getSystemParametersByGroup(
-      SystemParameterGroup.TAX
+      SystemParameterGroup.TAX,
     );
   const personalAllowanceParam: SystemParameter | undefined =
     taxParameters.find(
-      (p) => p.name === TaxBracket.PERSONALALLOWANCE.toString()
+      (p) => p.name === TaxBracket.PERSONALALLOWANCE.toString(),
     );
   const basicTaxParam: SystemParameter | undefined = taxParameters.find(
-    (p) => p.name === TaxBracket.BASIC.toString()
+    (p) => p.name === TaxBracket.BASIC.toString(),
   );
   const higherTaxParam: SystemParameter | undefined = taxParameters.find(
-    (p) => p.name === TaxBracket.HIGHER.toString()
+    (p) => p.name === TaxBracket.HIGHER.toString(),
   );
   const additionalTaxParam: SystemParameter | undefined = taxParameters.find(
-    (p) => p.name === TaxBracket.ADDITIONAL.toString()
+    (p) => p.name === TaxBracket.ADDITIONAL.toString(),
   );
 
   if (
@@ -44,7 +44,7 @@ const calculateTaxPeriod = async (
     !additionalTaxParam
   ) {
     throw new Error(
-      "One of the required parameters for Tax calculations is missing."
+      "One of the required parameters for Tax calculations is missing.",
     );
   }
 
@@ -70,7 +70,7 @@ const calculateTaxPeriod = async (
     basicRate,
     higherRate,
     additionalRate,
-    taxBenefitScheme
+    taxBenefitScheme,
   );
 };
 
@@ -79,7 +79,7 @@ const getTaxBenefitValue = async (): Promise<number> => {
   const deductionsTotal = deductions.reduce(
     (runningTotal: number, currentDeduction: Deduction) =>
       runningTotal + currentDeduction.cost,
-    0
+    0,
   );
 
   return deductionsTotal;
@@ -93,7 +93,7 @@ const calculateTax = async (
   basicRate: number,
   higherRate: number,
   additionalRate: number,
-  taxBenefitScheme: number
+  taxBenefitScheme: number,
 ): Promise<number> => {
   let basicValue;
   let higherValue = 0;
@@ -130,11 +130,11 @@ const calculateTax = async (
 
 const getYearlyTaxFree = async (): Promise<number> => {
   const taxParameters = await systemParameterService.getSystemParametersByGroup(
-    SystemParameterGroup.TAX
+    SystemParameterGroup.TAX,
   );
   const personalAllowanceParam = taxParameters.find(
     (parameter: SystemParameter) =>
-      parameter.name === TaxBracket.PERSONALALLOWANCE
+      parameter.name === TaxBracket.PERSONALALLOWANCE,
   );
 
   return personalAllowanceParam

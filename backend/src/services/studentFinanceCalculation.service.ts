@@ -7,7 +7,7 @@ const calculateYearlyStudentFinance = async (
   yearlySalary: number,
   niBenefit: number,
   taxBenefit: number,
-  planUsed: StudentFinancePlan
+  planUsed: StudentFinancePlan,
 ): Promise<number> => {
   yearlySalary = yearlySalary - niBenefit * 12;
   yearlySalary = yearlySalary - taxBenefit * 12;
@@ -18,7 +18,7 @@ const calculateMonthlyStudentFinance = async (
   monthlySalary: number,
   niBenefit: number,
   taxBenefit: number,
-  planUsed: StudentFinancePlan
+  planUsed: StudentFinancePlan,
 ): Promise<number> => {
   monthlySalary = monthlySalary - niBenefit;
   monthlySalary = monthlySalary - taxBenefit;
@@ -27,7 +27,7 @@ const calculateMonthlyStudentFinance = async (
 
 const calculateWeeklyStudentFinance = async (
   weeklySalary: number,
-  planUsed: StudentFinancePlan
+  planUsed: StudentFinancePlan,
 ): Promise<number> => {
   return calculateStudentFinanceForPeriod(weeklySalary, planUsed, 52);
 };
@@ -35,17 +35,17 @@ const calculateWeeklyStudentFinance = async (
 const calculateStudentFinanceForPeriod = async (
   salary: number,
   planUsed: StudentFinancePlan,
-  periodsInYear: number
+  periodsInYear: number,
 ): Promise<number> => {
   let studentFinance = 0;
 
   const niParameters: SystemParameter[] =
     await systemParameterService.getSystemParametersByGroup(
-      SystemParameterGroup.STUDENT_FINANCE
+      SystemParameterGroup.STUDENT_FINANCE,
     );
 
   const planParam: SystemParameter | undefined = niParameters.find(
-    (p) => p.name === planUsed.toString()
+    (p) => p.name === planUsed.toString(),
   );
 
   if (planParam) {
@@ -55,7 +55,7 @@ const calculateStudentFinanceForPeriod = async (
     studentFinance = await calculateStudentFinance(
       salary,
       planThreshold / periodsInYear,
-      sfRate
+      sfRate,
     );
   }
 
@@ -65,7 +65,7 @@ const calculateStudentFinanceForPeriod = async (
 const calculateStudentFinance = async (
   salary: number,
   planThreshold: number,
-  sfRate: number
+  sfRate: number,
 ): Promise<number> => {
   let salaryOverBy = 0;
 

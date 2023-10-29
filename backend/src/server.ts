@@ -48,7 +48,7 @@ AppDataSource.initialize()
       // set the CORS headers
       res.header(
         "Access-Control-Allow-Headers",
-        "origin, X-Requested-With, Content-Type, Accept, Authorization"
+        "origin, X-Requested-With, Content-Type, Accept, Authorization",
       );
 
       // set the CORS policy
@@ -83,7 +83,7 @@ AppDataSource.initialize()
     const httpServer = http.createServer(router);
     const PORT: any = process.env.PORT ?? 8080;
     httpServer.listen(PORT, () =>
-      console.log(`The server is running on port ${PORT}`)
+      console.log(`The server is running on port ${PORT}`),
     );
   })
   .catch((error) => console.log(error));

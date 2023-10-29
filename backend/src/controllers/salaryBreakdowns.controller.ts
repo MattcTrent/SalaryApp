@@ -6,7 +6,7 @@ import { SalaryBreakdown } from "../entity/SalaryBreakdown.class";
 const getSalaryBreakdown = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // get the user id from the req
   let username: string = req.params.username;

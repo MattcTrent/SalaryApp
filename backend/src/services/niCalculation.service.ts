@@ -16,19 +16,19 @@ const calculateMonthlyNI = async (monthlySalary: number): Promise<number> => {
 
 const calculateNIForPeriod = async (
   salary: number,
-  periodsInYear: number
+  periodsInYear: number,
 ): Promise<number> => {
   const niBenefit = await getNIBenefitValue();
 
   const niParameters: SystemParameter[] =
     await systemParameterService.getSystemParametersByGroup(
-      SystemParameterGroup.NI
+      SystemParameterGroup.NI,
     );
   const basicParam: SystemParameter | undefined = niParameters.find(
-    (p) => p.name === NIBracket.BASIC.toString()
+    (p) => p.name === NIBracket.BASIC.toString(),
   );
   const additionalParam: SystemParameter | undefined = niParameters.find(
-    (p) => p.name === NIBracket.ADDITIONAL.toString()
+    (p) => p.name === NIBracket.ADDITIONAL.toString(),
   );
 
   const basicThreshold = basicParam?.lowerThreshold || 0;
@@ -46,7 +46,7 @@ const calculateNIForPeriod = async (
     additionalThresholdPerPeriod,
     basicRate,
     additionalRate,
-    niBenefit
+    niBenefit,
   );
 };
 
@@ -56,7 +56,7 @@ const calculateNI = async (
   additionalThreshold: number,
   basicRate: number,
   additionalRate: number,
-  niBenefitScheme: number
+  niBenefitScheme: number,
 ): Promise<number> => {
   let nationalInsurance: number;
   const niAbleSalary = salary - niBenefitScheme;
@@ -85,7 +85,7 @@ const getNIBenefitValue = async (): Promise<number> => {
   const deductionsTotal = deductions.reduce(
     (runningTotal: number, currentDeduction: Deduction) =>
       runningTotal + currentDeduction.cost,
-    0
+    0,
   );
 
   return deductionsTotal;

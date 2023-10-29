@@ -8,14 +8,14 @@ import studentFinanceService from "../services/studentFinanceCalculation.service
 import { User } from "../entity/User.class";
 
 const getSalaryBreakdownById = async (
-  userId: number
+  userId: number,
 ): Promise<SalaryBreakdown> => {
   const user = await userService.getUser(userId);
   return getSalaryBreakdown(user);
 };
 
 const getSalaryBreakdownByUsername = async (
-  userName: string
+  userName: string,
 ): Promise<SalaryBreakdown> => {
   const user = await userService.getUserByUsername(userName);
   return getSalaryBreakdown(user);
@@ -34,11 +34,11 @@ const getSalaryBreakdown = async (user: User): Promise<SalaryBreakdown> => {
 
   deductSalarySacrificeDeductions(breakdown);
   breakdown.tax = await taxService.calculateMonthlyTax(
-    breakdown.getSalaryPostSalarySacrifice()
+    breakdown.getSalaryPostSalarySacrifice(),
   );
   breakdown.taxFree = await taxService.getMonthlyTaxFree();
   breakdown.nI = await niService.calculateMonthlyNI(
-    breakdown.getSalaryPostSalarySacrifice()
+    breakdown.getSalaryPostSalarySacrifice(),
   );
   if (user.studentFinancePlan !== null) {
     breakdown.studentFinance =
@@ -46,7 +46,7 @@ const getSalaryBreakdown = async (user: User): Promise<SalaryBreakdown> => {
         breakdown.getSalaryPostSalarySacrifice(),
         await niService.getNIBenefitValue(),
         await taxService.getTaxBenefitValue(),
-        user.studentFinancePlan
+        user.studentFinancePlan,
       );
   }
 
@@ -56,10 +56,10 @@ const getSalaryBreakdown = async (user: User): Promise<SalaryBreakdown> => {
 };
 
 const deductSalarySacrificeDeductions = async (
-  breakdown: SalaryBreakdown
+  breakdown: SalaryBreakdown,
 ): Promise<void> => {
   const deductionsTotal = await getSalarySacrificeDeductionValue(
-    breakdown.user
+    breakdown.user,
   );
   breakdown.salarySacrifice = breakdown.salarySacrifice + deductionsTotal;
 };
@@ -87,53 +87,53 @@ const calculateTakehome = async (breakdown: SalaryBreakdown): Promise<void> => {
 };
 
 const getSalarySacrificeDeductionValue = async (
-  user: User
+  user: User,
 ): Promise<number> => {
   const deductions = user.deductions.filter(
-    (deduction) => deduction.type === DeductionType.SALARY_SACRIFICE
+    (deduction) => deduction.type === DeductionType.SALARY_SACRIFICE,
   );
   const deductionsTotal = deductions.reduce(
     (runningTotal: number, currentDeduction: Deduction) =>
       runningTotal + currentDeduction.cost,
-    0
+    0,
   );
   return deductionsTotal;
 };
 
 const getPayrollDeductionValue = async (user: User): Promise<number> => {
   const deductions = user.deductions.filter(
-    (deduction) => deduction.type === DeductionType.TAX_BENEFIT
+    (deduction) => deduction.type === DeductionType.TAX_BENEFIT,
   );
   const deductionsTotal = deductions.reduce(
     (runningTotal: number, currentDeduction: Deduction) =>
       runningTotal + currentDeduction.cost,
-    0
+    0,
   );
   return deductionsTotal;
 };
 
 const getBillsDeductionValue = async (user: User): Promise<number> => {
   const deductions = user.deductions.filter(
-    (deduction) => deduction.type === DeductionType.BILL
+    (deduction) => deduction.type === DeductionType.BILL,
   );
   const deductionsTotal = deductions.reduce(
     (runningTotal: number, currentDeduction: Deduction) =>
       runningTotal + currentDeduction.cost,
-    0
+    0,
   );
   return deductionsTotal;
 };
 
 const getSavingsAndInvestmentsDeductionValue = async (
-  user: User
+  user: User,
 ): Promise<number> => {
   const deductions = user.deductions.filter(
-    (deduction) => deduction.type === DeductionType.SAVING_AND_INVESTMENT
+    (deduction) => deduction.type === DeductionType.SAVING_AND_INVESTMENT,
   );
   const deductionsTotal = deductions.reduce(
     (runningTotal: number, currentDeduction: Deduction) =>
       runningTotal + currentDeduction.cost,
-    0
+    0,
   );
   return deductionsTotal;
 };

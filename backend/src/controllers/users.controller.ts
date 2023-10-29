@@ -36,7 +36,7 @@ const getUser = async (req: Request, res: Response, next: NextFunction) => {
 const getUserByUsername = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // get the user id from the req
   let username: string = req.params.username;
