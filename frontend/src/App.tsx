@@ -5,6 +5,10 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import LoginPage, {
   logoutAction,
   action as authAction,
@@ -14,11 +18,7 @@ import SalaryBreakdownPage, {
 } from "./pages/SalaryBreakdown/Salary";
 import ExpensesPage from "./pages/Expenses/Expenses";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import { useEffect } from "react";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import GoalsPage from "./pages/Goals/Goals";
-import InvestmentCalculatorPage from "./pages/InvestmentCalculator/InvestmentCalc";
 import LoadingModal from "./components/UI/LoadingModal/LoadingModal";
 import AdminPage from "./pages/Admin/Admin";
 import { SystemParametersPage } from "./pages/Admin/SystemParameters/SystemParameters";
@@ -80,10 +80,6 @@ export default function App() {
         />
         <Route path="Expenses" element={<ExpensesPage />} />
         <Route path="Goals" element={<GoalsPage />} />
-        <Route
-          path="InvestmentCalculator"
-          element={<InvestmentCalculatorPage />}
-        />
         <Route path="Admin" element={<AdminPage />}>
           <Route path="" element={<Navigate to="Account" />} />
           <Route

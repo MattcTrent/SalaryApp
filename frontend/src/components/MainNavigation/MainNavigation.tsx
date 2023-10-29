@@ -19,9 +19,6 @@ function MainNavigation() {
               <Navigation path="/SalaryBreakdown">Salary Breakdown</Navigation>
               <Navigation path="/Expenses">Expenses</Navigation>
               <Navigation path="/Goals">Goals</Navigation>
-              <Navigation path="/InvestmentCalculator">
-                Investment Calculator
-              </Navigation>
             </>
           )}
         </ul>
