@@ -1,6 +1,20 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-#npm run lint
+#npm run lint || 
+# (
+#     echo "Linting issues found, please make the required changes listed";
+#     false;
+# )
 
-npm run format
+npm run format || 
+(
+    echo "Formatting issues found, please Run npm run format:fix to correct formatting with prettier";
+    false;
+)
+
+# npm run test || 
+# (
+#     echo "Failed Tests, please fix tasts";
+#     false;
+# )
