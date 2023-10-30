@@ -42,6 +42,7 @@ import NewDeductionPage from "./pages/SalaryBreakdown/NewDeduction/NewDeduction"
 import { action as manageDeduction } from "./components/Deductions/DeductionForm/DeductionForm";
 import { deleteAction as deleteDeduction } from "./components/Deductions/DeductionForm/DeductionForm";
 import { RootState } from "./redux/reducers/RootReducer";
+import RouteProtection from "./components/RouteProtection/RouteProtection";
 
 export default function App() {
   const isLoading = useSelector((state: RootState) => state.loading.isLoading);
@@ -58,17 +59,32 @@ export default function App() {
         errorElement={<ErrorPage />}
         loader={tokenLoader}
       >
-        <Route index element={<HomePage />} />
+        <Route
+          index
+          element={
+            <RouteProtection>
+              <HomePage />
+            </RouteProtection>
+          }
+        />
         <Route path="login" element={<LoginPage />} action={authAction} />
         <Route path="logout" action={logoutAction} />
         <Route
           path="SalaryBreakdown"
-          element={<SalaryBreakdownPage />}
+          element={
+            <RouteProtection>
+              <SalaryBreakdownPage />
+            </RouteProtection>
+          }
           loader={salaryLoader}
         />
         <Route
           path="SalaryBreakdown/EditDeduction/:deductionId"
-          element={<EditDeductionPage />}
+          element={
+            <RouteProtection>
+              <EditDeductionPage />
+            </RouteProtection>
+          }
           action={manageDeduction}
           loader={deductionLoader}
         />
@@ -78,12 +94,37 @@ export default function App() {
         />
         <Route
           path="SalaryBreakdown/NewDeduction"
-          element={<NewDeductionPage />}
+          element={
+            <RouteProtection>
+              <NewDeductionPage />
+            </RouteProtection>
+          }
           action={manageDeduction}
         />
-        <Route path="Expenses" element={<ExpensesPage />} />
-        <Route path="Goals" element={<GoalsPage />} />
-        <Route path="Admin" element={<AdminPage />}>
+        <Route
+          path="Expenses"
+          element={
+            <RouteProtection>
+              <ExpensesPage />
+            </RouteProtection>
+          }
+        />
+        <Route
+          path="Goals"
+          element={
+            <RouteProtection>
+              <GoalsPage />
+            </RouteProtection>
+          }
+        />
+        <Route
+          path="Admin"
+          element={
+            <RouteProtection>
+              <AdminPage />
+            </RouteProtection>
+          }
+        >
           <Route path="" element={<Navigate to="Account" />} />
           <Route
             path="Account"
