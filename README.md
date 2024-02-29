@@ -50,3 +50,10 @@ Ensure the connection details here are set to connect to a configured MySQL DB n
 Now you can run the project and it will Connect to the database and do any data seeding required.
 
 Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
+
+
+## DB Commands
+
+docker build -t my-database .
+
+docker run -p 3306:3306 --name my-database-container -d my-database
