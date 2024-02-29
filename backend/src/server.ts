@@ -56,7 +56,10 @@ AppDataSource.initialize()
       res.header("Access-Control-Allow-Credentials", "true");
       // set the CORS method headers
       if (req.method === "OPTIONS") {
-        res.header("Access-Control-Allow-Methods", "GET, PATCH, DELETE, POST");
+        res.header(
+          "Access-Control-Allow-Methods",
+          "GET, PATCH, DELETE, POST, PUT",
+        );
         return res.status(200).json({});
       }
 

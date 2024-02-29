@@ -16,7 +16,7 @@ type AuthUser = {
   email: FormDataEntryValue | null;
   salary: FormDataEntryValue | null;
   pensionPercentage: FormDataEntryValue | null;
-  pensionSalarySacrifice: FormDataEntryValue | null;
+  pensionSalarySacrifice: FormDataEntryValue | number | null;
   studentFinancePlan: FormDataEntryValue | null;
 };
 type ManageAuthUser = AuthUser & {

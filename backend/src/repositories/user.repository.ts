@@ -24,7 +24,13 @@ const getUserByUsername = async (username: string) => {
 };
 
 const updateUser = async (user: User) => {
-  return await userRepository().save(user);
+  const existingUser = await userRepository().findOneByOrFail({
+    id: user.id,
+  });
+
+  existingUser.updateUser(user);
+
+  return await userRepository().save(existingUser);
 };
 const deleteUser = async (id: number) => {
   return await userRepository().delete({ id: id });

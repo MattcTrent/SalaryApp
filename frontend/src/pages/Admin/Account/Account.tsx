@@ -43,8 +43,8 @@ export async function loader() {
 export const action: ActionFunction = async ({ request }) => {
   const data = await request.formData();
   data.get("ispensionsalarysacrifice")
-    ? data.set("ispensionsalarysacrifice", "true")
-    : data.set("ispensionsalarysacrifice", "false");
+    ? data.set("ispensionsalarysacrifice", "1")
+    : data.set("ispensionsalarysacrifice", "0");
 
   const authData: ManageAuthUser = {
     id: data.get("id"),

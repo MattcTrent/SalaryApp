@@ -57,7 +57,7 @@ const getUserByUsername = async (
 // updating a user
 const updateUser = async (req: Request, res: Response, next: NextFunction) => {
   // get the data from req.body
-  let body: User = req.body.body ?? null;
+  let body: User = req.body ?? null;
   // update the user
   let user: User = await userService.updateUser(body);
 

@@ -41,6 +41,15 @@ export class User {
     return bcrypt.compareSync(unencryptedPassword, this.password);
   }
 
+  updateUser(newUserDetails: User) {
+    this.firstName = newUserDetails.firstName;
+    this.lastName = newUserDetails.lastName;
+    this.salary = newUserDetails.salary;
+    this.pensionPercentage = newUserDetails.pensionPercentage;
+    this.pensionSalarySacrifice = newUserDetails.pensionSalarySacrifice;
+    this.studentFinancePlan = newUserDetails.studentFinancePlan;
+  }
+
   constructor(
     username: string,
     password: string,
