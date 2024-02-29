@@ -32,7 +32,8 @@ const getSalaryBreakdown = async (user: User): Promise<SalaryBreakdown> => {
     breakdown.salarySacrifice = breakdown.pension;
   }
 
-  deductSalarySacrificeDeductions(breakdown);
+  await deductSalarySacrificeDeductions(breakdown);
+
   breakdown.tax = await taxService.calculateMonthlyTax(
     breakdown.getSalaryPostSalarySacrifice(),
   );
