@@ -14,15 +14,16 @@ import userRoutes from "./routes/user.routes";
 import roleRoutes from "./routes/role.routes";
 import authRoutes from "./routes/auth.routes";
 import salaryBreakdownRoutes from "./routes/salaryBreakdown.routes";
+import { seedMattData } from "./seeders/mattSeeder";
 
 const router: Express = express();
 
 export const AppDataSource = new DataSource({
   type: "mysql",
   host: "localhost",
-  port: 33061,
-  username: "root",
-  password: "root",
+  port: 3306,
+  username: "user",
+  password: "password",
   database: "salaryapp",
   entities: [SystemParameter, User, Role, Deduction],
   synchronize: true,
@@ -35,6 +36,8 @@ export const AppDataSource = new DataSource({
 AppDataSource.initialize()
   .then(() => {
     seedSystemParameters();
+
+    seedMattData();
 
     /** Logging */
     router.use(morgan("dev"));

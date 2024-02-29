@@ -27,7 +27,7 @@ export class Deduction {
   constructor(
     user: User,
     type: string,
-    billType: string,
+    billType: string | null,
     savingType: string | null,
     name: string,
     cost: number,
