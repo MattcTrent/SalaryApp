@@ -5,14 +5,14 @@ import LoadingModal from "@/components/UI/LoadingModal/LoadingModal";
 import { User } from "@/types/UserModels";
 
 export default function ManageAccountForm() {
-  const data = useLoaderData() as User;
+  const data = useLoaderData() as { user: User };
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
   return (
     <>
       <Suspense fallback={<LoadingModal />}>
-        <Await resolve={data}>
+        <Await resolve={data.user}>
           {(user) => (
             <AccountForm user={user} method="put" isSubmitting={isSubmitting} />
           )}
