@@ -135,7 +135,7 @@ export default function SystemParamModal(props: confirmModalProps) {
         <div className={styles.formInputContainer}>
           <h2>
             {props.modalAction.charAt(0).toUpperCase() +
-              props.modalAction.slice(1).toLowerCase() ?? null}{" "}
+              props.modalAction.slice(1).toLowerCase()}{" "}
             System Parameter
             {props.modalAction === "edit" &&
               ' "' +
