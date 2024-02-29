@@ -189,7 +189,7 @@ export const action: ActionFunction = async ({ request }) => {
 
   const deduction: Deduction = {
     id: id ? +id : 0,
-    user: null,
+    user: userId,
     createdById: userId,
     type: data.get("type")?.toString() ?? "",
     billType: data.get("billType")?.toString() ?? null,
