@@ -18,7 +18,7 @@ type SalaryBreakdown = {
 
 type Deduction = {
   id: number;
-  user: User | null;
+  user: User | number | null;
   createdById: number;
   type: string;
   billType: string | null;
