@@ -116,7 +116,7 @@ const generateNewDeductionsNavButtons = () => {
       if (type === DeductionType.SAVING_AND_INVESTMENT) {
         continue;
       }
-      
+
       codeBlocks.push(
         <Navigation
           key={deductionType}
