@@ -8,46 +8,38 @@ function MainNavigation() {
   const token = useRouteLoaderData("root") as string | null;
 
   return (
-    <header>
-      <nav className={styles.navBar}>
-        <ul className={styles.navList}>
-          <Navigation path="/">
-            <HomeIcon />
+    <nav className={styles.navBar}>
+      <ul className={styles.navList}>
+        <Navigation path="/">
+          <HomeIcon />
+        </Navigation>
+        {token && (
+          <>
+            <Navigation path="/SalaryBreakdown">Salary Breakdown</Navigation>
+            <Navigation path="/Expenses">Expenses</Navigation>
+            <Navigation path="/Goals">Goals</Navigation>
+          </>
+        )}
+      </ul>
+      <ul className={styles.navListRight}>
+        {!token ? (
+          <Navigation className={styles.accountButton} path="/login?mode=login">
+            Login
           </Navigation>
-          {token && (
-            <>
-              <Navigation path="/SalaryBreakdown">Salary Breakdown</Navigation>
-              <Navigation path="/Expenses">Expenses</Navigation>
-              <Navigation path="/Goals">Goals</Navigation>
-            </>
-          )}
-        </ul>
-        <ul className={styles.navListRight}>
-          {!token ? (
-            <Navigation
-              className={styles.accountButton}
-              path="/login?mode=login"
-            >
-              Login
+        ) : (
+          <>
+            <Navigation className={styles.accountButton} path="/Admin/Account">
+              <ManageAccountsIcon />
             </Navigation>
-          ) : (
-            <>
-              <Navigation
-                className={styles.accountButton}
-                path="/Admin/Account"
-              >
-                <ManageAccountsIcon />
-              </Navigation>
-              <li className={styles.navItem}>
-                <Form action="/logout" method="post">
-                  <button className={styles.logoutButton}>Logout</button>
-                </Form>
-              </li>
-            </>
-          )}
-        </ul>
-      </nav>
-    </header>
+            <li className={styles.navItem}>
+              <Form action="/logout" method="post">
+                <button className={styles.logoutButton}>Logout</button>
+              </Form>
+            </li>
+          </>
+        )}
+      </ul>
+    </nav>
   );
 }
 
