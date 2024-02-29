@@ -74,13 +74,13 @@ const getParameters = (): SystemParameter[] => {
       TaxBracket.BASIC,
       20,
       12570,
-      50270,
+      37700,
     ),
     new SystemParameter(
       SystemParameterGroup.TAX,
       TaxBracket.HIGHER,
       40,
-      50570,
+      37701,
       125140,
     ),
     new SystemParameter(
@@ -93,9 +93,9 @@ const getParameters = (): SystemParameter[] => {
     new SystemParameter(
       SystemParameterGroup.NI,
       NIBracket.BASIC,
-      12,
+      10,
       12576,
-      50265,
+      50268,
     ),
     new SystemParameter(
       SystemParameterGroup.NI,
