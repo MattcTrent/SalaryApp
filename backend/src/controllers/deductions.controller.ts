@@ -7,7 +7,7 @@ import { Deduction } from "../entity/Deduction.class";
 const getDeductions = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // get some deductions
   let deductions: Deduction[] = await deductionService.getDeductions();
@@ -21,7 +21,7 @@ const getDeductions = async (
 const getDeductionsByUser = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // get the deduction id from req.params
   let userId = parseInt(req.params.userId);
@@ -38,7 +38,7 @@ const getDeductionsByUser = async (
 const getDeduction = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // get the deduction id from the req
   let idString: string = req.params.id;
@@ -55,7 +55,7 @@ const getDeduction = async (
 const updateDeduction = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // get the data from req.body
   let body: Deduction = req.body.body ?? null;
@@ -73,7 +73,7 @@ const updateDeduction = async (
 const deleteDeduction = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // get the deduction id from req.params
   let id = parseInt(req.params.id);
@@ -91,7 +91,7 @@ const deleteDeduction = async (
 const addDeduction = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // get the data from req.body
   let body: Deduction = req.body;
