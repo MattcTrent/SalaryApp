@@ -50,7 +50,7 @@ const getSalaryBreakdown = async (user: User): Promise<SalaryBreakdown> => {
       );
   }
 
-  calculateTakehome(breakdown);
+  await calculateTakehome(breakdown);
 
   return breakdown;
 };
