@@ -1,11 +1,15 @@
-FROM openjdk:17-alpine
+FROM node:lts-alpine3.18
 
-WORKDIR /backendApp
+WORKDIR /backend
 
 # could use . here as working directory is now /frontendApp
-COPY . /backendApp
+COPY package*.json .
+COPY /backend/package*.json /backend/
+
+COPY /backend /backend/ 
+
+RUN npm install
 
 EXPOSE 8080
 
-CMD [ "/usr/bin/env", "/usr/lib/jvm/java-17-openjdk-amd64/bin/java", "@/tmp/cp_dm90xkc31vi1whrs00k953khy.argfile", "com.SalaryApplication.SalaryApplication" ]
-
+CMD [ "npm", "run", "dev" ]

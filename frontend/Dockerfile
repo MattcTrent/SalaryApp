@@ -1,13 +1,13 @@
 FROM node:18.17-alpine3.18
 
-WORKDIR /frontendApp
+WORKDIR /frontend
 
-COPY package.json package-lock.json /frontendApp/
+COPY package*.json .
+COPY /frontend/package*.json /frontend/
+
+COPY /frontend /frontend
 
 RUN npm install
-
-# could use . here as working directory is now /frontendApp
-COPY . /frontendApp
 
 EXPOSE 5173
 
