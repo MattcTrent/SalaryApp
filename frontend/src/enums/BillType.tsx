@@ -4,6 +4,7 @@ export enum BillType {
   HOUSEHOLD = "Household",
   SUBSCRIPTION = "Subscription",
   DEBT_REPAYMENT = "DebtRepayment",
+  BUDGET = "Budget",
 }
 
 export const BillTypes: NameValueObj[] = Object.values(BillType).map(
