@@ -15,8 +15,8 @@ export default function EditDeductionPage() {
   return (
     <Suspense fallback={<p>Loading Deductions...</p>}>
       <Await resolve={data}>
-        {(deduction) => (
-          <DeductionForm loadedDeduction={deduction} method="put" />
+        {(data) => (
+          <DeductionForm loadedDeduction={data.deduction} method="put" />
         )}
       </Await>
     </Suspense>
@@ -38,8 +38,9 @@ export async function loader({ params }: ActionFunctionArgs) {
 export async function loaderDeduction(deductionId: number) {
   try {
     const response = await SalaryService.getDeduction(+deductionId);
+    console.log("response.data: ", response.data);
     if (response.data) {
-      return response.data;
+      return response.data.data;
     }
   } catch (error) {
     if (error instanceof Error) {
