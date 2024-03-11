@@ -58,7 +58,7 @@ const updateDeduction = async (
   next: NextFunction,
 ) => {
   // get the data from req.body
-  let body: Deduction = req.body.body ?? null;
+  let body: Deduction = req.body ?? null;
   // update the deduction
   let deduction: Deduction = await deductionService.updateDeduction(body);
 
