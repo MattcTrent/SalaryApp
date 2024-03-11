@@ -38,7 +38,6 @@ export async function loader({ params }: ActionFunctionArgs) {
 export async function loaderDeduction(deductionId: number) {
   try {
     const response = await SalaryService.getDeduction(+deductionId);
-    console.log("response.data: ", response.data);
     if (response.data) {
       return response.data.data;
     }
