@@ -157,7 +157,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.HOUSEHOLD,
       null,
       "Food",
-      140,
+      160,
     ),
     new Deduction(
       user,
@@ -165,7 +165,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.HOUSEHOLD,
       null,
       "Council Tax",
-      84.65,
+      88.61,
     ),
     new Deduction(
       user,
@@ -174,6 +174,22 @@ const getUserDeductions = (user: User): Deduction[] => {
       null,
       "Broadband",
       12.75,
+    ),
+    new Deduction(
+      user,
+      DeductionType.BILL,
+      BillType.HOUSEHOLD,
+      null,
+      "Energy",
+      75,
+    ),
+    new Deduction(
+      user,
+      DeductionType.BILL,
+      BillType.HOUSEHOLD,
+      null,
+      "TV Licence",
+      6.63,
     ),
     new Deduction(
       user,
@@ -205,7 +221,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.SUBSCRIPTION,
       null,
       "Audible",
-      7.99,
+      3.99,
     ),
     new Deduction(
       user,
@@ -213,7 +229,16 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.SUBSCRIPTION,
       null,
       "Phone Contract",
-      9.16,
+      3.18,
+    ),
+    new Deduction(user, DeductionType.BILL, BillType.BUDGET, null, "Fuel", 120),
+    new Deduction(
+      user,
+      DeductionType.BILL,
+      BillType.BUDGET,
+      null,
+      "Revolut",
+      500,
     ),
   );
 
