@@ -101,7 +101,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       null,
       SavingType.INVESTMENT,
       "NS&I",
-      50,
+      75,
     ),
     new Deduction(
       user,
@@ -118,6 +118,14 @@ const getUserDeductions = (user: User): Deduction[] => {
       SavingType.SAVING,
       "Car Ins",
       60,
+    ),
+    new Deduction(
+      user,
+      DeductionType.SAVING_AND_INVESTMENT,
+      null,
+      SavingType.SAVING,
+      "Savings Acc",
+      75,
     ),
     new Deduction(
       user,
