@@ -165,7 +165,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.HOUSEHOLD,
       null,
       "Food",
-      160,
+      175,
     ),
     new Deduction(
       user,
