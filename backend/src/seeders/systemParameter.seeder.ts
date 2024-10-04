@@ -93,7 +93,7 @@ const getParameters = (): SystemParameter[] => {
     new SystemParameter(
       SystemParameterGroup.NI,
       NIBracket.BASIC,
-      10,
+      8,
       12576,
       50268,
     ),
