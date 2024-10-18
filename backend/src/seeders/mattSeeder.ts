@@ -76,14 +76,6 @@ const getUserDeductions = (user: User): Deduction[] => {
       DeductionType.SALARY_SACRIFICE,
       null,
       null,
-      "Holidays Bought",
-      41.6,
-    ),
-    new Deduction(
-      user,
-      DeductionType.SALARY_SACRIFICE,
-      null,
-      null,
       "Gym Flex",
       44,
     ),
@@ -141,7 +133,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.DEBT_REPAYMENT,
       null,
       "Car Loan",
-      276.21,
+      300,
     ),
     new Deduction(
       user,
@@ -149,7 +141,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.HOUSEHOLD,
       null,
       "Rent",
-      225,
+      1000,
     ),
     new Deduction(
       user,
@@ -205,7 +197,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.SUBSCRIPTION,
       null,
       "Spotify",
-      7.99,
+      11.99,
     ),
     new Deduction(
       user,
@@ -213,7 +205,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.SUBSCRIPTION,
       null,
       "Netflix",
-      5.59,
+      11.99,
     ),
     new Deduction(
       user,
@@ -222,14 +214,6 @@ const getUserDeductions = (user: User): Deduction[] => {
       null,
       "Crunchyroll",
       5.99,
-    ),
-    new Deduction(
-      user,
-      DeductionType.BILL,
-      BillType.SUBSCRIPTION,
-      null,
-      "Audible",
-      3.99,
     ),
     new Deduction(
       user,
@@ -246,7 +230,7 @@ const getUserDeductions = (user: User): Deduction[] => {
       BillType.BUDGET,
       null,
       "Revolut",
-      500,
+      350,
     ),
   );
 
