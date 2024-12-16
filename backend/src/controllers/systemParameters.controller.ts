@@ -49,7 +49,7 @@ const updateSystemParameter = async (
   next: NextFunction,
 ) => {
   // get the data from req.body
-  let body: SystemParameter = req.body.body ?? null;
+  let body: SystemParameter = req.body ?? null;
   // update the system parameter
   let systemParameter: SystemParameter =
     await systemParameterService.updateSystemParameter(body);
@@ -87,7 +87,7 @@ const addSystemParameter = async (
   next: NextFunction,
 ) => {
   // get the data from req.body
-  let body: SystemParameter = req.body.body;
+  let body: SystemParameter = req.body;
   // add the system parameter
   let systemParameter: SystemParameter =
     await systemParameterService.createSystemParameter(body);

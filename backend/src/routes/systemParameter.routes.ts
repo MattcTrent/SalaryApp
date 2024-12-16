@@ -12,7 +12,6 @@ systemParameterRoutes.get(
 );
 systemParameterRoutes.put(
   "/systemParameters/:id",
-  [checkJwt, checkRole(["Admin"])],
   controller.updateSystemParameter,
 );
 systemParameterRoutes.delete(

@@ -5,20 +5,20 @@ import { httpResponse } from "@/types/httpResponse";
 export class SystemParameterService {
   static async getSystemParameters() {
     const axios = getConfiguredAxios();
-    return await axios.get<httpResponse<SystemParameter[]>>("systemparameters");
+    return await axios.get<httpResponse<SystemParameter[]>>("systemParameters");
   }
 
   static async getSystemParameter(systemParameterId: number) {
     const axios = getConfiguredAxios();
     return await axios.get<httpResponse<SystemParameter>>(
-      "/systemparameters/" + systemParameterId,
+      "/systemParameters/" + systemParameterId,
     );
   }
 
   static async createSystemParameter(systemParameter: SystemParameter) {
     const axios = getConfiguredAxios();
     return await axios.post<httpResponse<string>>(
-      "/systemparameters",
+      "/systemParameters",
       systemParameter,
     );
   }
@@ -29,7 +29,7 @@ export class SystemParameterService {
   ) {
     const axios = getConfiguredAxios();
     return await axios.put<httpResponse<string>>(
-      "/systemparameters/" + systemParameterId,
+      "/systemParameters/" + systemParameterId,
       systemParameter,
     );
   }
@@ -37,7 +37,7 @@ export class SystemParameterService {
   static async deleteSystemParameter(systemParameterId: number) {
     const axios = getConfiguredAxios();
     return await axios.delete<httpResponse<string>>(
-      "/systemparameters/" + systemParameterId,
+      "/systemParameters/" + systemParameterId,
     );
   }
 }
