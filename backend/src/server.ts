@@ -1,6 +1,6 @@
 /** source/server.ts */
 import http from "http";
-import express, { Express } from "express";
+import express, { Express, Request, Response, NextFunction } from "express";
 import morgan from "morgan";
 import systemParameterRoutes from "./routes/systemParameter.routes";
 import { DataSource } from "typeorm";
@@ -47,7 +47,7 @@ AppDataSource.initialize()
     router.use(express.json());
 
     /** RULES OF OUR API */
-    router.use((req, res, next) => {
+    router.all("*splat", (req: Request, res: Response, next?: NextFunction) => {
       // set the CORS headers
       res.header(
         "Access-Control-Allow-Headers",
@@ -63,10 +63,11 @@ AppDataSource.initialize()
           "Access-Control-Allow-Methods",
           "GET, PATCH, DELETE, POST, PUT",
         );
-        return res.status(200).json({});
+        res.status(200).json({});
+        return;
       }
 
-      next();
+      next?.();
     });
 
     /** Routes */
@@ -78,12 +79,15 @@ AppDataSource.initialize()
     router.use("/", salaryBreakdownRoutes);
 
     /** Error handling */
-    router.use((req, res, next) => {
-      const error = new Error("not found");
-      return res.status(404).json({
-        message: error.message,
-      });
-    });
+    router.use(
+      (err: Error, _req: Request, res: Response, _next: NextFunction) => {
+        if (err) {
+          res.status(404).json({
+            message: err.message,
+          });
+        }
+      },
+    );
 
     /** Server */
     const httpServer = http.createServer(router);

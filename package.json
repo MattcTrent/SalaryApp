@@ -8,7 +8,7 @@
   "description": "The Project requires: NodeJs Java JDK Gradle",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "frontend": "npm run dev -w frontend",
     "api": "npm run dev -w backend",
     "dev": "npm run dev --workspaces --if-present",
@@ -17,10 +17,10 @@
     "lint": "npm run lint --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
     "format:fix": "npm run format:fix --workspaces --if-present",
-    "data" : "docker build -t my-database . && docker run -p 3306:3306 --name my-database-container -d my-database"
+    "data": "docker build -t my-database . && docker run -p 3306:3306 --name my-database-container -d my-database"
   },
   "author": "Matthew Trent",
   "devDependencies": {
-    "husky": "^9.0.11"
+    "husky": "^9.1.7"
   }
 }
