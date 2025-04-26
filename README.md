@@ -2,17 +2,13 @@
 
 The Project requires:
 NodeJs
-Java JDK
-Gradle
 
 Currently all Dev is has been done againts
-NodeJs: v18.17.0
-Java: openjdk 17.0.8
-Gradle: v8.1.1
+NodeJs: v20.17.0
 
 Running on other versions may have unforseen issues.
 
-The Java backend project requires a MySQL db to connect to.
+The Node Express backend project requires a MySQL db to connect to.
 
 ## Getting Started - Frontend
 
@@ -43,7 +39,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Getting Started - Backend
 
 Navigate to:
-Backend/src/main/resources/application.properties
+Backend/src/server.ts
 
 Ensure the connection details here are set to connect to a configured MySQL DB name SalaryApp, Data seeding will create any required tables on this database.
 
