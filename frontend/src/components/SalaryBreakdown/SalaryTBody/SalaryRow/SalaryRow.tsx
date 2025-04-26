@@ -15,7 +15,7 @@ export const SalaryRow = (props: DataRowProps) => {
   const monthsinAYear = 12;
   const weeksInAYear = 52;
   const workingDaysInWeek = 5;
-  const hoursWorkInWeek = 37;
+  const hoursWorkInWeek = 37.5;
 
   const yearlyValue = props.rowValue * monthsinAYear;
   const weeklyValue = yearlyValue / weeksInAYear;

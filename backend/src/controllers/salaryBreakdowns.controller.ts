@@ -18,7 +18,7 @@ const getSalaryBreakdown = async (
       message: "Salary Breakdown not Retrieved",
     });
   } else {
-    return res.status(200).json({
+    return res.status(200).set("Cache-Control", "no-store").json({
       data: breakdown,
       message: "Salary Breakdown Retrieved",
     });

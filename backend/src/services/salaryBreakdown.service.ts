@@ -84,7 +84,8 @@ const calculateTakehome = async (breakdown: SalaryBreakdown): Promise<void> => {
   breakdown.bills = await getBillsDeductionValue(breakdown.user);
   breakdown.savingsAndInvestments =
     await getSavingsAndInvestmentsDeductionValue(breakdown.user);
-  breakdown.takehomeAfterBillsAndSavings = breakdown.takehome - breakdown.bills;
+  breakdown.takehomeAfterBillsAndSavings =
+    breakdown.takehome - (breakdown.bills - breakdown.savingsAndInvestments);
 };
 
 const getSalarySacrificeDeductionValue = async (
