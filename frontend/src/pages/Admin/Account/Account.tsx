@@ -1,4 +1,4 @@
-import { ActionFunction, defer, json } from "react-router-dom";
+import { ActionFunction } from "react-router-dom";
 import ManageAccountForm from "@/components/Account/ManageAccountForm";
 import { ManageAuthUser } from "@/types/UserModels";
 import { AccountService } from "@/api/services/AccountService";
@@ -32,12 +32,10 @@ export async function loadUser(username: string) {
 export async function loader() {
   const username = getAuthUser();
   if (!username) {
-    throw json({ message: "Could not retrieve username" }, { status: 500 });
+    throw { message: "Could not retrieve username", status: 500 };
   }
 
-  return defer({
-    user: loadUser(username),
-  });
+  return { user: loadUser(username) };
 }
 
 export const action: ActionFunction = async ({ request }) => {
@@ -63,10 +61,7 @@ export const action: ActionFunction = async ({ request }) => {
   const response = await AccountService.updateUser(authData);
 
   if (response.status !== 200) {
-    throw json(
-      { message: "could not authenticate user" },
-      { status: response.status },
-    );
+    throw { message: "could not authenticate user", status: response.status };
   }
 
   return toast.success("User Saved");

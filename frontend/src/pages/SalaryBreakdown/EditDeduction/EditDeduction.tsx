@@ -1,10 +1,4 @@
-import {
-  ActionFunctionArgs,
-  Await,
-  defer,
-  json,
-  useLoaderData,
-} from "react-router-dom";
+import { ActionFunctionArgs, Await, useLoaderData } from "react-router-dom";
 import { Suspense } from "react";
 import DeductionForm from "@/components/Deductions/DeductionForm/DeductionForm";
 import { SalaryService } from "@/api/services/SalaryService";
@@ -15,9 +9,7 @@ export default function EditDeductionPage() {
   return (
     <Suspense fallback={<p>Loading Deductions...</p>}>
       <Await resolve={data}>
-        {(data) => (
-          <DeductionForm loadedDeduction={data.deduction} method="put" />
-        )}
+        {(data) => <DeductionForm loadedDeduction={data} method="put" />}
       </Await>
     </Suspense>
   );
@@ -27,12 +19,10 @@ export async function loader({ params }: ActionFunctionArgs) {
   const deductionId = params.deductionId;
 
   if (!deductionId) {
-    throw json({ message: "No Id found" }, { status: 500 });
+    throw { message: "No Id found", status: 500 };
   }
 
-  return defer({
-    deduction: await loaderDeduction(+deductionId),
-  });
+  return await loaderDeduction(+deductionId);
 }
 
 export async function loaderDeduction(deductionId: number) {
@@ -43,7 +33,7 @@ export async function loaderDeduction(deductionId: number) {
     }
   } catch (error) {
     if (error instanceof Error) {
-      throw json({ message: error.message }, { status: 404 });
+      throw { message: error.message, status: 404 };
     }
   }
 }

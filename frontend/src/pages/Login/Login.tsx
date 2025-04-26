@@ -4,7 +4,6 @@ import RegisterForm from "@/components/Account/RegisterForm";
 import {
   useSearchParams,
   type ActionFunction,
-  json,
   redirect,
 } from "react-router-dom";
 import { AuthUser } from "@/types/UserModels";
@@ -28,7 +27,7 @@ export const action: ActionFunction = async ({ request }) => {
   const mode = searchParams.get("mode") || "login";
 
   if (mode !== "login" && mode !== "register") {
-    throw json({ message: "unsupported mode" }, { status: 422 });
+    throw { message: "unsupported mode", status: 422 };
   }
 
   const data = await request.formData();
@@ -55,10 +54,7 @@ export const action: ActionFunction = async ({ request }) => {
   try {
     const response = await AccountService.authorizeUser(authData, mode);
     if (response.status !== 200 && response.status !== 201) {
-      throw json(
-        { message: "could not authenticate user" },
-        { status: response.status },
-      );
+      throw { message: "could not authenticate user", status: response.status };
     }
 
     if (mode === "login") {

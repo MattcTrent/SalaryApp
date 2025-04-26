@@ -3,7 +3,7 @@ import { SalaryService } from "@/api/services/SalaryService";
 import { SalaryBreakdownTable } from "@/components/SalaryBreakdown/SalaryBreakdown";
 import Deductions from "@/components/Deductions/Deductions/Deductions";
 import styles from "./Salary.module.scss";
-import { Await, defer, json, useLoaderData } from "react-router-dom";
+import { Await, useLoaderData } from "react-router-dom";
 import { getAuthUser, getAuthUserId } from "@/utils/AuthUtils";
 import { Deduction, SalaryBreakdown } from "@/types/SalaryModels";
 
@@ -38,16 +38,13 @@ export async function loader() {
   const userId = getAuthUserId();
 
   if (!username) {
-    throw json({ message: "Could not retrieve username" }, { status: 500 });
+    throw { message: "Could not retrieve username", status: 500 };
   }
   if (!userId) {
-    throw json({ message: "Could not retrieve username" }, { status: 500 });
+    throw { message: "Could not retrieve username", status: 500 };
   }
 
-  return defer({
-    salary: loadSalary(username),
-    deductions: loadDeductions(userId),
-  });
+  return { salary: loadSalary(username), deductions: loadDeductions(userId) };
 }
 
 async function loadSalary(username: string) {
@@ -58,7 +55,7 @@ async function loadSalary(username: string) {
     }
   } catch (error) {
     if (error instanceof Error) {
-      throw json({ message: error.message }, { status: 404 });
+      throw { message: error.message, status: 404 };
     }
   }
 }
@@ -72,7 +69,7 @@ async function loadDeductions(userId: number) {
   } catch (error) {
     if (error instanceof Error) {
       if (error instanceof Error) {
-        throw json({ message: error.message }, { status: 404 });
+        throw { message: error.message, status: 404 };
       }
     }
   }

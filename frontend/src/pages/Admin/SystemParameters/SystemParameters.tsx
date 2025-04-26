@@ -1,6 +1,6 @@
 import { SystemParameterTable } from "@/components/SystemParameters/SystemParameterTable";
 import styles from "./SystemParameters.module.scss";
-import { Await, json, useLoaderData } from "react-router-dom";
+import { Await, useLoaderData } from "react-router-dom";
 import { SystemParameterService } from "@/api/services/SystemParameterService";
 import { Suspense } from "react";
 import { parameterActions } from "@/redux/slices/SystemParameterSlice";
@@ -33,7 +33,7 @@ export async function loader() {
     }
   } catch (error) {
     if (error instanceof Error) {
-      throw json({ message: error.message }, { status: 404 });
+      throw { message: error.message, status: 404 };
     }
   }
 }

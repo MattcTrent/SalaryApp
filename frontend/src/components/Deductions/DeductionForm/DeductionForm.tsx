@@ -1,7 +1,6 @@
 import {
   ActionFunction,
   Form,
-  json,
   redirect,
   useActionData,
   useNavigation,
@@ -175,11 +174,11 @@ export const action: ActionFunction = async ({ request }) => {
   const userId = getAuthUserId();
 
   if (!userId) {
-    throw json({ message: "Could not retrieve username" }, { status: 500 });
+    throw { message: "Could not retrieve username", status: 500 };
   }
 
   if (mode !== "create" && mode !== "edit") {
-    throw json({ message: "unsupported mode" }, { status: 422 });
+    throw { message: "unsupported mode", status: 422 };
   }
 
   const data = await request.formData();
@@ -213,10 +212,7 @@ export const action: ActionFunction = async ({ request }) => {
     }
 
     if (response.status !== 200 && response.status !== 201) {
-      throw json(
-        { message: `could not ${mode} deduction` },
-        { status: response.status },
-      );
+      throw { message: `could not ${mode} deduction`, status: response.status };
     }
 
     return redirect("/SalaryBreakdown");
@@ -271,26 +267,20 @@ function validateDeduction(deduction: Deduction): {
     validation.cost = "A cost is required";
   }
 
-  return {
-    validated,
-    validation,
-  };
+  return { validated, validation };
 }
 
 export const deleteAction: ActionFunction = async ({ params }) => {
   const deductionId = params.deductionId;
   if (!deductionId || +deductionId <= 0) {
-    throw json({ message: "No Id" }, { status: 500 });
+    throw { message: "No Id", status: 500 };
   }
 
   try {
     const response = await SalaryService.deleteDeduction(+deductionId);
 
     if (response.status !== 200 && response.status !== 201) {
-      throw json(
-        { message: `could not delete deduction` },
-        { status: response.status },
-      );
+      throw { message: `could not delete deduction`, status: response.status };
     }
 
     return redirect("/SalaryBreakdown");
