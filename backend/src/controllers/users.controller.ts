@@ -1,7 +1,16 @@
-import e, { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import userService from "../services/user.service";
 import { DeleteResult } from "typeorm";
 import { User } from "../entity/User.class";
+
+function getParamAsInt(value: string | string[] | undefined): number {
+  const normalized = Array.isArray(value) ? value[0] : value;
+  return Number.parseInt(normalized ?? "", 10);
+}
+
+function getParamAsString(value: string | string[] | undefined): string {
+  return Array.isArray(value) ? (value[0] ?? "") : (value ?? "");
+}
 
 // getting all users
 const getUsers = async (req: Request, res: Response) => {
@@ -16,8 +25,7 @@ const getUsers = async (req: Request, res: Response) => {
 // getting a single user
 const getUser = async (req: Request, res: Response) => {
   // get the user id from the req
-  let idString: string = req.params.id;
-  let id = parseInt(idString);
+  const id = getParamAsInt(req.params.id);
   // get the user
   let user: User | null = await userService.getUser(id);
   if (user === null) {
@@ -35,7 +43,7 @@ const getUser = async (req: Request, res: Response) => {
 // getting a single user
 const getUserByUsername = async (req: Request, res: Response) => {
   // get the user id from the req
-  let username: string = req.params.username;
+  const username = getParamAsString(req.params.username);
   // get the user
   let user: User | null = await userService.getUserByUsername(username);
   if (user === null) {
@@ -67,7 +75,7 @@ const updateUser = async (req: Request, res: Response) => {
 // deleting a user
 const deleteUser = async (req: Request, res: Response) => {
   // get the user id from req.params
-  let id = parseInt(req.params.id);
+  const id = getParamAsInt(req.params.id);
   // delete the user
   let success: DeleteResult = await userService.deleteUser(id);
 
