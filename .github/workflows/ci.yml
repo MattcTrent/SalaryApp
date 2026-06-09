@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  quality:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,11 +23,62 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run lint
+      - name: Lint workspace
         run: npm run lint
 
-      - name: Run build
+      - name: Lint summary
+        if: success()
+        run: echo "Lint passed for workspace." >> $GITHUB_STEP_SUMMARY
+
+  build:
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build workspace
         run: npm run build
 
-      - name: Run tests
+      - name: Build summary
+        if: success()
+        run: echo "Build passed for workspace." >> $GITHUB_STEP_SUMMARY
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test workspace
         run: npm test
+
+      - name: Test summary
+        if: success()
+        run: |
+          echo "Tests completed for workspace." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- lint: passed" >> $GITHUB_STEP_SUMMARY
+          echo "- build: passed" >> $GITHUB_STEP_SUMMARY
+          echo "- test: completed" >> $GITHUB_STEP_SUMMARY
