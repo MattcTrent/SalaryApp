@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "nodemon src/server.ts --inspect",
-    "build": "rm -rf build/ && prettier --write source/ && tsc",
+    "build": "tsc",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --check --ignore-path ../.gitignore .",
     "format:fix": "prettier --write --ignore-path ../.gitignore ."

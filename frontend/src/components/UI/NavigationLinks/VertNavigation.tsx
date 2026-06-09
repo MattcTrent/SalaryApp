@@ -3,7 +3,7 @@ import React from "react";
 import Navigation from "./Navigation";
 
 interface VertNavigationProps {
-  children: React.ReactNode;
+  children: Exclude<React.ReactNode, bigint>;
   path: string;
   onClick?: () => void;
   className?: string;

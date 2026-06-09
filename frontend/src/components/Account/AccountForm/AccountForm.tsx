@@ -2,7 +2,7 @@ import styles from "./AccountForm.module.scss";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerActions } from "@/redux/slices/RegisterSlice";
-import { UserDetails } from "@/types/UserModels";
+import { User } from "@/types/UserModels";
 import CheckboxInput from "@/components/UI/Input/CheckboxInput/CheckboxInput";
 import CurrencyInput from "@/components/UI/Input/CurrencyInput/CurrencyInput";
 import PasswordInput from "@/components/UI/Input/PasswordInput/PasswordInput";
@@ -15,7 +15,7 @@ import { RootState } from "@/redux/reducers/RootReducer";
 import { StudentFinancePlans } from "@/enums/StudentFinancePlan";
 
 interface IAccountFormProps {
-  user: UserDetails | null;
+  user: User | null;
   method: "post" | "put";
   isSubmitting: boolean;
 }
