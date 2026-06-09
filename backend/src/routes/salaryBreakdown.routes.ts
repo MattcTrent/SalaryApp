@@ -4,7 +4,7 @@ import controller from "../controllers/salaryBreakdowns.controller";
 const salaryBreakdownRoutes = express.Router();
 
 salaryBreakdownRoutes.get(
-  "/salaryBreakdowns/:id",
+  "/salaryBreakdowns/:username",
   controller.getSalaryBreakdown,
 );
 
