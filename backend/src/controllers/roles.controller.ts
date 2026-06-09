@@ -1,7 +1,12 @@
-import e, { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import roleService from "../services/role.service";
 import { DeleteResult } from "typeorm";
 import { Role } from "../entity/Role.class";
+
+function getParamAsInt(value: string | string[] | undefined): number {
+  const normalized = Array.isArray(value) ? value[0] : value;
+  return Number.parseInt(normalized ?? "", 10);
+}
 
 // getting all roles
 const getRoles = async (req: Request, res: Response) => {
@@ -16,8 +21,7 @@ const getRoles = async (req: Request, res: Response) => {
 // getting a single role
 const getRole = async (req: Request, res: Response) => {
   // get the role id from the req
-  let idString: string = req.params.id;
-  let id = parseInt(idString);
+  const id = getParamAsInt(req.params.id);
   // get the role
   let role: Role | null = await roleService.getRole(id);
   if (role === null) {
@@ -49,7 +53,7 @@ const updateRole = async (req: Request, res: Response) => {
 // deleting a role
 const deleteRole = async (req: Request, res: Response) => {
   // get the role id from req.params
-  let id = parseInt(req.params.id);
+  const id = getParamAsInt(req.params.id);
   // delete the role
   let success: DeleteResult = await roleService.deleteRole(id);
 

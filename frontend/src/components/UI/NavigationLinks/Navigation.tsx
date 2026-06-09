@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, type NavLinkProps } from "react-router-dom";
 import styles from "./Navigation.module.scss";
 import buttonStyles from "../Button/Button.module.scss";
 import React from "react";
 
 interface INavLinkProps {
-  children: React.ReactNode;
+  children: Exclude<React.ReactNode, bigint>;
   path: string;
   onClick?: () => void;
   className?: string;
@@ -55,9 +55,8 @@ function Navigation(props: INavLinkProps) {
               end={props.end}
               to={props.path}
               onClick={handleClick}
-            >
-              {props.children}
-            </NavLink>
+              children={props.children as NavLinkProps["children"]}
+            />
           )}
         </>
       ) : (
@@ -72,9 +71,8 @@ function Navigation(props: INavLinkProps) {
               end={props.end}
               to={props.path}
               onClick={handleClick}
-            >
-              {props.children}
-            </NavLink>
+              children={props.children as NavLinkProps["children"]}
+            />
           )}
         </li>
       )}

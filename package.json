@@ -17,7 +17,10 @@
     "lint": "npm run lint --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
     "format:fix": "npm run format:fix --workspaces --if-present",
-    "data": "docker build -t my-database . && docker run -p 3306:3306 --name my-database-container -d my-database"
+    "data": "docker build -t my-database . && docker run -p 3306:3306 --name my-database-container -d my-database",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down",
+    "docker:down:volumes": "docker compose down -v"
   },
   "author": "Matthew Trent",
   "devDependencies": {

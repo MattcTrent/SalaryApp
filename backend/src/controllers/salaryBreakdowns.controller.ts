@@ -1,11 +1,15 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import salaryBreakdownService from "../services/salaryBreakdown.service";
 import { SalaryBreakdown } from "../entity/SalaryBreakdown.class";
+
+function getParamAsString(value: string | string[] | undefined): string {
+  return Array.isArray(value) ? (value[0] ?? "") : (value ?? "");
+}
 
 // getting a single users salary breakdown
 const getSalaryBreakdown = async (req: Request, res: Response) => {
   // get the user id from the req
-  let username: string = req.params.username;
+  const username = getParamAsString(req.params.username);
   // get the brekadown
   let breakdown: SalaryBreakdown =
     await salaryBreakdownService.getSalaryBreakdownByUsername(username);

@@ -1,20 +1,12 @@
-FROM node:18.17-alpine3.18
+FROM node:20-alpine
 
-WORKDIR /frontend
+WORKDIR /app
 
-COPY package*.json .
-COPY /frontend/package*.json /frontend/
-
-COPY /frontend /frontend
-
+COPY package*.json ./
 RUN npm install
+
+COPY . .
 
 EXPOSE 5173
 
-CMD [ "npm", "run", "dev" ]
-
-# -t is name:tag combo to assign
-# docker build -t salaryWebApp:Latest .
-
-# -p publish and expose port, -d :start detached, --rm: remove after stop, --name: assigns name
-# docker run -p 5173:5173 -d -rm --name salaryWebApp
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]

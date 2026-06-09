@@ -48,8 +48,33 @@ Now you can run the project and it will Connect to the database and do any data 
 Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
 
 
-## DB Commands
+## Run With Docker Compose (One Command)
 
-docker build -t my-database .
+You can now run the full app stack (MySQL + backend + frontend) with a single command from the repo root:
 
-docker run -p 3306:3306 --name my-database-container -d my-database
+```bash
+docker compose up --build
+```
+
+Or via npm script:
+
+```bash
+npm run docker:up
+```
+
+Services:
+- Frontend: [http://localhost:5173](http://localhost:5173)
+- Backend API: [http://localhost:8080](http://localhost:8080)
+- MySQL: `localhost:3306`
+
+To stop:
+
+```bash
+docker compose down
+```
+
+To stop and remove DB volume data:
+
+```bash
+docker compose down -v
+```

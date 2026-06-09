@@ -20,11 +20,11 @@ const router: Express = express();
 
 export const AppDataSource = new DataSource({
   type: "mysql",
-  host: "localhost",
-  port: 3306,
-  username: "user",
-  password: "password",
-  database: "salaryapp",
+  host: process.env.DB_HOST ?? "localhost",
+  port: Number(process.env.DB_PORT ?? "3306"),
+  username: process.env.DB_USER ?? "user",
+  password: process.env.DB_PASSWORD ?? "password",
+  database: process.env.DB_NAME ?? "salaryapp",
   entities: [SystemParameter, User, Role, Deduction],
   synchronize: true,
   logging: false,
@@ -55,7 +55,10 @@ AppDataSource.initialize()
       );
 
       // set the CORS policy
-      res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+      res.header(
+        "Access-Control-Allow-Origin",
+        process.env.FRONTEND_ORIGIN ?? "http://localhost:5173",
+      );
       res.header("Access-Control-Allow-Credentials", "true");
       // set the CORS method headers
       if (req.method === "OPTIONS") {
