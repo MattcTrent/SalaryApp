@@ -1,7 +1,12 @@
-import e, { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import systemParameterService from "../services/systemParameter.service";
 import { DeleteResult } from "typeorm";
 import { SystemParameter } from "../entity/SystemParameter.class";
+
+function getParamAsInt(value: string | string[] | undefined): number {
+  const normalized = Array.isArray(value) ? value[0] : value;
+  return Number.parseInt(normalized ?? "", 10);
+}
 
 // getting all systemParameters
 const getSystemParameters = async (req: Request, res: Response) => {
@@ -17,8 +22,7 @@ const getSystemParameters = async (req: Request, res: Response) => {
 // getting a single system parameter
 const getSystemParameter = async (req: Request, res: Response) => {
   // get the system parameter id from the req
-  let idString: string = req.params.id;
-  let id = parseInt(idString);
+  const id = getParamAsInt(req.params.id);
   // get the system parameter
   let systemParameter: SystemParameter | null =
     await systemParameterService.getSystemParameter(id);
@@ -52,7 +56,7 @@ const updateSystemParameter = async (req: Request, res: Response) => {
 // deleting a system parameter
 const deleteSystemParameter = async (req: Request, res: Response) => {
   // get the system parameter id from req.params
-  let id = parseInt(req.params.id);
+  const id = getParamAsInt(req.params.id);
   // delete the system parameter
   let success: DeleteResult =
     await systemParameterService.deleteSystemParameter(id);
