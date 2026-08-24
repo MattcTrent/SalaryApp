@@ -31,8 +31,14 @@ services:
       DB_NAME: salaryapp
       FRONTEND_ORIGIN: http://localhost:5173
       PORT: 8080
+      CHOKIDAR_USEPOLLING: "true"
     ports:
       - "8080:8080"
+    volumes:
+      - ./backend:/app
+      - backend_node_modules:/app/node_modules
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --legacy-watch"
     depends_on:
       db:
         condition: service_healthy
@@ -45,10 +51,18 @@ services:
     environment:
       VITE_REST_API_URL: http://localhost:8080
       VITE_TOKEN_EXPIRATION_MINUTES: 60
+      CHOKIDAR_USEPOLLING: "true"
     ports:
       - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port 5173"
     depends_on:
       - backend
 
 volumes:
   db_data:
+  backend_node_modules:
+  frontend_node_modules:

@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 
 interface SectionHeadingProps {
   children: React.ReactNode;
-  generateButtons?: () => JSX.Element[];
+  generateButtons?: () => React.ReactElement[];
 }
 
 export default function SectionHeading(props: SectionHeadingProps) {

@@ -2,6 +2,7 @@ import { BillType } from "@/enums/BillType";
 import { DeductionType } from "@/enums/DeductionType";
 import { SavingType } from "@/enums/SavingsType";
 import { Deduction } from "@/types/SalaryModels";
+import type { ReactElement } from "react";
 import Navigation from "@/components/UI/NavigationLinks/Navigation";
 import SectionHeading from "@/components/UI/SectionHeading/SectionHeading";
 import DeductionTable from "./DeductionTable/DeductionTable";
@@ -102,7 +103,7 @@ const Deductions = (props: DeductionsProps) => {
 export default Deductions;
 
 const generateNewDeductionsNavButtons = () => {
-  const codeBlocks: JSX.Element[] = [];
+  const codeBlocks: ReactElement[] = [];
 
   for (const deductionType in DeductionType) {
     if (Object.prototype.hasOwnProperty.call(DeductionType, deductionType)) {
@@ -134,7 +135,7 @@ const generateNewDeductionsNavButtons = () => {
 };
 
 const generateNewBillsNavButtons = () => {
-  const codeBlocks: JSX.Element[] = [];
+  const codeBlocks: ReactElement[] = [];
 
   for (const billType in BillType) {
     if (Object.prototype.hasOwnProperty.call(BillType, billType)) {
@@ -158,7 +159,7 @@ const generateNewBillsNavButtons = () => {
 };
 
 const generateNewSavingsNavButtons = () => {
-  const codeBlocks: JSX.Element[] = [];
+  const codeBlocks: ReactElement[] = [];
 
   for (const savingType in SavingType) {
     if (Object.prototype.hasOwnProperty.call(SavingType, savingType)) {

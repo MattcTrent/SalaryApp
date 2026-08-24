@@ -59,6 +59,9 @@ export const seedSystemParameters = async () => {
 };
 
 const getParameters = (): SystemParameter[] => {
+  // England, Wales and Northern Ireland — tax year 6 April 2026 to 5 April 2027
+  // Sources: https://www.gov.uk/income-tax-rates
+  // https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027
   const systemParams: SystemParameter[] = [];
 
   systemParams.push(
@@ -94,28 +97,49 @@ const getParameters = (): SystemParameter[] => {
       SystemParameterGroup.NI,
       NIBracket.BASIC,
       8,
-      12576,
-      50268,
+      12570,
+      50270,
     ),
     new SystemParameter(
       SystemParameterGroup.NI,
       NIBracket.ADDITIONAL,
       2,
-      50268,
+      50270,
       null,
     ),
     new SystemParameter(
       SystemParameterGroup.STUDENT_FINANCE,
       StudentFinancePlan.PLAN_1,
       9,
-      22015,
+      26900,
       null,
     ),
     new SystemParameter(
       SystemParameterGroup.STUDENT_FINANCE,
       StudentFinancePlan.PLAN_2,
       9,
-      27295,
+      29385,
+      null,
+    ),
+    new SystemParameter(
+      SystemParameterGroup.STUDENT_FINANCE,
+      StudentFinancePlan.PLAN_4,
+      9,
+      33795,
+      null,
+    ),
+    new SystemParameter(
+      SystemParameterGroup.STUDENT_FINANCE,
+      StudentFinancePlan.PLAN_5,
+      9,
+      25000,
+      null,
+    ),
+    new SystemParameter(
+      SystemParameterGroup.STUDENT_FINANCE,
+      StudentFinancePlan.POSTGRADUATE,
+      6,
+      21000,
       null,
     ),
   );
